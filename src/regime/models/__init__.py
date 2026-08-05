@@ -1,3 +1,21 @@
-"""models package for regime switching workflows."""
+"""Model interfaces for regime switching workflows."""
 
-__all__: list[str] = []
+from regime.models.base import (
+    ModelMetadata,
+    ModelMetadataInterface,
+    RegimeInferenceResult,
+    RegimeModel,
+    RegimeModelConfig,
+    SerializationInterface,
+    UnsupportedModelOperation,
+)
+
+__all__ = [
+    "ModelMetadata",
+    "ModelMetadataInterface",
+    "RegimeInferenceResult",
+    "RegimeModel",
+    "RegimeModelConfig",
+    "SerializationInterface",
+    "UnsupportedModelOperation",
+]
