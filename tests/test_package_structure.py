@@ -13,6 +13,7 @@ MODULES = [
     "regime.datasets",
     "regime.models",
     "regime.models.clustering",
+    "regime.models.jump",
     "regime.validation",
     "regime.evaluation",
     "regime.backtesting",
