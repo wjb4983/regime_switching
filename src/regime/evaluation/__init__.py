@@ -24,6 +24,13 @@ from regime.evaluation.comparison import (
     stationary_bootstrap_indices,
     superior_predictive_ability_test,
 )
+from regime.evaluation.economic import (
+    DEFAULT_SLICES,
+    EconomicMetrics,
+    conditional_economic_metrics,
+    economic_metrics,
+    regime_baselines,
+)
 from regime.evaluation.regime_quality import (
     adjusted_rand_index,
     boundary_precision_recall,
@@ -70,12 +77,14 @@ from regime.evaluation.statistical import (
 )
 
 __all__ = [
+    "DEFAULT_SLICES",
     "AlignmentDiagnostics",
     "AlignmentMethod",
     "AlignmentResult",
     "ComparisonContractError",
     "ComparisonTestResult",
     "DatasetConfig",
+    "EconomicMetrics",
     "EvaluationConfig",
     "EvaluationRunResult",
     "EvaluationRunner",
@@ -94,12 +103,14 @@ __all__ = [
     "boundary_precision_recall",
     "brier_score",
     "calibration_error",
+    "conditional_economic_metrics",
     "coverage",
     "crps",
     "deflated_sharpe_ratio",
     "detection_delay",
     "diebold_mariano_test",
     "duration_distribution",
+    "economic_metrics",
     "expected_calibration_error",
     "false_alarm_rate",
     "false_discovery_control",
@@ -115,6 +126,7 @@ __all__ = [
     "random_initialization_stability",
     "rare_state_sample_size",
     "reality_check",
+    "regime_baselines",
     "regime_persistence",
     "rmse",
     "rolling_refit_stability",
