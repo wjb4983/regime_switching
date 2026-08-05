@@ -1,17 +1,217 @@
+# Project configuration for the typed `regime-switching` package.
+# Target workflow: `uv sync --all-extras --dev` for local development.
+
 [build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
+# Hatchling is a small PEP 517 backend that works well with uv and src-layout packages.
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
 
 [project]
 name = "regime-switching"
 version = "0.1.0"
-description = "Regime switching research package."
+description = "Typed research toolkit for regime-switching models, data pipelines, and evaluation workflows."
 readme = "README.txt"
-requires-python = ">=3.10"
+requires-python = ">=3.11,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "Regime Switching Contributors" }]
+keywords = [
+    "regime-switching",
+    "time-series",
+    "market-regimes",
+    "statistics",
+    "machine-learning",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Typing :: Typed",
+]
+# Dependency choices:
+# - numpy/scipy/pandas/statsmodels/scikit-learn cover the numerical and statistical baseline.
+# - polars/pyarrow/duckdb support columnar and local analytical workflows alongside pandas.
+# - pydantic/pydantic-settings provide typed configuration and environment handling.
+# - typer/rich are paired for CLIs; loguru is selected for ergonomic structured-ish logging.
+#   A future alternative is a small wrapper around stdlib `logging` + JSON formatters if a
+#   no-extra-runtime logging stack is preferred.
+# - plotly/matplotlib cover interactive and static visualization outputs.
+# - joblib supports lightweight caching and parallel model evaluation.
+dependencies = [
+    "duckdb>=1.0",
+    "jinja2>=3.1",
+    "joblib>=1.4",
+    "loguru>=0.7",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "plotly>=5.22",
+    "polars>=1.0",
+    "pyarrow>=16.0",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "PyYAML>=6.0",
+    "rich>=13.7",
+    "scikit-learn>=1.5",
+    "scipy>=1.13",
+    "statsmodels>=0.14",
+    "typer>=0.12",
+]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[project.urls]
+Homepage = "https://github.com/regime-switching/regime-switching"
+Repository = "https://github.com/regime-switching/regime-switching"
+Issues = "https://github.com/regime-switching/regime-switching/issues"
+
+[project.optional-dependencies]
+# Development tools: pytest-timeout is included so every test command can enforce time limits.
+dev = [
+    "hypothesis>=6.100",
+    "mypy>=1.10",
+    "pre-commit>=3.7",
+    "pytest>=8.2",
+    "pytest-cov>=5.0",
+    "pytest-timeout>=2.3",
+    "ruff>=0.5",
+]
+# Documentation stack: mkdocstrings[python] extracts API docs from typed Python objects.
+docs = [
+    "mkdocs>=1.6",
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.25",
+]
+# Optional integrations are kept out of the core install because they are heavier or domain-specific.
+optimization = ["optuna>=3.6"]
+tracking = ["mlflow>=2.14"]
+# py_vollib_vectorized can be platform-sensitive; keep it optional and hide imports behind adapters.
+options = ["py_vollib_vectorized>=0.1"]
+changepoint = ["ruptures>=1.1"]
+# hdbscan may require native build tooling on some platforms, so clustering remains opt-in.
+clustering = ["hdbscan>=0.8"]
+# Deep-learning stacks are optional to avoid large default downloads and GPU/CPU wheel constraints.
+deep = [
+    "lightning>=2.3",
+    "torch>=2.3",
+]
+transformers = [
+    "accelerate>=0.31",
+    "transformers>=4.42",
+]
+# Ray is selected over Dask initially; Dask remains an easy future alternative if dataframe-first
+# distributed execution becomes the priority.
+distributed = ["ray>=2.30"]
+all = [
+    "regime-switching[changepoint,clustering,deep,distributed,docs,optimization,options,tracking,transformers]",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/regime"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/README.txt",
+    "/pyproject.toml",
+    "/src",
+    "/tests",
+]
+
+[tool.uv]
+package = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "A",
+    "B",
+    "C4",
+    "E",
+    "F",
+    "I",
+    "N",
+    "PT",
+    "RUF",
+    "UP",
+    "W",
+]
+ignore = [
+    # Allow TODO-style comments during early research scaffolding.
+    "TD",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    # Tests often benefit from explicit asserts and descriptive fixtures.
+    "S101",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_configs = true
+warn_unreachable = true
+show_error_codes = true
+pretty = true
+mypy_path = "src"
+packages = ["regime"]
+
+[[tool.mypy.overrides]]
+module = [
+    "duckdb.*",
+    "hdbscan.*",
+    "joblib.*",
+    "lightning.*",
+    "matplotlib.*",
+    "mlflow.*",
+    "optuna.*",
+    "plotly.*",
+    "polars.*",
+    "py_vollib_vectorized.*",
+    "ray.*",
+    "ruptures.*",
+    "scipy.*",
+    "sklearn.*",
+    "statsmodels.*",
+]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
+minversion = "8.0"
 testpaths = ["tests"]
 pythonpath = ["src"]
+addopts = [
+    "--strict-config",
+    "--strict-markers",
+    "--timeout=30",
+    "--timeout-method=thread",
+]
+xfail_strict = true
+filterwarnings = [
+    "error",
+]
+markers = [
+    "slow: marks tests as slow; each test still inherits the global timeout unless overridden",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["regime"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 0
+
+[tool.pytest-timeout]
+timeout = 30
+timeout_method = "thread"
