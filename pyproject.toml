@@ -102,6 +102,8 @@ deep = [
     "lightning>=2.3",
     "torch>=2.3",
 ]
+# GPU arrays are opt-in; the default state-space reference implementation is CPU-only.
+gpu = ["cupy-cuda12x>=13.0"]
 transformers = [
     "accelerate>=0.31",
     "transformers>=4.42",
@@ -110,7 +112,7 @@ transformers = [
 # distributed execution becomes the priority.
 distributed = ["ray>=2.30"]
 all = [
-    "regime-switching[app,changepoint,clustering,deep,distributed,docs,optimization,options,tracking,transformers]",
+    "regime-switching[app,changepoint,clustering,deep,distributed,docs,gpu,optimization,options,tracking,transformers]",
 ]
 
 [tool.hatch.build.targets.wheel]
