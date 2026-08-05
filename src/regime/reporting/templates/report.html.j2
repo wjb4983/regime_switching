@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root { color-scheme: light; --ink: #172033; --muted: #667085; --line: #e4e7ec; --paper: #fff; --wash: #f6f8fb; }
+    * { box-sizing: border-box; } body { margin: 0; background: var(--wash); color: var(--ink); font: 15px/1.55 system-ui, sans-serif; }
+    header, main, footer { width: min(1200px, calc(100% - 32px)); margin: auto; }
+    header { padding: 42px 0 24px; } h1 { margin: 0; font-size: 2rem; } header p, footer { color: var(--muted); }
+    article { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; margin: 0 0 24px; padding: 24px; box-shadow: 0 2px 8px #1018280a; }
+    h2 { margin: 0 0 14px; } .chart { min-height: 340px; } .matplotlib { display: block; max-width: 100%; margin: auto; }
+    .context { border-top: 1px solid var(--line); margin-top: 18px; padding-top: 16px; display: grid; grid-template-columns: 2fr 2fr repeat(4, 1fr); gap: 14px; }
+    dt { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; } dd { margin: 3px 0 0; }
+    footer { padding: 12px 0 36px; } @media (max-width: 800px) { .context { grid-template-columns: 1fr 1fr; } }
+    @media print { body { background: white; } article { break-inside: avoid; box-shadow: none; } }
+  </style>
+</head>
+<body>
+<header><h1>{{ title }}</h1>{% if subtitle %}<p>{{ subtitle }}</p>{% endif %}</header>
+<main>
+{% for figure in figures %}
+  <article>
+    <h2>{{ figure.title }}</h2>
+    <div class="chart">{{ figure.html | safe }}</div>
+    <dl class="context">
+      <div><dt>Research question</dt><dd>{{ figure.metadata.research_question }}</dd></div>
+      <div><dt>Interpretation</dt><dd>{{ figure.metadata.interpretation }}</dd></div>
+      <div><dt>Data period</dt><dd>{{ figure.metadata.data_period }}</dd></div>
+      <div><dt>Model version</dt><dd>{{ figure.metadata.model_version }}</dd></div>
+      <div><dt>Config hash</dt><dd><code>{{ figure.metadata.config_hash }}</code></dd></div>
+      <div><dt>Probabilities</dt><dd>{{ figure.metadata.probability_kind }}</dd></div>
+    </dl>
+  </article>
+{% else %}<article><p>No visualizations were supplied.</p></article>{% endfor %}
+</main>
+<footer>Generated {{ generated_at }}</footer>
+</body>
+</html>

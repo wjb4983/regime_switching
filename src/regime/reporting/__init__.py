@@ -1,3 +1,36 @@
-"""reporting package for regime switching workflows."""
+"""Self-contained HTML reporting for regime-switching research.
 
-__all__: list[str] = []
+The public API deliberately accepts ordinary pandas objects and Plotly/Matplotlib
+figures so reporting remains independent of model implementations.
+"""
+
+from .figures import (
+    REPORT_VISUALIZATIONS,
+    bar_chart,
+    distribution_by_state,
+    heatmap,
+    line_chart,
+    matplotlib_figure,
+    probability_area_chart,
+    regime_time_series,
+    scatter_chart,
+    table,
+)
+from .report import ReportBuilder, ReportFigure, VisualizationMetadata, render_report
+
+__all__ = [
+    "REPORT_VISUALIZATIONS",
+    "ReportBuilder",
+    "ReportFigure",
+    "VisualizationMetadata",
+    "bar_chart",
+    "distribution_by_state",
+    "heatmap",
+    "line_chart",
+    "matplotlib_figure",
+    "probability_area_chart",
+    "regime_time_series",
+    "render_report",
+    "scatter_chart",
+    "table",
+]
