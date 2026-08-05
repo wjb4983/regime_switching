@@ -75,6 +75,7 @@ dev = [
     "pytest-cov>=5.0",
     "pytest-timeout>=2.3",
     "ruff>=0.5",
+    "types-PyYAML>=6.0",
 ]
 # Documentation stack: mkdocstrings[python] extracts API docs from typed Python objects.
 docs = [
