@@ -194,13 +194,21 @@ addopts = [
     "--strict-markers",
     "--timeout=30",
     "--timeout-method=thread",
+    "-m",
+    "not slow and not benchmark and not gpu and not vendor",
 ]
 xfail_strict = true
 filterwarnings = [
     "error",
 ]
 markers = [
-    "slow: marks tests as slow; each test still inherits the global timeout unless overridden",
+    "unit: fast, isolated tests for individual units of behavior",
+    "integration: tests that exercise interactions between components",
+    "synthetic: tests that use generated or synthetic data only",
+    "slow: tests that are too slow for normal PR CI",
+    "benchmark: performance or benchmarking tests excluded from normal PR CI",
+    "gpu: tests that require GPU hardware and are excluded from normal PR CI",
+    "vendor: tests that call live third-party vendor services and are excluded from normal PR CI",
 ]
 
 [tool.coverage.run]
