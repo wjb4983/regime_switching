@@ -1,0 +1,10 @@
+# 4. Fit the deterministic baseline before statistical models.
+model: volatility_threshold
+input: artifacts/features/core_market.parquet
+output: artifacts/models/rule_volatility_threshold
+feature: realized_volatility_21d
+threshold: 0.20
+direction: above
+labels:
+  risk_on: 0
+  risk_off: 1

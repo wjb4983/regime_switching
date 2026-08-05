@@ -1,0 +1,16 @@
+# 14. Assemble the report only after all upstream artifacts exist.
+title: Synthetic regime-switching research report
+output: artifacts/reports/research_report.html
+format: html
+sections:
+  - data_summary
+  - regime_quality
+  - downstream_evaluation
+  - equity_backtest
+  - options_backtest
+inputs:
+  regime_quality: artifacts/evaluation/statistical_regime_quality
+  downstream: artifacts/evaluation/downstream_vol_targeting
+  equity_backtest: artifacts/backtesting/equity_vol_targeting
+  options_backtest: artifacts/backtesting/options_delta_hedged
+embed_assets: true

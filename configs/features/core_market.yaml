@@ -1,0 +1,15 @@
+# 3. Build causal features used by every model example.
+input: artifacts/data/market_daily.parquet
+output: artifacts/features/core_market.parquet
+timestamp_column: timestamp
+features:
+  - name: return_1d
+    transform: return
+    source: close
+    periods: 1
+  - name: realized_volatility_21d
+    transform: rolling_std
+    source: return_1d
+    window: 21
+    annualization: 252
+drop_warmup: true

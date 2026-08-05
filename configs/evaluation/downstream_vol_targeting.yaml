@@ -1,0 +1,12 @@
+# 10. Measure whether filtered regimes improve a fixed decision rule.
+predictions: artifacts/evaluation/statistical_regime_quality/predictions.parquet
+returns: artifacts/features/core_market.parquet
+output: artifacts/evaluation/downstream_vol_targeting
+strategy: volatility_targeting
+annualized_target: 0.10
+lookback: 21
+execution_delay: 1
+regime_multipliers:
+  0: 1.0
+  1: 0.5
+metrics: [annualized_return, annualized_volatility, sharpe_ratio, max_drawdown]

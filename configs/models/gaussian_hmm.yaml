@@ -1,0 +1,10 @@
+# 6. Fit the Gaussian-emission HMM.
+model: gaussian_hmm
+input: artifacts/features/core_market.parquet
+output: artifacts/models/gaussian_hmm
+features: [return_1d, realized_volatility_21d]
+n_states: 2
+max_iter: 50
+n_init: 3
+covariance_regularization: 0.000001
+random_seed: 42

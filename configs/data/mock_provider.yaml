@@ -1,0 +1,12 @@
+# 2. Ingest the synthetic output through the local mock provider.
+provider: mock
+source: artifacts/data/synthetic_gaussian_hmm.parquet
+output: artifacts/data/market_daily.parquet
+options_output: artifacts/data/mock_options.parquet
+timestamp_column: timestamp
+symbol: MOCK
+fields: [close, return, true_regime]
+options:
+  enabled: true
+  tenors_days: [30]
+  moneyness: [0.9, 1.0, 1.1]

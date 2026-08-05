@@ -1,0 +1,15 @@
+# 12. Run the options example after equity assumptions are fixed.
+engine: options
+strategy: delta_hedged
+option_chain: artifacts/data/mock_options.parquet
+underlying_prices: artifacts/data/market_daily.parquet
+regime_predictions: artifacts/evaluation/statistical_regime_quality/predictions.parquet
+output: artifacts/backtesting/options_delta_hedged
+initial_capital: 1000000.0
+periods_per_year: 252
+execution_delay: 1
+target_delta_abs: 0.25
+target_tenor_days: 30
+delta_hedging_frequency: 1
+option_fee_per_contract: 0.65
+hedge_slippage_bps: 1.0

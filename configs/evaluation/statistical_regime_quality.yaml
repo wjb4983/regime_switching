@@ -1,0 +1,16 @@
+# 9. Evaluate regime fit and stability before economic use.
+models:
+  - artifacts/models/rule_volatility_threshold
+  - artifacts/models/kmeans_regime
+  - artifacts/models/gaussian_hmm
+  - artifacts/models/student_t_hmm
+validation: artifacts/validation/walk_forward_daily.json
+output: artifacts/evaluation/statistical_regime_quality
+probability_kind: filtered
+metrics:
+  - predictive_log_score
+  - regime_persistence
+  - switching_frequency
+  - state_occupancy
+  - state_entropy
+  - probability_entropy
