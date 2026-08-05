@@ -1,0 +1,43 @@
+site_name: Regime Switching
+site_description: Research guidance for financial regime models and live-equivalent evaluation
+repo_url: https://github.com/regime-switching/regime-switching
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.superfences
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+nav:
+  - Home: index.md
+  - Concepts:
+      - Financial regimes: concepts/financial-regimes.md
+      - Inference and assignments: concepts/inference.md
+  - Models:
+      - Assumptions and mathematics: models/formulations.md
+      - Risks and selection: models/risks-and-selection.md
+      - Latent-state model card: models/latent-state-model-card-template.md
+      - Change-point model card: models/change-point-model-card-template.md
+  - Data:
+      - Point-in-time data: data/index.md
+  - Features:
+      - Causal features: features/index.md
+  - Evaluation:
+      - Metrics and tests: evaluation/index.md
+  - Backtesting:
+      - Trading caveats: backtesting/index.md
+  - Tools:
+      - Artifact browser: artifact-browser.md
+  - Examples:
+      - Minimal example: examples/minimal.md
+      - Reproducible research: examples/reproducible-research.md
