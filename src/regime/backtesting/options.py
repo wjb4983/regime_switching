@@ -171,6 +171,7 @@ def _prepare_chain(chain: FloatFrame, prices: FloatSeries, cfg: OptionBacktestCo
     out["decision_price_available"] = out["timestamp"].isin(prices.index)
     out["crossed_market"] = out["bid"] > out["ask"]
     out["is_stale"] = out["quote_age_minutes"] > cfg.max_quote_age_minutes
+    out["is_available"] = out["quote_time"] <= out["timestamp"]
     out["is_liquid"] = (
         (out["bid"] >= cfg.min_bid)
         & (out["spread_pct"] <= cfg.max_bid_ask_spread_pct)
@@ -180,6 +181,7 @@ def _prepare_chain(chain: FloatFrame, prices: FloatSeries, cfg: OptionBacktestCo
     )
     out["is_tradable"] = (
         out["decision_price_available"]
+        & out["is_available"]
         & ~out["crossed_market"]
         & ~out["is_stale"]
         & out["is_liquid"]

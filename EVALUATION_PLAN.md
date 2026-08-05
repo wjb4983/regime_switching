@@ -69,8 +69,9 @@ A model passes economic evaluation only if it remains useful net of costs, acros
 
 All automated checks should use explicit timeouts. Recommended commands:
 
-- `timeout 120 uv run pytest`
+- `timeout 120 uv run python -m pytest tests --timeout=60`
 - `timeout 120 uv run ruff check .`
 - `timeout 120 uv run mypy`
 
-If `uv` is unavailable, use equivalent `python -m pytest`, `ruff`, and `mypy` commands with shell `timeout`.
+If `uv` is unavailable, use equivalent `python -m pytest tests --timeout=60`, `ruff`, and
+`mypy` commands with shell `timeout`.
