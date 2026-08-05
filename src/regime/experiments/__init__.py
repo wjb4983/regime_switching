@@ -1,3 +1,5 @@
-"""experiments package for regime switching workflows."""
+"""Experiment orchestration and provenance helpers."""
 
-__all__: list[str] = []
+from .provenance import RunMetadata, RunMetadataRecorder, TimePeriod, file_hash, stable_hash
+
+__all__ = ["RunMetadata", "RunMetadataRecorder", "TimePeriod", "file_hash", "stable_hash"]
