@@ -65,6 +65,9 @@ Homepage = "https://github.com/regime-switching/regime-switching"
 Repository = "https://github.com/regime-switching/regime-switching"
 Issues = "https://github.com/regime-switching/regime-switching/issues"
 
+[project.scripts]
+regime = "regime.cli:main"
+
 [project.optional-dependencies]
 # Development tools: pytest-timeout is included so every test command can enforce time limits.
 dev = [
@@ -153,6 +156,10 @@ ignore = [
     # Tests often benefit from explicit asserts and descriptive fixtures.
     "S101",
 ]
+"src/regime/cli/*.py" = [
+    # Typer declares options using calls in command signature defaults.
+    "B008",
+]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -168,6 +175,9 @@ show_error_codes = true
 pretty = true
 mypy_path = "src"
 packages = ["regime"]
+# ``cli.py`` is a direct source-tree launcher; the importable CLI is the package
+# at ``regime.cli`` and checking both would produce a duplicate module name.
+exclude = ["src/regime/cli.py"]
 
 [[tool.mypy.overrides]]
 module = [
