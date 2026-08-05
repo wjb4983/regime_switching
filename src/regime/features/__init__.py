@@ -1,5 +1,6 @@
 """Feature engineering interfaces for regime switching workflows."""
 
+from regime.features import cross_sectional, liquidity, macro, options, returns, risk
 from regime.features.registry import (
     FeatureBuildConfig,
     FeatureBuilder,
@@ -24,4 +25,10 @@ __all__ = [
     "MissingValuePolicy",
     "OutputField",
     "ScalingMethod",
+    "cross_sectional",
+    "liquidity",
+    "macro",
+    "options",
+    "returns",
+    "risk",
 ]
