@@ -1,3 +1,15 @@
-"""backtesting package for regime switching workflows."""
+"""Backtesting package for regime switching workflows."""
 
-__all__: list[str] = []
+from regime.backtesting.equity import (
+    EquityBacktestConfig,
+    EquityBacktestResult,
+    PositionConstraints,
+    run_equity_backtest,
+)
+
+__all__ = [
+    "EquityBacktestConfig",
+    "EquityBacktestResult",
+    "PositionConstraints",
+    "run_equity_backtest",
+]
