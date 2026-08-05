@@ -106,6 +106,7 @@ deep = [
 gpu = ["cupy-cuda12x>=13.0"]
 transformers = [
     "accelerate>=0.31",
+    "torch>=2.3",
     "transformers>=4.42",
 ]
 # Ray is selected over Dask initially; Dask remains an easy future alternative if dataframe-first
