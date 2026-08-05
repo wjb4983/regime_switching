@@ -159,7 +159,7 @@ class ValidationReport(BaseModel):
 class _DuckDBRelation(Protocol):
     columns: list[str]
 
-    def types(self) -> list[str]: ...
+    types: Any
 
     def count(self, column: str) -> Any: ...
 
@@ -237,7 +237,7 @@ class TabularSchema(BaseModel):
 
     def to_arrow_schema(self) -> Any:
         """Return a ``pyarrow.Schema`` with metadata preserving the canonical schema name."""
-        import pyarrow as pa  # type: ignore[import-not-found]
+        import pyarrow as pa
 
         return pa.schema(
             [
@@ -630,7 +630,7 @@ def _inspect_tabular(
         return (
             "duckdb",
             list(relation.columns),
-            dict(zip(relation.columns, map(str, relation.types()), strict=True)),
+            dict(zip(relation.columns, map(str, _duckdb_relation_types(relation)), strict=True)),
             None,
         )
     raise TypeError(
@@ -651,6 +651,12 @@ def _type_matches(kind: FieldKind, dtype: str) -> bool:
         "list_float": ("list", "array", "object"),
     }[kind]
     return any(token in normalized for token in expected)
+
+
+def _duckdb_relation_types(relation: _DuckDBRelation) -> list[str]:
+    types = relation.types
+    raw_types = types() if callable(types) else types
+    return [str(value) for value in raw_types]
 
 
 def _enum_violations(
@@ -688,7 +694,7 @@ def _unique_non_null_values(
                 str(value) for value in frame.get_column(column).drop_nulls().unique().to_list()
             }
         if backend == "arrow":
-            import pyarrow.compute as pc  # type: ignore[import-not-found]
+            import pyarrow.compute as pc
 
             frame = cast(Any, data)
             if column not in frame.schema.names:

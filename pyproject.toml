@@ -177,6 +177,7 @@ module = [
     "optuna.*",
     "plotly.*",
     "polars.*",
+    "pyarrow.*",
     "py_vollib_vectorized.*",
     "ray.*",
     "ruptures.*",
