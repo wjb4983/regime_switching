@@ -19,6 +19,7 @@ MODULES = [
     "regime.backtesting",
     "regime.reporting",
     "regime.experiments",
+    "regime.tuning",
     "regime.synthetic",
 ]
 
