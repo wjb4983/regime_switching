@@ -1,0 +1,10 @@
+# 7. Fit the heavy-tailed HMM using the same information set.
+model: student_t_hmm
+input: artifacts/features/core_market.parquet
+output: artifacts/models/student_t_hmm
+features: [return_1d, realized_volatility_21d]
+n_states: 2
+student_t_dof: 8.0
+max_iter: 50
+n_init: 3
+random_seed: 42

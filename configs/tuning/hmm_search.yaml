@@ -1,0 +1,19 @@
+# 13. Parameters are evaluated top-to-bottom; conditional parents come first.
+parameters:
+  n_states:
+    type: int
+    low: 2
+    high: 4
+  covariance_regularization:
+    type: float
+    low: 0.000001
+    high: 0.001
+    log: true
+  sticky_strength:
+    type: float
+    low: 0.0
+    high: 10.0
+  student_t_dof:
+    type: float
+    low: 3.0
+    high: 15.0

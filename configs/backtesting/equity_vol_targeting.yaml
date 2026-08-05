@@ -1,0 +1,14 @@
+# 11. Backtest the selected equity decision rule with implementation costs.
+engine: equity
+returns: artifacts/features/core_market.parquet
+signal: artifacts/evaluation/downstream_vol_targeting/signals.parquet
+output: artifacts/backtesting/equity_vol_targeting
+initial_capital: 1000000.0
+periods_per_year: 252
+execution_delay: 1
+volatility_target: 0.10
+volatility_lookback: 21
+gross_exposure_limit: 1.0
+transaction_cost_bps: 1.0
+slippage_bps: 1.0
+long_only: true

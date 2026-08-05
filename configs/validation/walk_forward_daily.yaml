@@ -1,0 +1,11 @@
+# 8. Define a leakage-aware daily walk-forward evaluation schedule.
+strategy: expanding_window
+input: artifacts/features/core_market.parquet
+output: artifacts/validation/walk_forward_daily.json
+initial_train_size: 504
+validation_size: 63
+test_size: 63
+step: 63
+embargo: 1
+execution_delay: 1
+refit: each_window
