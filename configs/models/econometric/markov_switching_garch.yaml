@@ -1,0 +1,11 @@
+# Extended econometric example (outside the default quick start).
+model: markov-switching-garch
+input: artifacts/features/core_market.parquet
+output: artifacts/models/econometric/markov-switching-garch
+features: [return_1d, realized_volatility_21d]
+timestamp_column: timestamp
+minimum_observations: 30
+missing_value_policy: error
+n_states: 2
+random_seed: 42
+fit_parameters:{}

@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from regime.config.base import load_yaml_mapping
+from regime.models.registry import available_models
 from regime.tuning.config import SearchSpace
 
 pytestmark = pytest.mark.timeout(5)
@@ -45,3 +46,11 @@ def test_hmm_search_is_an_executable_search_space() -> None:
         "sticky_strength",
         "student_t_dof",
     )
+
+
+def test_every_extended_registry_entry_has_a_family_example() -> None:
+    """Keep the four quick-start comparators flat and organize all other entries."""
+    quick_start = {"volatility-threshold", "kmeans", "gaussian-hmm", "student-t-hmm"}
+    examples = {path.stem.replace("_", "-") for path in Path("configs/models").glob("*/*.yaml")}
+
+    assert {spec.name for spec in available_models()} - quick_start == examples

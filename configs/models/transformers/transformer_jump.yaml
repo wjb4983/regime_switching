@@ -1,0 +1,15 @@
+# Extended transformers example (outside the default quick start).
+model: transformer-jump
+input: artifacts/features/core_market.parquet
+output: artifacts/models/transformers/transformer-jump
+features: [return_1d, realized_volatility_21d]
+timestamp_column: timestamp
+minimum_observations: 30
+missing_value_policy: error
+n_states: 2
+random_seed: 42
+fit_parameters:
+  input_dim: 2
+  d_model: 16
+  n_heads: 2
+  n_layers: 1

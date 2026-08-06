@@ -143,6 +143,20 @@ class ExperimentStore:
                 (status, time.time(), completed, checkpoint_path, run_id),
             )
 
+    def update_hashes(self, run_id: str, **hashes: str | None) -> None:
+        """Attach dataset, feature, and model hashes discovered during execution."""
+        allowed = ("dataset_hash", "feature_hash", "model_hash")
+        unknown = set(hashes) - set(allowed)
+        if unknown:
+            raise ValueError(f"Unknown run hashes: {', '.join(sorted(unknown))}")
+        with self.connect() as con:
+            con.execute(
+                "UPDATE runs SET dataset_hash=COALESCE(?, dataset_hash), "
+                "feature_hash=COALESCE(?, feature_hash), model_hash=COALESCE(?, model_hash), "
+                "updated_at=? WHERE run_id=?",
+                (*(hashes.get(key) for key in allowed), time.time(), run_id),
+            )
+
     def add_artifact(
         self,
         run_id: str,

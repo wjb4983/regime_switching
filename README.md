@@ -244,6 +244,11 @@ uv run regime train --config configs/models/gaussian_hmm.yaml --no-resume
 uv run regime train --config configs/models/student_t_hmm.yaml --no-resume
 ```
 
+The default quick start intentionally stops at these four ordered comparators. Extended
+examples for every other registered implementation are grouped by family under
+`configs/models/{probabilistic,clustering,jump,econometric,state_space,supervised,deep,transformers}`;
+optional-backend examples should be run only after installing their declared extra.
+
 The package also contains APIs for change-point, jump, econometric, supervised, state-space, deep,
 and transformer/foundation-embedding models. These families do not all have production-ready CLI
 configurations. Use them only after checking their class contract and optional backend availability.
