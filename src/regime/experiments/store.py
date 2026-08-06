@@ -54,6 +54,9 @@ ARTIFACT_KINDS = {
     "provenance",
     "manifest",
     "checkpoint",
+    "data",
+    "features",
+    "comparison",
 }
 
 
@@ -237,6 +240,17 @@ class ExperimentStore:
                 "SELECT * FROM runs WHERE name=? ORDER BY started_at DESC LIMIT 1", (name,)
             ).fetchone()
         return cast(sqlite3.Row | None, row)
+
+    def artifacts_for_run(self, run_id: str, kind: str | None = None) -> list[sqlite3.Row]:
+        """Return registered artifacts in creation order, optionally filtered by kind."""
+        query = "SELECT * FROM artifacts WHERE run_id=?"
+        parameters: tuple[str, ...] = (run_id,)
+        if kind is not None:
+            query += " AND kind=?"
+            parameters = (run_id, kind)
+        with self.connect() as con:
+            rows = con.execute(query + " ORDER BY created_at", parameters).fetchall()
+        return list(rows)
 
 
 __all__ = ["ARTIFACT_KINDS", "ExperimentStore"]
