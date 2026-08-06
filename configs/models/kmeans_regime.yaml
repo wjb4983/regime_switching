@@ -4,6 +4,7 @@ input: artifacts/features/core_market.parquet
 output: artifacts/models/kmeans_regime
 features: [return_1d, realized_volatility_21d]
 n_states: 2
-scale: true
-n_init: 10
 random_seed: 42
+fit_parameters:
+  scale: true
+  n_init: 10

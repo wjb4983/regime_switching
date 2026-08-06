@@ -32,9 +32,9 @@ class DeepRegimeModel(RegimeModel):
     variational: ClassVar[bool] = False
     vector_quantized: ClassVar[bool] = False
 
-    def __init__(self) -> None:
+    def __init__(self, config: DeepModelConfig | None = None) -> None:
         self.network: DeepRegimeNetwork | None = None
-        self.config: DeepModelConfig | None = None
+        self.config: DeepModelConfig | None = config
         self.input_size: int | None = None
         self.temperature = 1.0
         self.history: list[dict[str, float]] = []
