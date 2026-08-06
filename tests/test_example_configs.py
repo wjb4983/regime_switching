@@ -44,7 +44,6 @@ def test_hmm_search_is_an_executable_search_space() -> None:
         "n_states",
         "covariance_regularization",
         "sticky_strength",
-        "student_t_dof",
     )
 
 
