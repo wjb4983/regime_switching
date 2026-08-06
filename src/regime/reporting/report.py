@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, Literal
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from plotly.offline import get_plotlyjs
 
 ProbabilityKind = Literal["filtered", "smoothed", "not applicable"]
 
@@ -100,6 +101,9 @@ class ReportBuilder:
             subtitle=self.subtitle,
             figures=self._figures,
             generated_at=stamp.isoformat(),
+            # Embed once rather than using a CDN: reports remain usable offline while
+            # individual figure fragments continue to exclude duplicate bundles.
+            plotly_js=get_plotlyjs(),
         )
 
     def write(self, path: str | Path, *, generated_at: datetime | date | None = None) -> Path:

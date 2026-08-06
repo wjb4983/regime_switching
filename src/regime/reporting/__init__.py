@@ -4,6 +4,7 @@ The public API deliberately accepts ordinary pandas objects and Plotly/Matplotli
 figures so reporting remains independent of model implementations.
 """
 
+from .experiment_report import DEFAULT_SECTIONS, ExperimentReportAssembler, ReportConfiguration
 from .figures import (
     REPORT_VISUALIZATIONS,
     bar_chart,
@@ -19,8 +20,11 @@ from .figures import (
 from .report import ReportBuilder, ReportFigure, VisualizationMetadata, render_report
 
 __all__ = [
+    "DEFAULT_SECTIONS",
     "REPORT_VISUALIZATIONS",
+    "ExperimentReportAssembler",
     "ReportBuilder",
+    "ReportConfiguration",
     "ReportFigure",
     "VisualizationMetadata",
     "bar_chart",
