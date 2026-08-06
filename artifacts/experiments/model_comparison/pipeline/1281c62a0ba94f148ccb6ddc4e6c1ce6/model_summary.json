@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "ticc",
+  "label": "ticc",
+  "family": "clustering",
+  "reason": "X has 2 features, but KMeans is expecting 10 features as input."
+}

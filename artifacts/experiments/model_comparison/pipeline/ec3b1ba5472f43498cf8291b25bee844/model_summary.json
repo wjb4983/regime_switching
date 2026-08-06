@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "gru",
+  "label": "gru",
+  "family": "deep",
+  "reason": "Model returned a different number of predictions than observations"
+}

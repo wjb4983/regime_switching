@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "model": "switching-stochastic-volatility",
+  "label": "switching-stochastic-volatility",
+  "family": "econometric",
+  "artifacts": {
+    "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\resolved_configuration.json",
+    "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\model.pkl",
+    "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\metadata.json",
+    "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\training_diagnostics.json",
+    "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\state_statistics.json",
+    "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\in_sample_predictions.parquet",
+    "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\runtime.json"
+  },
+  "hashes": {
+    "resolved_configuration.json": "efeabea399244fe6850129974e432794743d1c8ee194863035304a4b47a7f916",
+    "model.pkl": "19338f34df7da8630bc9c236cdd96ef7bf0b398cff2f8f45c78127cf94196cf5",
+    "metadata.json": "d5621116cc40c3db9a556cdc51c4f2f9099b4c009cc238cc21c68b928baec1ee",
+    "training_diagnostics.json": "4288e07e60fc9ddd481c28c3f9e672b66811c6c4672405f6c03550fefee61d78",
+    "state_statistics.json": "d1f712fc62bbb3ad2a3e9fb6e42ffb5e7470b8a4754e1c1e57ecc3839b49642e",
+    "in_sample_predictions.parquet": "d66d55f0548f1df8de1633a174876ad57d6abedd10f42b7569f834075fe7a327",
+    "runtime.json": "6c7f71f12df0c8b6388ac5de007c90d9a574c81cdcea4ad10b9f8c546ad60b57"
+  },
+  "prediction_capability": {
+    "status": "supported",
+    "observations": 250
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "model": "hsmm",
+  "label": "hsmm",
+  "family": "probabilistic",
+  "artifacts": {
+    "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\resolved_configuration.json",
+    "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\model.pkl",
+    "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\metadata.json",
+    "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\training_diagnostics.json",
+    "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\state_statistics.json",
+    "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\in_sample_predictions.parquet",
+    "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\runtime.json"
+  },
+  "hashes": {
+    "resolved_configuration.json": "bf4dbe5f1ffdf7abdea4c230c00b3d1d4e158a059cc94439085f77b0175084d0",
+    "model.pkl": "3a9e56abe08729594956edae8b879325859c6e11b5bccd7cd72ff13fe51c9396",
+    "metadata.json": "a40dc828003852c2faac2b776ed8c2b5235a1f8d0305782bf94f46125b37e17f",
+    "training_diagnostics.json": "3773db543ccf4ac3e3db1222a04b9fe39d88896b0920b37d412afe48660286b8",
+    "state_statistics.json": "dc2a4f683763f2f6ba206af8ec0c1a6863ccac0ab88844edbcc70f3d5ce454a6",
+    "in_sample_predictions.parquet": "56749ba7e857a3d6f3c6590f85739a37fd52ed0fb7110b9d2dfe482cfd91b7c2",
+    "runtime.json": "97be5c59049803286745c102f49a7eb6cbc7ad87a692f1816435e324451fb7c8"
+  },
+  "prediction_capability": {
+    "status": "supported",
+    "observations": 250
+  }
+}

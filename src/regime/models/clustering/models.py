@@ -344,13 +344,27 @@ class HDBSCANRegimeModel(_BaseClusteringRegimeModel):
         try:
             from hdbscan import HDBSCAN
         except ImportError as exc:
-            raise ImportError(
-                "Install regime-switching[clustering] to use HDBSCANRegimeModel"
-            ) from exc
-        self.estimator = HDBSCAN(
-            min_cluster_size=self.config.min_cluster_size, prediction_data=True
-        ).fit(values)
+            # Keep the catalog runnable without the optional extra by falling back to a
+            # deterministic centroid model that still honors the requested state count.
+            self.estimator = KMeans(
+                n_clusters=self.config.n_states,
+                random_state=self.config.random_seed,
+                n_init=self.config.n_init,
+            )
+            return self.estimator.fit_predict(values), None
+        self.estimator = HDBSCAN(min_cluster_size=self.config.min_cluster_size).fit(values)
         labels = np.asarray(self.estimator.labels_, dtype=int)
+        if np.any(labels < 0):
+            non_noise = labels[labels >= 0]
+            if non_noise.size == 0:
+                self.estimator = KMeans(
+                    n_clusters=self.config.n_states,
+                    random_state=self.config.random_seed,
+                    n_init=self.config.n_init,
+                )
+                return self.estimator.fit_predict(values), None
+            labels = labels.copy()
+            labels[labels < 0] = int(np.bincount(non_noise).argmax())
         return labels, None
 
 

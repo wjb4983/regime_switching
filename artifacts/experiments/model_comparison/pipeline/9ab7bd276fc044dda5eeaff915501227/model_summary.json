@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "explicit-duration-switching-lds",
+  "label": "explicit-duration-switching-lds",
+  "family": "state_space",
+  "reason": "'StateSpaceResult' object is not iterable"
+}

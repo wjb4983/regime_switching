@@ -1,0 +1,13 @@
+{
+  "statistics": {
+    "state_0": {
+      "observation_variance": 0.025062376649871782,
+      "process_variance": 0.00017197040388385913
+    },
+    "state_1": {
+      "observation_variance": 0.025389762381648345,
+      "process_variance": 0.0007511510216521304
+    }
+  },
+  "status": "supported"
+}

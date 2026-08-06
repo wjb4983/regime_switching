@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "model": "regime-switching-correlation",
+  "label": "regime-switching-correlation",
+  "family": "econometric",
+  "artifacts": {
+    "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\resolved_configuration.json",
+    "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\model.pkl",
+    "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\metadata.json",
+    "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\training_diagnostics.json",
+    "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\state_statistics.json",
+    "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\in_sample_predictions.parquet",
+    "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\runtime.json"
+  },
+  "hashes": {
+    "resolved_configuration.json": "5d192b3078ba77e07103900cb5557a626fd86d7ca48ef5539a3c08feb739d1da",
+    "model.pkl": "b85558a3f04434069f5d926b84409139b3731f629dc7a3dafe2f1de421e04953",
+    "metadata.json": "d073f0f675d329e66f3a3e50078670d629acbf3da733b92ccd25b676557121d9",
+    "training_diagnostics.json": "bda585be55f83e458e7e7f60f7d2084cbb0ebe202a557d72387981304229a456",
+    "state_statistics.json": "d1f712fc62bbb3ad2a3e9fb6e42ffb5e7470b8a4754e1c1e57ecc3839b49642e",
+    "in_sample_predictions.parquet": "6ddf910cd1a55d2a537537b53de9c14c3c68d32d60a078dbe313666df1270da4",
+    "runtime.json": "aca9f3fb497c4bff987d4a53ad369b646bb950381c9eb164748f1319d451682b"
+  },
+  "prediction_capability": {
+    "status": "supported",
+    "observations": 250
+  }
+}

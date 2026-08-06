@@ -72,3 +72,27 @@ def test_synthetic_pipeline_links_and_resumes_every_stage(tmp_path: Path) -> Non
     assert len(children) == len(first["stages"])
     assert all(child["status"] == "completed" for child in children)
     assert any(json.loads(row["metadata_json"]).get("upstream_run_ids") for row in linked)
+
+
+def test_model_catalog_dry_run_reports_skipped_models(tmp_path: Path) -> None:
+    config = tmp_path / "catalog.yaml"
+    config.write_text(
+        yaml.safe_dump(
+            {
+                "name": "catalog-experiment",
+                "work_dir": str(tmp_path / "work"),
+                "source": {"generator": "gaussian_hmm", "observations": 30, "seed": 3},
+                "features": {"features": ["return_1d", "realized_volatility_21d"]},
+                "model_catalog": {"root": str(Path("configs/models").resolve())},
+                "evaluation": {"metrics": ["regime_persistence"]},
+            }
+        ),
+        encoding="utf-8",
+    )
+    pipeline = ExperimentPipeline.from_root(tmp_path / "registry")
+
+    result = pipeline.dry_run(config)
+
+    assert result["runnable_models"]
+    assert "hdbscan" in result["runnable_models"]
+    assert all(item["label"] != "hdbscan" for item in result["skipped_models"])

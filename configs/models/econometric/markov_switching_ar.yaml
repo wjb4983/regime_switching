@@ -8,4 +8,4 @@ minimum_observations: 30
 missing_value_policy: error
 n_states: 2
 random_seed: 42
-fit_parameters:{}
+fit_parameters: {}

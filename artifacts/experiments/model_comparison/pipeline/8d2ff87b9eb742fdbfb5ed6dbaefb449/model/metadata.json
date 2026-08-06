@@ -1,0 +1,13 @@
+{
+  "attributes": {},
+  "config_hash": "005d32fe30590f9db84d3e765dd44429eb0f5cf32c96e6c192954e9603250fcc",
+  "feature_names": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "fitted_at": "2026-08-06T18:15:39.932838Z",
+  "model_name": "gaussian-mixture",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

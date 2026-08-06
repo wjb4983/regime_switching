@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "deep-markov",
+  "label": "deep-markov",
+  "family": "deep",
+  "reason": "Model returned a different number of predictions than observations"
+}

@@ -1,0 +1,10 @@
+{
+  "excluded_observations": 0,
+  "fit_seconds": 4.586289800237864,
+  "input_observations": 250,
+  "missing_observations": 0,
+  "missing_value_policy": "error",
+  "timestamp_end": "2020-09-06T00:00:00+00:00",
+  "timestamp_start": "2020-01-01T00:00:00+00:00",
+  "training_observations": 250
+}

@@ -1,0 +1,21 @@
+{
+  "statistics": {
+    "0": {
+      "count": 218.0,
+      "occupancy": 0.872,
+      "realized_volatility_21d_mean": 0.13396623694979068,
+      "realized_volatility_21d_std": 0.029685460297472734,
+      "return_1d_mean": 0.0007828641656121301,
+      "return_1d_std": 0.00851748714972861
+    },
+    "1": {
+      "count": 32.0,
+      "occupancy": 0.128,
+      "realized_volatility_21d_mean": 0.32197394976445637,
+      "realized_volatility_21d_std": 0.04788353913020379,
+      "return_1d_mean": -0.002190675798123723,
+      "return_1d_std": 0.019941648985084128
+    }
+  },
+  "status": "supported"
+}

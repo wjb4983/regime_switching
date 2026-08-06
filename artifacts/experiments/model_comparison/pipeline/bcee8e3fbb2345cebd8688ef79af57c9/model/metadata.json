@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "state_0": {
+      "frequency": 0.5
+    },
+    "state_1": {
+      "frequency": 0.5
+    }
+  },
+  "config_hash": "d5ff077ce5920e500e7b58efd1ee195180d05542c182fe149391f85f787eff49",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:49.414659Z",
+  "model_name": "regime-switching-copula",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

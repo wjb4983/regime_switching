@@ -1,0 +1,35 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "neural-change-point",
+  "model_configuration": {
+    "batch_size": 32,
+    "calibration": "temperature",
+    "deterministic": true,
+    "device": "auto",
+    "dropout": 0.0,
+    "embedding_dim": 16,
+    "gradient_clip_val": 1.0,
+    "hidden_size": 16,
+    "input_dim": 2,
+    "learning_rate": 0.001,
+    "max_epochs": 5,
+    "min_delta": 0.0,
+    "model_name": "neural-change-point",
+    "model_version": "0.1.0",
+    "n_states": 2,
+    "num_layers": 1,
+    "parameters": {},
+    "patience": 10,
+    "precision": "float32",
+    "random_seed": 42,
+    "sequence_length": 16,
+    "validation_window": 0.2,
+    "weight_decay": 0.0
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\33436e07866e4934b8018488475c55cc\\model",
+  "timestamp_column": "timestamp"
+}

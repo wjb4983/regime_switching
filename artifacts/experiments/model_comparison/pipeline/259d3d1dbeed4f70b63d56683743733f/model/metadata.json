@@ -1,0 +1,14 @@
+{
+  "attributes": {
+    "experimental": true,
+    "log_likelihood": 911.536560659764,
+    "validation": "synthetic recovery pending"
+  },
+  "config_hash": "30583bd5e82b9c50cd5241cbf14a78a9ba2d78ecdf07547d7669b1943218da7a",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:59.842254Z",
+  "model_name": "recurrent-switching-lds",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

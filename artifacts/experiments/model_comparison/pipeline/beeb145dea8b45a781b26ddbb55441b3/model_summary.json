@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "markov-switching-ar",
+  "label": "markov-switching-ar",
+  "family": "econometric",
+  "reason": "Model returned a different number of predictions than observations"
+}

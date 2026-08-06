@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "neural-hmm",
+  "label": "neural-hmm",
+  "family": "deep",
+  "reason": "Model returned a different number of predictions than observations"
+}

@@ -1,0 +1,14 @@
+{
+  "attributes": {
+    "experimental": true,
+    "log_likelihood": 911.536560659764,
+    "validation": "synthetic recovery pending"
+  },
+  "config_hash": "c916ce4db22d5e60b2aa9ecf7218b2077148ce08e49091c70ca05d90f118bcf3",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:16:00.762780Z",
+  "model_name": "switching-lds",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

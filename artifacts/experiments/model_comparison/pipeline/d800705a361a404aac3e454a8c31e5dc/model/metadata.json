@@ -1,0 +1,13 @@
+{
+  "attributes": {},
+  "config_hash": "dff293debd780051cd4dfed88a9621bc0e5ac806ce87903aff085020053c7b32",
+  "feature_names": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "fitted_at": "2026-08-06T18:15:40.129482Z",
+  "model_name": "hdbscan",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

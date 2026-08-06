@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "variational-state-space",
+  "label": "variational-state-space",
+  "family": "deep",
+  "reason": "Model returned a different number of predictions than observations"
+}

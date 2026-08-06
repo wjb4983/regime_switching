@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "vector-quantized-vae",
+  "label": "vector-quantized-vae",
+  "family": "deep",
+  "reason": "Model returned a different number of predictions than observations"
+}

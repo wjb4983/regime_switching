@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "semantics": "deterministic_rule_adapter"
+  },
+  "config_hash": "9677a1fd348e69d12f4f1b8684cd055c4b458dac8e65fc65bc135c597c073fc6",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:59.057043Z",
+  "model_name": "volatility-threshold",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

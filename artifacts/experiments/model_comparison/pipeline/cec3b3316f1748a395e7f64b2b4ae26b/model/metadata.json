@@ -1,0 +1,13 @@
+{
+  "attributes": {},
+  "config_hash": "219eb63cab7ebf16b60c3415d8a96423386b14bf285fdd7dee31924c344c9de4",
+  "feature_names": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "fitted_at": "2026-08-06T18:15:40.457368Z",
+  "model_name": "jump-penalized-kmeans",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

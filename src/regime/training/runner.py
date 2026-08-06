@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import inspect
 import platform
 import time
 from collections.abc import Mapping, Sequence
@@ -16,7 +17,7 @@ import pandas as pd
 from regime.experiments.hashes import file_hash
 from regime.experiments.runner import ExperimentRun, capture_run_warnings
 from regime.logging import sanitize_json
-from regime.models.base import UnsupportedModelOperation
+from regime.models.base import RegimeInferenceResult, UnsupportedModelOperation
 from regime.models.registry import create_model, model_configuration, model_spec
 
 
@@ -53,7 +54,12 @@ def _validated_data(
     missing = [name for name in [timestamp, *names] if name not in frame.columns]
     if missing:
         raise ValueError(f"Feature dataset is missing required columns: {', '.join(missing)}")
-    work = frame.loc[:, [timestamp, *names]].copy()
+    passthrough = [
+        column
+        for column in ("true_state", "close", "return_1d")
+        if column in frame.columns and column not in {timestamp, *names}
+    ]
+    work = frame.loc[:, [timestamp, *names, *passthrough]].copy()
     work[timestamp] = pd.to_datetime(work[timestamp], utc=True, errors="raise")
     if work[timestamp].duplicated().any() or not work[timestamp].is_monotonic_increasing:
         raise ValueError("Timestamps must be unique and strictly increasing")
@@ -92,6 +98,71 @@ def _validated_data(
         "timestamp_end": work[timestamp].iloc[-1].isoformat(),
     }
     return work, numeric, timestamp, diagnostics
+
+
+def _standardized_predictions(
+    model: Any,
+    values: pd.DataFrame,
+    training: pd.DataFrame,
+    timestamp: str,
+) -> tuple[pd.DataFrame | None, dict[str, Any]]:
+    raw_predictions = list(model.predict(values))
+    prediction_frame = pd.DataFrame({timestamp: training[timestamp].to_numpy()})
+    if {"true_state", "close", "return_1d"} & set(training.columns):
+        for column in ("true_state", "close", "return_1d"):
+            if column in training.columns:
+                prediction_frame[column] = training[column].to_numpy()
+
+    results: list[RegimeInferenceResult] | None = None
+    if raw_predictions and isinstance(raw_predictions[0], RegimeInferenceResult):
+        results = list(raw_predictions)
+        states = [int(item.state) for item in results]
+    else:
+        states = [int(value) for value in raw_predictions]
+    if len(states) != len(training):
+        raise ValueError("Model returned a different number of predictions than observations")
+    prediction_frame["state"] = states
+
+    probabilities: np.ndarray | None = None
+    if results is not None:
+        probabilities = np.asarray([item.filtered_probabilities for item in results], dtype=float)
+        prediction_frame["confidence"] = [float(item.confidence) for item in results]
+        prediction_frame["entropy"] = [float(item.entropy) for item in results]
+        prediction_frame["change_probability"] = [float(item.change_probability) for item in results]
+        if all(item.smoothed_probabilities is not None for item in results):
+            smoothed = np.asarray([item.smoothed_probabilities for item in results], dtype=float)
+            for index in range(smoothed.shape[1]):
+                prediction_frame[f"smoothed_prob_{index}"] = smoothed[:, index]
+    else:
+        try:
+            probabilities = np.asarray(model.predict_proba(values), dtype=float)
+        except UnsupportedModelOperation:
+            probabilities = None
+        except NotImplementedError:
+            probabilities = None
+    if probabilities is not None and probabilities.ndim == 2 and probabilities.shape[0] == len(training):
+        for index in range(probabilities.shape[1]):
+            prediction_frame[f"prob_{index}"] = probabilities[:, index]
+        if "confidence" not in prediction_frame:
+            prediction_frame["confidence"] = probabilities.max(axis=1)
+        if "entropy" not in prediction_frame:
+            safe = np.clip(probabilities, 1e-12, None)
+            prediction_frame["entropy"] = -np.sum(safe * np.log(safe), axis=1)
+    try:
+        smoothed = list(model.smooth(values))
+    except UnsupportedModelOperation:
+        smoothed = None
+    except NotImplementedError:
+        smoothed = None
+    if smoothed and isinstance(smoothed[0], RegimeInferenceResult):
+        matrix = np.asarray(
+            [item.smoothed_probabilities for item in smoothed if item.smoothed_probabilities is not None],
+            dtype=float,
+        )
+        if matrix.ndim == 2 and matrix.shape[0] == len(training):
+            for index in range(matrix.shape[1]):
+                prediction_frame[f"smoothed_prob_{index}"] = matrix[:, index]
+    return prediction_frame, {"status": "supported", "observations": len(prediction_frame)}
 
 
 def _write_json(path: Path, value: Any) -> None:
@@ -134,7 +205,11 @@ def train_model(run: ExperimentRun, config: Mapping[str, Any]) -> Mapping[str, A
     _write_json(resolved_path, resolved)
 
     with capture_run_warnings(run):
-        model.fit(values, typed_config)
+        parameters = inspect.signature(model.fit).parameters
+        if "labels" in parameters and "true_state" in training.columns:
+            model.fit(values, typed_config, labels=training["true_state"].astype(int).to_numpy())
+        else:
+            model.fit(values, typed_config)
     model_path = output / ("model.json" if spec.name == "volatility-threshold" else "model.pkl")
     model.save(model_path)
     metadata = model.metadata.model_dump(mode="json", exclude_none=True)
@@ -153,13 +228,10 @@ def train_model(run: ExperimentRun, config: Mapping[str, Any]) -> Mapping[str, A
     _write_json(statistics_path, statistics_record)
 
     try:
-        states = list(model.predict(values))
-        if len(states) != len(training):
-            raise ValueError("Model returned a different number of predictions than observations")
-        predictions = pd.DataFrame({timestamp: training[timestamp].to_numpy(), "state": states})
+        predictions, prediction_status = _standardized_predictions(model, values, training, timestamp)
         predictions_path = output / "in_sample_predictions.parquet"
+        assert predictions is not None
         predictions.to_parquet(predictions_path, index=False)
-        prediction_status = {"status": "supported", "observations": len(predictions)}
         prediction_kind = "predictions"
     except UnsupportedModelOperation as error:
         predictions_path = output / "in_sample_predictions.unsupported.json"

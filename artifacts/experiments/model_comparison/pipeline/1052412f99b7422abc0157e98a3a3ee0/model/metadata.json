@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "log_likelihood": 2977.7277668956126
+  },
+  "config_hash": "033ee937b3d65603c493628984998316cbc07a360ac073f30dba401536576ef6",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:53.674005Z",
+  "model_name": "ar-hmm",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 249
+}

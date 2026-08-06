@@ -1,0 +1,35 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "transition-hazard",
+  "model_configuration": {
+    "calibrate": true,
+    "calibration_method": "sigmoid",
+    "classifier": "logistic_regression",
+    "cv": 3,
+    "event_definition": "next label differs from current label",
+    "event_horizon": 1,
+    "feature_names": [
+      "return_1d",
+      "realized_volatility_21d"
+    ],
+    "label_definition": "unspecified",
+    "label_source": "economic_definition",
+    "learning_rate": 0.1,
+    "max_depth": 3,
+    "max_iter": 500,
+    "model_name": "transition-hazard",
+    "model_version": "0.1.0",
+    "n_estimators": 100,
+    "n_states": 2,
+    "parameters": {},
+    "random_seed": 42,
+    "require_pseudo_label_risk_acknowledgement": true,
+    "scale": true
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\647706486c3d4255975054cc7b394535\\model",
+  "timestamp_column": "timestamp"
+}

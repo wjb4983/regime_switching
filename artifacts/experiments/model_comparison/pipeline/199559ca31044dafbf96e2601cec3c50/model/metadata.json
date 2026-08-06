@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "state_0": {
+      "frequency": 0.828
+    },
+    "state_1": {
+      "frequency": 0.172
+    }
+  },
+  "config_hash": "02eb80adecbe79024c4dbec761a639089caee0857493c9cd9b3aa9ef4e7d61db",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:48.093973Z",
+  "model_name": "markov-switching-regression",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

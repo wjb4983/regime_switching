@@ -229,6 +229,42 @@ def pareto_tradeoff_chart(
     return _plotly("Pareto trade-offs", figure, metadata)
 
 
+def _format_table_value(value: Any, *, max_chars: int = 28) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, (float, np.floating)):
+        if not np.isfinite(value):
+            return ""
+        magnitude = abs(float(value))
+        if magnitude == 0:
+            text = "0"
+        elif magnitude >= 10_000 or magnitude < 1e-3:
+            text = f"{float(value):.3e}"
+        else:
+            text = f"{float(value):,.4f}".rstrip("0").rstrip(".")
+    elif isinstance(value, (int, np.integer)):
+        text = f"{int(value):,}"
+    else:
+        if pd.isna(value):
+            return ""
+        text = str(value)
+    if len(text) <= max_chars:
+        return text
+    return f"{text[: max_chars - 3]}..."
+
+
+def _estimate_column_widths(columns: Sequence[str], cells: Sequence[Sequence[str]]) -> list[int]:
+    widths: list[int] = []
+    for index, column in enumerate(columns):
+        values = cells[index] if index < len(cells) else []
+        max_len = max([len(column), *(len(str(value)) for value in values)], default=len(column))
+        if index == 0:
+            widths.append(min(220, max(140, max_len * 9)))
+        else:
+            widths.append(min(320, max(95, max_len * 8)))
+    return widths
+
+
 def table(
     data: pd.DataFrame,
     metadata: VisualizationMetadata,
@@ -237,11 +273,40 @@ def table(
 ) -> ReportFigure:
     """Build model-ranking or statistical-significance tables."""
     columns = [str(data.index.name or "index"), *[str(column) for column in data.columns]]
-    cells = [
-        [str(value) for value in data.index],
-        *[data[column].tolist() for column in data.columns],
+    formatted_index = [_format_table_value(value) for value in data.index]
+    formatted_columns = [
+        [_format_table_value(value) for value in data[column].tolist()] for column in data.columns
     ]
-    figure = go.Figure(go.Table(header={"values": columns}, cells={"values": cells}))
+    cells = [
+        formatted_index,
+        *formatted_columns,
+    ]
+    widths = _estimate_column_widths(columns, cells)
+    row_count = max(len(formatted_index), 1)
+    height = max(280, min(900, 96 + row_count * 34))
+    alignments = ["left", *(["center"] * len(data.columns))]
+    figure = go.Figure(
+        go.Table(
+            columnwidth=widths,
+            header={
+                "values": columns,
+                "align": alignments,
+                "fill_color": "#eaf0f8",
+                "line_color": "#d0d5dd",
+                "height": 34,
+                "font": {"color": "#172033", "size": 13},
+            },
+            cells={
+                "values": cells,
+                "align": alignments,
+                "fill_color": "white",
+                "line_color": "#e4e7ec",
+                "height": 30,
+                "font": {"color": "#172033", "size": 12},
+            },
+        )
+    )
+    figure.update_layout(height=height, margin={"l": 18, "r": 18, "t": 12, "b": 12})
     return _plotly(title, figure, metadata)
 
 

@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "model": "explicit-duration-latent-state",
+  "label": "explicit-duration-latent-state",
+  "family": "probabilistic",
+  "artifacts": {
+    "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\resolved_configuration.json",
+    "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\model.pkl",
+    "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\metadata.json",
+    "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\training_diagnostics.json",
+    "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\state_statistics.json",
+    "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\in_sample_predictions.parquet",
+    "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\runtime.json"
+  },
+  "hashes": {
+    "resolved_configuration.json": "af6835e1b99429f8a2f0e2d13fa7b2e4f4eff3930e15e303232afec06d306949",
+    "model.pkl": "8e385a484bd2a7f07ae5324c4965946ea5be9019f9b5190ee53bc8c47f0f2ce1",
+    "metadata.json": "70dfde8dc514f6ec92450876194e5dfc7110584117c0a67dc9a869411d3d96e6",
+    "training_diagnostics.json": "63f1c63aa1ae4711ccab38bda19409607b84c2d550c988a255d13b993c7a1659",
+    "state_statistics.json": "dc2a4f683763f2f6ba206af8ec0c1a6863ccac0ab88844edbcc70f3d5ce454a6",
+    "in_sample_predictions.parquet": "56749ba7e857a3d6f3c6590f85739a37fd52ed0fb7110b9d2dfe482cfd91b7c2",
+    "runtime.json": "2a9469b2eb76d142f7c41ee6d7f674ba9e8765e65e15daa959c540c417aec97f"
+  },
+  "prediction_capability": {
+    "status": "supported",
+    "observations": 250
+  }
+}

@@ -2,10 +2,12 @@
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from regime.models.clustering import (
     ClusteringConfig,
     GaussianMixtureRegimeModel,
+    HDBSCANRegimeModel,
     JumpPenalizedKMeansRegimeModel,
     KMeansRegimeModel,
     align_labels,
@@ -13,6 +15,11 @@ from regime.models.clustering import (
     state_occupancy,
     transition_summary,
 )
+
+
+@pytest.fixture(autouse=True)
+def _stable_sklearn_cpu_count(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("LOKY_MAX_CPU_COUNT", "1")
 
 
 def _sample() -> pd.DataFrame:
@@ -56,3 +63,21 @@ def test_jump_penalized_kmeans_fits() -> None:
 
     assert model.result is not None
     assert len(model.result.assignments) == 24
+
+
+def test_hdbscan_falls_back_to_kmeans_when_optional_package_is_missing(
+    monkeypatch,
+) -> None:
+    original_import = __import__
+
+    def fake_import(name, globals=None, locals=None, fromlist=(), level=0):  # type: ignore[no-untyped-def]
+        if name == "hdbscan":
+            raise ImportError("No module named 'hdbscan'")
+        return original_import(name, globals, locals, fromlist, level)
+
+    monkeypatch.setattr("builtins.__import__", fake_import)
+    model = HDBSCANRegimeModel(ClusteringConfig(n_states=2, random_seed=5)).fit(_sample())
+
+    assert model.result is not None
+    assert len(model.result.assignments) == 24
+    assert set(model.result.occupancy) <= {0, 1}

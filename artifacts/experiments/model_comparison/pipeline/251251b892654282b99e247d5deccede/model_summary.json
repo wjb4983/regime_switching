@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "switching-dynamic-factor",
+  "label": "switching-dynamic-factor",
+  "family": "state_space",
+  "reason": "'StateSpaceResult' object is not iterable"
+}

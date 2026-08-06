@@ -1,0 +1,31 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "markov-switching-ar",
+  "model_configuration": {
+    "ar_order": 1,
+    "covariance_type": "approx",
+    "exog_switching": true,
+    "innovation_distribution": "gaussian",
+    "max_iter": 100,
+    "model_name": "markov-switching-ar",
+    "model_version": "0.1.0",
+    "n_states": 2,
+    "optimizer": "lbfgs",
+    "optimizer_options": {},
+    "parameters": {},
+    "random_seed": 42,
+    "regularization": 0.0,
+    "search_reps": 0,
+    "smoothness": 1.0,
+    "switching_variance": true,
+    "tol": 1e-06,
+    "transition_dynamics": "fixed",
+    "variance_model": "constant"
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\beeb145dea8b45a781b26ddbb55441b3\\model",
+  "timestamp_column": "timestamp"
+}

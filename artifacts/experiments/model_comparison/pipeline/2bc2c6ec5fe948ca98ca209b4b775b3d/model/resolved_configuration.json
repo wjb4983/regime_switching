@@ -1,0 +1,26 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "student-t-hmm",
+  "model_configuration": {
+    "ar_order": 1,
+    "covariance_regularization": 1e-06,
+    "max_duration": 50,
+    "max_iter": 50,
+    "model_name": "student-t-hmm",
+    "model_version": "0.1.0",
+    "n_init": 3,
+    "n_mixtures": 2,
+    "n_states": 2,
+    "parameters": {},
+    "random_seed": 42,
+    "sticky_strength": 0.0,
+    "student_t_dof": 8.0,
+    "tol": 0.0001
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model",
+  "timestamp_column": "timestamp"
+}

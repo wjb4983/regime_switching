@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "regime-switching-jump-diffusion",
+  "label": "regime-switching-jump-diffusion",
+  "family": "econometric",
+  "reason": "regime-switching jump-diffusion estimation requires a future optional backend"
+}

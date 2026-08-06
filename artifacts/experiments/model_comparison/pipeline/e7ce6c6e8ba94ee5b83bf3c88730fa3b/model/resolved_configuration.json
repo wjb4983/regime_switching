@@ -1,0 +1,26 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "hdp-hmm",
+  "model_configuration": {
+    "ar_order": 1,
+    "covariance_regularization": 1e-06,
+    "max_duration": 50,
+    "max_iter": 50,
+    "model_name": "hdp-hmm",
+    "model_version": "0.1.0",
+    "n_init": 1,
+    "n_mixtures": 2,
+    "n_states": 2,
+    "parameters": {},
+    "random_seed": 42,
+    "sticky_strength": 0.0,
+    "student_t_dof": 8.0,
+    "tol": 0.0001
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e7ce6c6e8ba94ee5b83bf3c88730fa3b\\model",
+  "timestamp_column": "timestamp"
+}

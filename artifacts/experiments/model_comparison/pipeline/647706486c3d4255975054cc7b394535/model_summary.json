@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "transition-hazard",
+  "label": "transition-hazard",
+  "family": "supervised",
+  "reason": "Requesting 3-fold cross-validation but provided less than 3 examples for at least one class."
+}

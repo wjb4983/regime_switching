@@ -1,0 +1,18 @@
+{
+  "attributes": {
+    "jump_penalty": 1.0,
+    "not_change_point_segmentation": true,
+    "parameterization": "centroid",
+    "segmentation_type": "recurring_state_jump"
+  },
+  "config_hash": "d3c09580b3a597c8f4502e48ab21976e7e2aef8e8b14fc58ec4cdc002980d3f8",
+  "feature_names": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "fitted_at": "2026-08-06T18:15:52.503790Z",
+  "model_name": "jump-segmentation",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

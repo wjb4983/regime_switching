@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "architecture": "graph",
+    "device": "cpu",
+    "precision": "float32",
+    "validation_observations": 50
+  },
+  "config_hash": "b863e38a99c5e97fe147019c2a125bb52c450bf3e53fbfb0ad7b31726a744457",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:44.492531Z",
+  "model_name": "graph-dependency-network",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 200
+}

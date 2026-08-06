@@ -1,0 +1,13 @@
+{
+  "attributes": {},
+  "config_hash": "46a1629a660d31ee5cc7892cc25c94804520a580aa0ac28aa8ea05cd590b5442",
+  "feature_names": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "fitted_at": "2026-08-06T18:15:40.298632Z",
+  "model_name": "hierarchical-clustering",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

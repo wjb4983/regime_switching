@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "log_likelihood": 1362.5359388799243
+  },
+  "config_hash": "024d3dbb0cb733817b235ca6965d6ede82b71223a0fefd61bc0033d2fbfad523",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:55.447190Z",
+  "model_name": "gmm-hmm",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

@@ -1,0 +1,1932 @@
+{
+  "stage": "evaluation",
+  "upstream": {
+    "source": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\fe1533928a56433e842b30e91d7c3e61\\data.parquet",
+      "hash": "b835eb576c4d27a9cd71e19303f8838e63dc8ed270750645abfeab4a3df534d1",
+      "run_id": "fe1533928a56433e842b30e91d7c3e61"
+    },
+    "features": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+      "hash": "681cf7ca43a3df4f60bd82bc649308e1b96c51532c7f651614c2c3f33ad7533a",
+      "run_id": "0646dab1def146488cb21a65da0f5dc5"
+    },
+    "candidate:gaussian-mixture": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model_summary.json",
+      "hash": "f2ddcc3f61ec880a06212b1fb51cf5af486009abcd7b7663db401878c5476928",
+      "run_id": "8d2ff87b9eb742fdbfb5ed6dbaefb449"
+    },
+    "candidate:hdbscan": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model_summary.json",
+      "hash": "6a1ad45953a66bbca27b6fff3fc6c7774e9385e6635b1aa82defd1c84786bb94",
+      "run_id": "d800705a361a404aac3e454a8c31e5dc"
+    },
+    "candidate:hierarchical-clustering": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model_summary.json",
+      "hash": "81941954058c4d42f562f45af3dc20ecf24f646a9215b8a10b1b455a56cb4c22",
+      "run_id": "facfb992fbbb4d86a3668446aa38bc77"
+    },
+    "candidate:jump-penalized-kmeans": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model_summary.json",
+      "hash": "6ec05044e129dc50efe935a77907676899e08047b0d3fadf813923a136179e3b",
+      "run_id": "cec3b3316f1748a395e7f64b2b4ae26b"
+    },
+    "candidate:ticc": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1281c62a0ba94f148ccb6ddc4e6c1ce6\\model_summary.json",
+      "hash": "4e2385fbdf30013303c9709e85ba8db2a1d8f395850598c5c5c41282db455ad0",
+      "run_id": "1281c62a0ba94f148ccb6ddc4e6c1ce6"
+    },
+    "candidate:deep-markov": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\7468df80ec6f427ab7d620dbf0c76323\\model_summary.json",
+      "hash": "7e9668129bd6bc7a059c0d7050dd47e08405f1801a4e6b616025636bd1f165af",
+      "run_id": "7468df80ec6f427ab7d620dbf0c76323"
+    },
+    "candidate:graph-dependency-network": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\ebde469fd22d40dc9ef76a2ea4faafd5\\model_summary.json",
+      "hash": "b754398c111ad14fe8711c0179e96d332843adf987bc90b88646e51d13813ba3",
+      "run_id": "ebde469fd22d40dc9ef76a2ea4faafd5"
+    },
+    "candidate:gru": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\ec3b1ba5472f43498cf8291b25bee844\\model_summary.json",
+      "hash": "4c393a544afb94417d060563287bfca11eabcc921758b0096edfc94a5a1a6a63",
+      "run_id": "ec3b1ba5472f43498cf8291b25bee844"
+    },
+    "candidate:lstm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\9abbba3cc57a449d92d4e186c4d5c527\\model_summary.json",
+      "hash": "455b2e106b4a4804af5ba4d9634b750d0ce9af256c9d02838f90d94e48b6769e",
+      "run_id": "9abbba3cc57a449d92d4e186c4d5c527"
+    },
+    "candidate:neural-change-point": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\33436e07866e4934b8018488475c55cc\\model_summary.json",
+      "hash": "ca4b93e848317d03c4ebab0537ec86aea58d28a87687e323a23825f6913f88a4",
+      "run_id": "33436e07866e4934b8018488475c55cc"
+    },
+    "candidate:neural-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\819126814d464fa59a488cbf9d734940\\model_summary.json",
+      "hash": "cc80a1727f664f552b610eae6c8d7b9e4de3ac5bd58941831c5faa33b936699b",
+      "run_id": "819126814d464fa59a488cbf9d734940"
+    },
+    "candidate:tcn": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\86adbc4f7d44409ca9d35b055dcb7ad1\\model_summary.json",
+      "hash": "30ab67962df01c299be791957609b595ea84765f6f03b3ca8f26b7024ee2782f",
+      "run_id": "86adbc4f7d44409ca9d35b055dcb7ad1"
+    },
+    "candidate:variational-state-space": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8b7e2375f95a4a0ab6ac59f2e6a9006b\\model_summary.json",
+      "hash": "0ce8cc8b2f9091d98fd0d08f88616bb276eff285e9f637f3b7ca9ae01d19e6a2",
+      "run_id": "8b7e2375f95a4a0ab6ac59f2e6a9006b"
+    },
+    "candidate:vector-quantized-vae": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e95c6020e91246d2b6cb3942fc1b3b8f\\model_summary.json",
+      "hash": "aa07b502900226d1a085be4af1e5cda1237d8d5e0a262e930d93fc13d0401726",
+      "run_id": "e95c6020e91246d2b6cb3942fc1b3b8f"
+    },
+    "candidate:markov-switching-ar": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\beeb145dea8b45a781b26ddbb55441b3\\model_summary.json",
+      "hash": "9dd08d0d4bd55f36a427d848fdcb1c6970b5b0c7d6f7a2f6f6ebbef076d2c001",
+      "run_id": "beeb145dea8b45a781b26ddbb55441b3"
+    },
+    "candidate:markov-switching-garch": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d0e39563ae9645f9a5f86cd11c76d3a6\\model_summary.json",
+      "hash": "0354fa5a98aa12c38199ce5243c2acd561bf2be45dc75c8551d6cae4f28f2791",
+      "run_id": "d0e39563ae9645f9a5f86cd11c76d3a6"
+    },
+    "candidate:markov-switching-har": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c12f47c7fb5f4be48ede5b17c50ebdb9\\model_summary.json",
+      "hash": "f13e55253ffa0d540d9b87ff92f7855bfce03d5cc25eb588a85154a17c2e06c6",
+      "run_id": "c12f47c7fb5f4be48ede5b17c50ebdb9"
+    },
+    "candidate:markov-switching-regression": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model_summary.json",
+      "hash": "192d90bd98c6ce7d761aca48fbb0d2a8af62e1a8a9cb4cf9eb94f82db62a327c",
+      "run_id": "199559ca31044dafbf96e2601cec3c50"
+    },
+    "candidate:markov-switching-var": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model_summary.json",
+      "hash": "ddbd9074eab11053d431784fa28a00e6ca67954d3438570f9a6722be6a94c859",
+      "run_id": "60fef3f556d843f4a3c023fdb1ddc9fa"
+    },
+    "candidate:regime-switching-copula": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model_summary.json",
+      "hash": "07f927218830206e5e75a23609513303e7d9bf1c0cb05ba2ef20a7f5694def23",
+      "run_id": "bcee8e3fbb2345cebd8688ef79af57c9"
+    },
+    "candidate:regime-switching-correlation": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model_summary.json",
+      "hash": "59d10a7c8489bcef72335d771f2b727bd3f87b18ec83d48affec771bf630e7b1",
+      "run_id": "4ff6280ae9d74989b1f5da83857f9328"
+    },
+    "candidate:regime-switching-jump-diffusion": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2ac9df832e2f4ac5ba6732dd5f52f616\\model_summary.json",
+      "hash": "86d97392bc125bf7694a0c033b92db6d44a3173a01bea901a046db84ed867e27",
+      "run_id": "2ac9df832e2f4ac5ba6732dd5f52f616"
+    },
+    "candidate:smooth-transition-autoregression": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\69ca41f9b0764ea585a1b6f3c751457a\\model_summary.json",
+      "hash": "9343c2d638774d16de2844cae568a71240f63ddfde0b5a54521f1ce3191901a4",
+      "run_id": "69ca41f9b0764ea585a1b6f3c751457a"
+    },
+    "candidate:switching-stochastic-volatility": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model_summary.json",
+      "hash": "c98f0f8388a300ddbce584a54e79fa8610aaa5f5aaa5b76d8414981443de3f26",
+      "run_id": "c5a7fff49a2a45f6a00108f472a14c5e"
+    },
+    "candidate:threshold-autoregression": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\5fbab25be3ce4601a43a7f639188f37d\\model_summary.json",
+      "hash": "5ead187bdcb7eb1c77097ccd9a433c9e5f3a925ce4aa4c328418bad8dbb59e0d",
+      "run_id": "5fbab25be3ce4601a43a7f639188f37d"
+    },
+    "candidate:gaussian-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model_summary.json",
+      "hash": "1d71943c246f03d7494f96659e68067ae1ddfb9ded3a010640d166c20f0a80a1",
+      "run_id": "12c20f8d17f64c99aeb7774e596c044b"
+    },
+    "candidate:jump-segmentation": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model_summary.json",
+      "hash": "c82bdf6ad806553e43d6078f3d42eea04069b36cbb925e317b134da17aa42ac1",
+      "run_id": "c0c010006fa24ec08289c7916a1c85e7"
+    },
+    "candidate:kmeans-regime": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model_summary.json",
+      "hash": "f6962f9eddf704535739a25187b1a5f5cd00b04fc0453194a7913d384eeeb16f",
+      "run_id": "d12a124e05864c6f852351426e95bf49"
+    },
+    "candidate:ar-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1052412f99b7422abc0157e98a3a3ee0\\model_summary.json",
+      "hash": "6e5e73e501827df0a8ec25cc171deacb3b193fe922b21b51a477222bd34b2f18",
+      "run_id": "1052412f99b7422abc0157e98a3a3ee0"
+    },
+    "candidate:explicit-duration-latent-state": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model_summary.json",
+      "hash": "4a309c9cb400a7174e1bfeadda76b0fe8eed0e5f3e9e825237695c437483fe40",
+      "run_id": "10639f009b2940ca834468543ccd8ef6"
+    },
+    "candidate:gmm-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model_summary.json",
+      "hash": "51b9c4cb77863ae4e2fcd98be5c417e8384d4506fd9aba25de827f19e4923bb2",
+      "run_id": "cfe1e25991484c64ae24b63fa476bd0a"
+    },
+    "candidate:hdp-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e7ce6c6e8ba94ee5b83bf3c88730fa3b\\model_summary.json",
+      "hash": "1ff37e39096876a7983e0b05de20a4bb14cf9a463d300d418cf020592c146895",
+      "run_id": "e7ce6c6e8ba94ee5b83bf3c88730fa3b"
+    },
+    "candidate:hsmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model_summary.json",
+      "hash": "8e2304f806d31609423e60c004c04f0be45cd40ec802a678c029bef0184d46ab",
+      "run_id": "999202794f6145898b3fadbcea4736d7"
+    },
+    "candidate:input-output-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model_summary.json",
+      "hash": "0dba42f5f0ebe18a879dbbc8e4188020f8ac68144bae8785dadc63d63ec52120",
+      "run_id": "dec32087f6dc438da9f0d83833b99fac"
+    },
+    "candidate:sticky-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model_summary.json",
+      "hash": "85173312be7f5e5c572ef2c1e868765051def197e9caf93f2eef6f1fc7295818",
+      "run_id": "1ac66409457d42169343c41a0284dffe"
+    },
+    "candidate:rule-volatility-threshold": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model_summary.json",
+      "hash": "7c5d1cf8ae43a1bcec40e8d4a2bd11e80d81a236d497670ca97c092c12b6fc2e",
+      "run_id": "e89fe4967bd7484b8e62413f070e9566"
+    },
+    "candidate:explicit-duration-switching-lds": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\9ab7bd276fc044dda5eeaff915501227\\model_summary.json",
+      "hash": "4d8f82aa34a90156977401e717e653fa772be756589a8847d65c65fa9f09869d",
+      "run_id": "9ab7bd276fc044dda5eeaff915501227"
+    },
+    "candidate:recurrent-switching-lds": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\259d3d1dbeed4f70b63d56683743733f\\model_summary.json",
+      "hash": "1e3d193663d5c2ab612b7713a3f41cb27716e2ea157bbc81d2ea6ebd3c18e074",
+      "run_id": "259d3d1dbeed4f70b63d56683743733f"
+    },
+    "candidate:switching-dynamic-factor": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\251251b892654282b99e247d5deccede\\model_summary.json",
+      "hash": "3993f35adfddd811a78c4cb653983c0f57d8b73058fad0cdfaadc4e5468702a2",
+      "run_id": "251251b892654282b99e247d5deccede"
+    },
+    "candidate:switching-lds": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\34926e1f041e4814bc6e8080399eb1e1\\model_summary.json",
+      "hash": "4a8a8b1c115cac7122de1401e550d792377d9f4a44c0688e1632f2be6dfdc5d0",
+      "run_id": "34926e1f041e4814bc6e8080399eb1e1"
+    },
+    "candidate:student-t-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model_summary.json",
+      "hash": "6556766f32f66f2084a4dc1785e72b324ba8bbff5a097aba19dde11372d87ae9",
+      "run_id": "2bc2c6ec5fe948ca98ca209b4b775b3d"
+    },
+    "candidate:supervised-classifier": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model_summary.json",
+      "hash": "0d1533dbb3aa41f57bf9a02f264662b3cd1b8dbf13b34cb4734564f9fd935cd2",
+      "run_id": "a08204c5f94d43c6875ba02b808037e9"
+    },
+    "candidate:transition-hazard": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\647706486c3d4255975054cc7b394535\\model_summary.json",
+      "hash": "cf91271c6869e31f8a15d4a1e2f39cfc081ab6bf3bc82df40c95667a1e47b0d8",
+      "run_id": "647706486c3d4255975054cc7b394535"
+    },
+    "candidate:transformer-clustering": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\27268be9402d45dd80ed5c15fa0a69ce\\model_summary.json",
+      "hash": "d9ccc0ae6d370b67cac1193a113200e3d1767fb74e5a25970cd03ad4cf8f53a3",
+      "run_id": "27268be9402d45dd80ed5c15fa0a69ce"
+    },
+    "candidate:transformer-hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\b8a5647b309647d08cfd15eddf0d8405\\model_summary.json",
+      "hash": "500f162af34a5a7be2571acf3f2e824d056b4d8f7272c52b71429139e9293aca",
+      "run_id": "b8a5647b309647d08cfd15eddf0d8405"
+    },
+    "candidate:transformer-hsmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\058daacc5b0149a3848f74f87a37ff51\\model_summary.json",
+      "hash": "5a5ac398991ed167bbb5bf80b9766f5080a585f56acdcfe7b04bc738f5a310c1",
+      "run_id": "058daacc5b0149a3848f74f87a37ff51"
+    },
+    "candidate:transformer-jump": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\20b0fcce385b45fea237027f656fa49e\\model_summary.json",
+      "hash": "b416fcc813afa0cdf6694fc31604011a2722ca0793bd62416cbc9eff7e48e45b",
+      "run_id": "20b0fcce385b45fea237027f656fa49e"
+    },
+    "validation": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\15aaf625489f4eaa9647f3054b82eaa1\\validation.json",
+      "hash": "c59b5dce6956618cdd62161830d603dc5d81c54a51c214e4a5f2d258589764c6",
+      "run_id": "15aaf625489f4eaa9647f3054b82eaa1"
+    }
+  },
+  "config": {
+    "metrics": [
+      "aligned_accuracy",
+      "balanced_accuracy",
+      "adjusted_rand_index",
+      "normalized_mutual_information",
+      "macro_f1",
+      "boundary_precision",
+      "boundary_recall",
+      "boundary_f1",
+      "recovery_score",
+      "regime_persistence",
+      "switching_frequency",
+      "occupancy_concentration",
+      "state_entropy",
+      "probability_entropy",
+      "transition_concentration",
+      "confidence_calibration",
+      "fit_seconds",
+      "prediction_coverage"
+    ],
+    "save_predictions": true
+  },
+  "data_period": "2020-01-01 to 2020-09-06",
+  "models": [
+    {
+      "model": "gaussian-mixture",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 1.6450354997068644,
+        "regime_persistence": 0.963855421686747,
+        "switching_frequency": 0.03614457831325302,
+        "occupancy_concentration": 0.665888,
+        "state_entropy": 0.7452883145630643,
+        "transition_concentration": 0.9426261070465922,
+        "probability_entropy": 0.16965883075190868,
+        "aligned_accuracy": 0.88,
+        "balanced_accuracy": 0.900182693904667,
+        "adjusted_rand_index": 0.4687044868482189,
+        "normalized_mutual_information": 0.35167036844076016,
+        "macro_f1": 0.7767857142857143,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.6071651700092086,
+        "confidence_calibration": 0.09134396895896213
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "clustering",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\8d2ff87b9eb742fdbfb5ed6dbaefb449\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "hdbscan",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.02727710036560893,
+        "regime_persistence": 0.9839357429718876,
+        "switching_frequency": 0.016064257028112428,
+        "occupancy_concentration": 0.770848,
+        "state_entropy": 0.5628977911449632,
+        "transition_concentration": 0.9650673400673401,
+        "probability_entropy": 0.0,
+        "aligned_accuracy": 0.936,
+        "balanced_accuracy": 0.8827437302773625,
+        "adjusted_rand_index": 0.6403965835786883,
+        "normalized_mutual_information": 0.4453787061653608,
+        "macro_f1": 0.8484848484848484,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.655467596119486,
+        "confidence_calibration": 0.06399999999999995
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "clustering",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d800705a361a404aac3e454a8c31e5dc\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "hierarchical-clustering",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.0408997000195086,
+        "regime_persistence": 0.9759036144578314,
+        "switching_frequency": 0.02409638554216864,
+        "occupancy_concentration": 0.7649919999999999,
+        "state_entropy": 0.5736665363828041,
+        "transition_concentration": 0.94890560875513,
+        "probability_entropy": 0.0,
+        "aligned_accuracy": 0.924,
+        "balanced_accuracy": 0.8597409068261086,
+        "adjusted_rand_index": 0.5829401061203093,
+        "normalized_mutual_information": 0.3842902974375808,
+        "macro_f1": 0.8226222039657941,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.6303539102149397,
+        "confidence_calibration": 0.07599999999999996
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "clustering",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "jump-penalized-kmeans",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.030747899785637856,
+        "regime_persistence": 0.9839357429718876,
+        "switching_frequency": 0.016064257028112428,
+        "occupancy_concentration": 0.770848,
+        "state_entropy": 0.5628977911449632,
+        "transition_concentration": 0.9650673400673401,
+        "probability_entropy": 0.0,
+        "aligned_accuracy": 0.936,
+        "balanced_accuracy": 0.8827437302773625,
+        "adjusted_rand_index": 0.6403965835786883,
+        "normalized_mutual_information": 0.4453787061653608,
+        "macro_f1": 0.8484848484848484,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.655467596119486,
+        "confidence_calibration": 0.06399999999999995
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "clustering",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cec3b3316f1748a395e7f64b2b4ae26b\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "ticc",
+      "family": "clustering",
+      "status": "failed",
+      "reason": "X has 2 features, but KMeans is expecting 10 features as input.",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "deep-markov",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "graph-dependency-network",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "gru",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "lstm",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "neural-change-point",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "neural-hmm",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "tcn",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "variational-state-space",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "vector-quantized-vae",
+      "family": "deep",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "markov-switching-ar",
+      "family": "econometric",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "markov-switching-garch",
+      "family": "econometric",
+      "status": "failed",
+      "reason": "13 validation errors for ProbabilisticHMMConfig\ntransition_dynamics\n  Extra inputs are not permitted [type=extra_forbidden, input_value='fixed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nvariance_model\n  Extra inputs are not permitted [type=extra_forbidden, input_value='constant', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ninnovation_distribution\n  Extra inputs are not permitted [type=extra_forbidden, input_value='gaussian', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nregularization\n  Extra inputs are not permitted [type=extra_forbidden, input_value=0.0, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\noptimizer\n  Extra inputs are not permitted [type=extra_forbidden, input_value='lbfgs', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nthreshold\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ntransition_variable\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsmoothness\n  Extra inputs are not permitted [type=extra_forbidden, input_value=1.0, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nexog_switching\n  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nswitching_variance\n  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsearch_reps\n  Extra inputs are not permitted [type=extra_forbidden, input_value=0, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ncovariance_type\n  Extra inputs are not permitted [type=extra_forbidden, input_value='approx', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\noptimizer_options\n  Extra inputs are not permitted [type=extra_forbidden, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "markov-switching-har",
+      "family": "econometric",
+      "status": "failed",
+      "reason": "13 validation errors for ProbabilisticHMMConfig\ntransition_dynamics\n  Extra inputs are not permitted [type=extra_forbidden, input_value='fixed', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nvariance_model\n  Extra inputs are not permitted [type=extra_forbidden, input_value='constant', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ninnovation_distribution\n  Extra inputs are not permitted [type=extra_forbidden, input_value='gaussian', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nregularization\n  Extra inputs are not permitted [type=extra_forbidden, input_value=0.0, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\noptimizer\n  Extra inputs are not permitted [type=extra_forbidden, input_value='lbfgs', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nthreshold\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ntransition_variable\n  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsmoothness\n  Extra inputs are not permitted [type=extra_forbidden, input_value=1.0, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nexog_switching\n  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nswitching_variance\n  Extra inputs are not permitted [type=extra_forbidden, input_value=True, input_type=bool]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsearch_reps\n  Extra inputs are not permitted [type=extra_forbidden, input_value=0, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ncovariance_type\n  Extra inputs are not permitted [type=extra_forbidden, input_value='approx', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\noptimizer_options\n  Extra inputs are not permitted [type=extra_forbidden, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "markov-switching-regression",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.8549031000584364,
+        "regime_persistence": 0.8072289156626506,
+        "switching_frequency": 0.19277108433734935,
+        "occupancy_concentration": 0.7151679999999999,
+        "state_entropy": 0.6622595460438849,
+        "transition_concentration": 0.7208173402573945,
+        "probability_entropy": 0.79596084321715,
+        "aligned_accuracy": 0.824,
+        "balanced_accuracy": 0.6734761667497093,
+        "adjusted_rand_index": 0.210334523453482,
+        "normalized_mutual_information": 0.0798666212249374,
+        "macro_f1": 0.6345514950166113,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.46951025745299985,
+        "confidence_calibration": 0.2152108623662488
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "econometric",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "markov-switching-var",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.8447871999815106,
+        "regime_persistence": 0.9718875502008032,
+        "switching_frequency": 0.028112449799196804,
+        "occupancy_concentration": 0.623008,
+        "state_entropy": 0.8144326879441559,
+        "transition_concentration": 0.960189452124936,
+        "probability_entropy": 0.04547160868622649,
+        "aligned_accuracy": 0.848,
+        "balanced_accuracy": 0.8985218402258761,
+        "adjusted_rand_index": 0.391725953390842,
+        "normalized_mutual_information": 0.32329482193433084,
+        "macro_f1": 0.7425474254742548,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5847045107216472,
+        "confidence_calibration": 0.14524934531550507
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "econometric",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\60fef3f556d843f4a3c023fdb1ddc9fa\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "regime-switching-copula",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.02936219982802868,
+        "regime_persistence": 0.8393574297188755,
+        "switching_frequency": 0.1606425702811245,
+        "occupancy_concentration": 0.5,
+        "state_entropy": 1.0,
+        "transition_concentration": 0.8393548387096774,
+        "probability_entropy": 0.0,
+        "aligned_accuracy": 0.56,
+        "balanced_accuracy": 0.6557050323866467,
+        "adjusted_rand_index": 0.012872354556603453,
+        "normalized_mutual_information": 0.03799485879936275,
+        "macro_f1": 0.4801119177253479,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.37337466436494315,
+        "confidence_calibration": 0.43999999999999995
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "econometric",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\bcee8e3fbb2345cebd8688ef79af57c9\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "regime-switching-correlation",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.02975980006158352,
+        "regime_persistence": 0.8393574297188755,
+        "switching_frequency": 0.1606425702811245,
+        "occupancy_concentration": 0.5,
+        "state_entropy": 1.0,
+        "transition_concentration": 0.8393548387096774,
+        "probability_entropy": 0.0,
+        "aligned_accuracy": 0.56,
+        "balanced_accuracy": 0.6557050323866467,
+        "adjusted_rand_index": 0.012872354556603453,
+        "normalized_mutual_information": 0.03799485879936275,
+        "macro_f1": 0.4801119177253479,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.37337466436494315,
+        "confidence_calibration": 0.43999999999999995
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "econometric",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\4ff6280ae9d74989b1f5da83857f9328\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "regime-switching-jump-diffusion",
+      "family": "econometric",
+      "status": "failed",
+      "reason": "regime-switching jump-diffusion estimation requires a future optional backend",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "smooth-transition-autoregression",
+      "family": "econometric",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "switching-stochastic-volatility",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.009450600016862154,
+        "regime_persistence": 0.5301204819277109,
+        "switching_frequency": 0.4698795180722891,
+        "occupancy_concentration": 0.5,
+        "state_entropy": 1.0,
+        "transition_concentration": 0.5301290322580645,
+        "probability_entropy": 0.0,
+        "aligned_accuracy": 0.576,
+        "balanced_accuracy": 0.6972263743564192,
+        "adjusted_rand_index": 0.021589845451428252,
+        "normalized_mutual_information": 0.06334821757885856,
+        "macro_f1": 0.4990169388989716,
+        "boundary_precision": 0.008547008547008548,
+        "boundary_recall": 0.5,
+        "boundary_f1": 0.016806722689075633,
+        "recovery_score": 0.3938655293748399,
+        "confidence_calibration": 0.42400000000000004
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "econometric",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c5a7fff49a2a45f6a00108f472a14c5e\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "threshold-autoregression",
+      "family": "econometric",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "gaussian-hmm",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 2.137170699890703,
+        "regime_persistence": 0.9718875502008032,
+        "switching_frequency": 0.028112449799196804,
+        "occupancy_concentration": 0.623008,
+        "state_entropy": 0.8144326879441559,
+        "transition_concentration": 0.960189452124936,
+        "probability_entropy": 0.04562051157978049,
+        "aligned_accuracy": 0.848,
+        "balanced_accuracy": 0.8985218402258761,
+        "adjusted_rand_index": 0.391725953390842,
+        "normalized_mutual_information": 0.32329482193433084,
+        "macro_f1": 0.7425474254742548,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5847045107216472,
+        "confidence_calibration": 0.14511162418909965
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "core",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\12c20f8d17f64c99aeb7774e596c044b\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "jump-segmentation",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.029878899920731783,
+        "regime_persistence": 0.9919678714859438,
+        "switching_frequency": 0.008032128514056214,
+        "occupancy_concentration": 0.7767679999999999,
+        "state_entropy": 0.5519275534566073,
+        "transition_concentration": 0.9820708525345623,
+        "aligned_accuracy": 0.94,
+        "balanced_accuracy": 0.8849858827437302,
+        "adjusted_rand_index": 0.6577020013185613,
+        "normalized_mutual_information": 0.46226732556752925,
+        "macro_f1": 0.8558745532111149,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.6619964603636092
+      },
+      "unsupported_metrics": {
+        "probability_entropy": "model did not expose filtered probabilities",
+        "confidence_calibration": "metric not computable from available artifacts"
+      },
+      "rows": 250,
+      "probability_columns": [],
+      "family": "jump",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "kmeans-regime",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.02696359995752573,
+        "regime_persistence": 0.9839357429718876,
+        "switching_frequency": 0.016064257028112428,
+        "occupancy_concentration": 0.770848,
+        "state_entropy": 0.5628977911449632,
+        "transition_concentration": 0.9650673400673401,
+        "probability_entropy": 0.0,
+        "aligned_accuracy": 0.936,
+        "balanced_accuracy": 0.8827437302773625,
+        "adjusted_rand_index": 0.6403965835786883,
+        "normalized_mutual_information": 0.4453787061653608,
+        "macro_f1": 0.8484848484848484,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.655467596119486,
+        "confidence_calibration": 0.06399999999999995
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "core",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d12a124e05864c6f852351426e95bf49\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "ar-hmm",
+      "family": "probabilistic",
+      "status": "failed",
+      "reason": "Model returned a different number of predictions than observations",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "explicit-duration-latent-state",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.7378676999360323,
+        "regime_persistence": 0.9718875502008032,
+        "switching_frequency": 0.028112449799196804,
+        "occupancy_concentration": 0.623008,
+        "state_entropy": 0.8144326879441559,
+        "transition_concentration": 0.960189452124936,
+        "probability_entropy": 0.04562051157978049,
+        "aligned_accuracy": 0.848,
+        "balanced_accuracy": 0.8985218402258761,
+        "adjusted_rand_index": 0.391725953390842,
+        "normalized_mutual_information": 0.32329482193433084,
+        "macro_f1": 0.7425474254742548,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5847045107216472,
+        "confidence_calibration": 0.14511162418909965
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "probabilistic",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\10639f009b2940ca834468543ccd8ef6\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "gmm-hmm",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.6023861002177,
+        "regime_persistence": 0.9718875502008032,
+        "switching_frequency": 0.028112449799196804,
+        "occupancy_concentration": 0.623008,
+        "state_entropy": 0.8144326879441559,
+        "transition_concentration": 0.960189452124936,
+        "probability_entropy": 0.04563192717561965,
+        "aligned_accuracy": 0.848,
+        "balanced_accuracy": 0.8985218402258761,
+        "adjusted_rand_index": 0.391725953390842,
+        "normalized_mutual_information": 0.32329482193433084,
+        "macro_f1": 0.7425474254742548,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5847045107216472,
+        "confidence_calibration": 0.1451216063226913
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "probabilistic",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\cfe1e25991484c64ae24b63fa476bd0a\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "hdp-hmm",
+      "family": "probabilistic",
+      "status": "failed",
+      "reason": "HDP-HMM requires an optional Bayesian backend that is not installed",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "hsmm",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.7620470998808742,
+        "regime_persistence": 0.9718875502008032,
+        "switching_frequency": 0.028112449799196804,
+        "occupancy_concentration": 0.623008,
+        "state_entropy": 0.8144326879441559,
+        "transition_concentration": 0.960189452124936,
+        "probability_entropy": 0.04562051157978049,
+        "aligned_accuracy": 0.848,
+        "balanced_accuracy": 0.8985218402258761,
+        "adjusted_rand_index": 0.391725953390842,
+        "normalized_mutual_information": 0.32329482193433084,
+        "macro_f1": 0.7425474254742548,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5847045107216472,
+        "confidence_calibration": 0.14511162418909965
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "probabilistic",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\999202794f6145898b3fadbcea4736d7\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "input-output-hmm",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.7284347000531852,
+        "regime_persistence": 0.9718875502008032,
+        "switching_frequency": 0.028112449799196804,
+        "occupancy_concentration": 0.623008,
+        "state_entropy": 0.8144326879441559,
+        "transition_concentration": 0.960189452124936,
+        "probability_entropy": 0.04562051157978049,
+        "aligned_accuracy": 0.848,
+        "balanced_accuracy": 0.8985218402258761,
+        "adjusted_rand_index": 0.391725953390842,
+        "normalized_mutual_information": 0.32329482193433084,
+        "macro_f1": 0.7425474254742548,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5847045107216472,
+        "confidence_calibration": 0.14511162418909965
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "probabilistic",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\dec32087f6dc438da9f0d83833b99fac\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "sticky-hmm",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.7549091996625066,
+        "regime_persistence": 0.9718875502008032,
+        "switching_frequency": 0.028112449799196804,
+        "occupancy_concentration": 0.623008,
+        "state_entropy": 0.8144326879441559,
+        "transition_concentration": 0.960189452124936,
+        "probability_entropy": 0.04562051157978049,
+        "aligned_accuracy": 0.848,
+        "balanced_accuracy": 0.8985218402258761,
+        "adjusted_rand_index": 0.391725953390842,
+        "normalized_mutual_information": 0.32329482193433084,
+        "macro_f1": 0.7425474254742548,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5847045107216472,
+        "confidence_calibration": 0.14511162418909965
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "probabilistic",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1ac66409457d42169343c41a0284dffe\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "rule-volatility-threshold",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.009156299754977226,
+        "regime_persistence": 0.9759036144578314,
+        "switching_frequency": 0.02409638554216864,
+        "occupancy_concentration": 0.7099519999999999,
+        "state_entropy": 0.6712478853829508,
+        "transition_concentration": 0.9585920177383591,
+        "aligned_accuracy": 0.892,
+        "balanced_accuracy": 0.8580800531473177,
+        "adjusted_rand_index": 0.4799716466268571,
+        "normalized_mutual_information": 0.31252452058585495,
+        "macro_f1": 0.778390623461046,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5968301700846078
+      },
+      "unsupported_metrics": {
+        "probability_entropy": "model did not expose filtered probabilities",
+        "confidence_calibration": "metric not computable from available artifacts"
+      },
+      "rows": 250,
+      "probability_columns": [],
+      "family": "core",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model\\resolved_configuration.json",
+        "model.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model\\model.json",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "explicit-duration-switching-lds",
+      "family": "state_space",
+      "status": "failed",
+      "reason": "'StateSpaceResult' object is not iterable",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "recurrent-switching-lds",
+      "family": "state_space",
+      "status": "failed",
+      "reason": "'StateSpaceResult' object is not iterable",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "switching-dynamic-factor",
+      "family": "state_space",
+      "status": "failed",
+      "reason": "'StateSpaceResult' object is not iterable",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "switching-lds",
+      "family": "state_space",
+      "status": "failed",
+      "reason": "'StateSpaceResult' object is not iterable",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "student-t-hmm",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 4.586289800237864,
+        "regime_persistence": 0.9799196787148594,
+        "switching_frequency": 0.02008032128514059,
+        "occupancy_concentration": 0.6479680000000001,
+        "state_entropy": 0.7745085286615678,
+        "transition_concentration": 0.9684758771929824,
+        "probability_entropy": 0.047980804355897126,
+        "aligned_accuracy": 0.848,
+        "balanced_accuracy": 0.8496927420694237,
+        "adjusted_rand_index": 0.36893917422594197,
+        "normalized_mutual_information": 0.2518143164228446,
+        "macro_f1": 0.7281364468864469,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.5603521820819478,
+        "confidence_calibration": 0.1430867703542547
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "core",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\2bc2c6ec5fe948ca98ca209b4b775b3d\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "supervised-classifier",
+      "status": "completed",
+      "metrics": {
+        "prediction_coverage": 1.0,
+        "fit_seconds": 0.0377790997736156,
+        "regime_persistence": 0.9919678714859438,
+        "switching_frequency": 0.008032128514056214,
+        "occupancy_concentration": 0.8329280000000001,
+        "state_entropy": 0.44311055824469103,
+        "transition_concentration": 0.9760484801846865,
+        "probability_entropy": 0.2718312753742796,
+        "aligned_accuracy": 0.936,
+        "balanced_accuracy": 0.8013619000166086,
+        "adjusted_rand_index": 0.594016036345661,
+        "normalized_mutual_information": 0.38650387757799265,
+        "macro_f1": 0.8222222222222222,
+        "boundary_precision": 0.0,
+        "boundary_recall": 0.0,
+        "boundary_f1": 0.0,
+        "recovery_score": 0.623849336331609,
+        "confidence_calibration": 0.01898516863700705
+      },
+      "unsupported_metrics": {},
+      "rows": 250,
+      "probability_columns": [
+        "prob_0",
+        "prob_1"
+      ],
+      "family": "supervised",
+      "evaluation_frame": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model\\in_sample_predictions.parquet",
+      "artifacts": {
+        "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model\\resolved_configuration.json",
+        "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model\\model.pkl",
+        "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model\\metadata.json",
+        "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model\\training_diagnostics.json",
+        "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model\\state_statistics.json",
+        "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model\\in_sample_predictions.parquet",
+        "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\a08204c5f94d43c6875ba02b808037e9\\model\\runtime.json"
+      }
+    },
+    {
+      "model": "transition-hazard",
+      "family": "supervised",
+      "status": "failed",
+      "reason": "Requesting 3-fold cross-validation but provided less than 3 examples for at least one class.",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "transformer-clustering",
+      "family": "transformers",
+      "status": "failed",
+      "reason": "10 validation errors for ClusteringConfig\ninput_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nembedding_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=16, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nnum_heads\n  Extra inputs are not permitted [type=extra_forbidden, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nnum_layers\n  Extra inputs are not permitted [type=extra_forbidden, input_value=1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nfeedforward_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=128, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ndropout\n  Extra inputs are not permitted [type=extra_forbidden, input_value=0.1, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsequence_length\n  Extra inputs are not permitted [type=extra_forbidden, input_value=32, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npatch_length\n  Extra inputs are not permitted [type=extra_forbidden, input_value=8, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npatch_stride\n  Extra inputs are not permitted [type=extra_forbidden, input_value=4, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npooling\n  Extra inputs are not permitted [type=extra_forbidden, input_value='mean', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "transformer-hmm",
+      "family": "transformers",
+      "status": "failed",
+      "reason": "10 validation errors for ProbabilisticHMMConfig\ninput_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nembedding_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=16, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nnum_heads\n  Extra inputs are not permitted [type=extra_forbidden, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nnum_layers\n  Extra inputs are not permitted [type=extra_forbidden, input_value=1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nfeedforward_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=128, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ndropout\n  Extra inputs are not permitted [type=extra_forbidden, input_value=0.1, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsequence_length\n  Extra inputs are not permitted [type=extra_forbidden, input_value=32, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npatch_length\n  Extra inputs are not permitted [type=extra_forbidden, input_value=8, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npatch_stride\n  Extra inputs are not permitted [type=extra_forbidden, input_value=4, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npooling\n  Extra inputs are not permitted [type=extra_forbidden, input_value='mean', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "transformer-hsmm",
+      "family": "transformers",
+      "status": "failed",
+      "reason": "10 validation errors for ProbabilisticHMMConfig\ninput_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nembedding_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=16, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nnum_heads\n  Extra inputs are not permitted [type=extra_forbidden, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nnum_layers\n  Extra inputs are not permitted [type=extra_forbidden, input_value=1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nfeedforward_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=128, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ndropout\n  Extra inputs are not permitted [type=extra_forbidden, input_value=0.1, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsequence_length\n  Extra inputs are not permitted [type=extra_forbidden, input_value=32, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npatch_length\n  Extra inputs are not permitted [type=extra_forbidden, input_value=8, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npatch_stride\n  Extra inputs are not permitted [type=extra_forbidden, input_value=4, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npooling\n  Extra inputs are not permitted [type=extra_forbidden, input_value='mean', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    },
+    {
+      "model": "transformer-jump",
+      "family": "transformers",
+      "status": "failed",
+      "reason": "10 validation errors for JumpSegmentationConfig\ninput_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nembedding_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=16, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nnum_heads\n  Extra inputs are not permitted [type=extra_forbidden, input_value=2, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nnum_layers\n  Extra inputs are not permitted [type=extra_forbidden, input_value=1, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nfeedforward_dim\n  Extra inputs are not permitted [type=extra_forbidden, input_value=128, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\ndropout\n  Extra inputs are not permitted [type=extra_forbidden, input_value=0.1, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\nsequence_length\n  Extra inputs are not permitted [type=extra_forbidden, input_value=32, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npatch_length\n  Extra inputs are not permitted [type=extra_forbidden, input_value=8, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npatch_stride\n  Extra inputs are not permitted [type=extra_forbidden, input_value=4, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden\npooling\n  Extra inputs are not permitted [type=extra_forbidden, input_value='mean', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden",
+      "unsupported_metrics": {
+        "aligned_accuracy": "model did not complete training",
+        "balanced_accuracy": "model did not complete training",
+        "adjusted_rand_index": "model did not complete training",
+        "normalized_mutual_information": "model did not complete training",
+        "macro_f1": "model did not complete training",
+        "boundary_precision": "model did not complete training",
+        "boundary_recall": "model did not complete training",
+        "boundary_f1": "model did not complete training",
+        "recovery_score": "model did not complete training",
+        "regime_persistence": "model did not complete training",
+        "switching_frequency": "model did not complete training",
+        "occupancy_concentration": "model did not complete training",
+        "state_entropy": "model did not complete training",
+        "probability_entropy": "model did not complete training",
+        "transition_concentration": "model did not complete training",
+        "confidence_calibration": "model did not complete training",
+        "fit_seconds": "model did not complete training",
+        "prediction_coverage": "model did not complete training"
+      }
+    }
+  ],
+  "metric_catalog": {
+    "aligned_accuracy": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Aligned accuracy",
+      "explanation": "Accuracy after optimally aligning nominal predicted states to the synthetic truth.",
+      "meaningful_when": "Meaningful when ground-truth states are available."
+    },
+    "balanced_accuracy": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Balanced accuracy",
+      "explanation": "Average per-state recall after state alignment so rare regimes matter.",
+      "meaningful_when": "Meaningful when class imbalance matters and ground truth is available."
+    },
+    "adjusted_rand_index": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Adjusted Rand index",
+      "explanation": "Partition similarity between inferred and true states, adjusted for chance.",
+      "meaningful_when": "Meaningful when the goal is recovering the latent partition, not exact labels."
+    },
+    "normalized_mutual_information": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Normalized mutual information",
+      "explanation": "Information overlap between inferred and true state partitions.",
+      "meaningful_when": "Meaningful when comparing clustering-like state assignments."
+    },
+    "macro_f1": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Macro F1",
+      "explanation": "Average F1 across aligned states so each regime contributes equally.",
+      "meaningful_when": "Meaningful when precision and recall both matter for each regime."
+    },
+    "boundary_precision": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Boundary precision",
+      "explanation": "Share of predicted regime changes that match true change points.",
+      "meaningful_when": "Meaningful when timing of regime transitions matters."
+    },
+    "boundary_recall": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Boundary recall",
+      "explanation": "Share of true regime changes detected by the model.",
+      "meaningful_when": "Meaningful when missed transitions are costly."
+    },
+    "boundary_f1": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Boundary F1",
+      "explanation": "Harmonic mean of boundary precision and recall.",
+      "meaningful_when": "Meaningful when both false alarms and misses matter."
+    },
+    "recovery_score": {
+      "family": "recovery",
+      "direction": "higher",
+      "title": "Recovery score",
+      "explanation": "Composite mean of available truth-based recovery metrics for synthetic benchmarks.",
+      "meaningful_when": "Meaningful only for experiments with known true states."
+    },
+    "regime_persistence": {
+      "family": "regime_quality",
+      "direction": "higher",
+      "title": "Regime persistence",
+      "explanation": "Fraction of adjacent observations that remain in the same inferred regime.",
+      "meaningful_when": "Meaningful as a stability diagnostic, not as a standalone ranking target."
+    },
+    "switching_frequency": {
+      "family": "regime_quality",
+      "direction": "lower",
+      "title": "Switching frequency",
+      "explanation": "Fraction of adjacent observations that change inferred regime.",
+      "meaningful_when": "Meaningful as a turnover diagnostic."
+    },
+    "occupancy_concentration": {
+      "family": "regime_quality",
+      "direction": "lower",
+      "title": "Occupancy concentration",
+      "explanation": "Herfindahl concentration of state occupancy; lower means less single-state collapse.",
+      "meaningful_when": "Meaningful for spotting degenerate models that stay in one state."
+    },
+    "state_entropy": {
+      "family": "regime_quality",
+      "direction": "higher",
+      "title": "State entropy",
+      "explanation": "Entropy of empirical state occupancy across the sample.",
+      "meaningful_when": "Meaningful for judging regime diversity, with caution on very noisy models."
+    },
+    "probability_entropy": {
+      "family": "regime_quality",
+      "direction": "lower",
+      "title": "Probability entropy",
+      "explanation": "Average uncertainty of filtered regime probabilities.",
+      "meaningful_when": "Meaningful only for models that expose probabilities."
+    },
+    "transition_concentration": {
+      "family": "regime_quality",
+      "direction": "higher",
+      "title": "Transition concentration",
+      "explanation": "Average maximum one-step transition probability by current state.",
+      "meaningful_when": "Meaningful for understanding how decisive inferred transitions are."
+    },
+    "confidence_calibration": {
+      "family": "regime_quality",
+      "direction": "lower",
+      "title": "Confidence calibration",
+      "explanation": "Expected calibration error of top-state confidence against correctness.",
+      "meaningful_when": "Meaningful only when ground truth and probabilities are both available."
+    },
+    "fit_seconds": {
+      "family": "runtime",
+      "direction": "lower",
+      "title": "Fit seconds",
+      "explanation": "Observed wall-clock training time from the training diagnostics artifact.",
+      "meaningful_when": "Meaningful for operational cost and benchmark practicality."
+    },
+    "prediction_coverage": {
+      "family": "runtime",
+      "direction": "higher",
+      "title": "Prediction coverage",
+      "explanation": "Share of rows for which the model produced a usable state prediction.",
+      "meaningful_when": "Meaningful for catching partial-output failures."
+    }
+  },
+  "summary": {
+    "completed_models": 20,
+    "failed_models": 27,
+    "metrics_csv": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\213638fc8a1f47239bc2a6a38cb3cee7\\comparison_metrics.csv"
+  }
+}

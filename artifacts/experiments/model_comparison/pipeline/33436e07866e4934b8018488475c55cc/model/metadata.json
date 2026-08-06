@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "architecture": "mlp",
+    "device": "cpu",
+    "precision": "float32",
+    "validation_observations": 50
+  },
+  "config_hash": "6bea05b59b1a444e97e48fbb78a1f5186433ff758d635c0ff3d60466157b7d9d",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:45.137129Z",
+  "model_name": "neural-change-point",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 200
+}

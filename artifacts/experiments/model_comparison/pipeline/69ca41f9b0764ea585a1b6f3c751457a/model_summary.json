@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "smooth-transition-autoregression",
+  "label": "smooth-transition-autoregression",
+  "family": "econometric",
+  "reason": "Model returned a different number of predictions than observations"
+}

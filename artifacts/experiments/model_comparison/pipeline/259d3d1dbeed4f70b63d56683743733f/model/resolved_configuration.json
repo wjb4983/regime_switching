@@ -1,0 +1,22 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "recurrent-switching-lds",
+  "model_configuration": {
+    "covariance_regularization": 1e-05,
+    "max_duration": 50,
+    "max_iter": 10,
+    "model_name": "recurrent-switching-lds",
+    "model_version": "0.1.0",
+    "n_states": 2,
+    "parameters": {},
+    "random_seed": 42,
+    "state_dim": 1,
+    "transition_regularization": 1.0
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\259d3d1dbeed4f70b63d56683743733f\\model",
+  "timestamp_column": "timestamp"
+}

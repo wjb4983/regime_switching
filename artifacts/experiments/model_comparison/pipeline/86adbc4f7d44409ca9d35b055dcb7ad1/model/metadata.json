@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "architecture": "tcn",
+    "device": "cpu",
+    "precision": "float32",
+    "validation_observations": 50
+  },
+  "config_hash": "20bb2d6fc3f57595d41ea1274eed1e466baab3b2520053fa9d81560d5a8e32eb",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:45.449647Z",
+  "model_name": "tcn",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 200
+}

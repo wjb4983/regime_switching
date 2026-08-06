@@ -1,0 +1,36 @@
+{
+  "attributes": {
+    "state_covariances": {
+      "0": [
+        [
+          2.9802448184595796,
+          -0.28193546807870706
+        ],
+        [
+          -0.28193546807870706,
+          0.5068987010934067
+        ]
+      ],
+      "1": [
+        [
+          0.7091533193467618,
+          -0.03889795524430389
+        ],
+        [
+          -0.03889795524430389,
+          0.18277927841963976
+        ]
+      ]
+    }
+  },
+  "config_hash": "704272775593ef5ae986545f85be3d6fd3a209a5d11bebeeabc21f893708d54f",
+  "feature_names": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "fitted_at": "2026-08-06T18:15:40.617613Z",
+  "model_name": "ticc",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

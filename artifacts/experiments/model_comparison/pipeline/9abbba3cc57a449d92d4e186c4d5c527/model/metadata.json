@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "architecture": "lstm",
+    "device": "cpu",
+    "precision": "float32",
+    "validation_observations": 50
+  },
+  "config_hash": "81b1c70a42d5f73fc2a100e4a8a1ff8f3cf45a352c2651459e3e080d91928faa",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:44.996129Z",
+  "model_name": "lstm",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 200
+}

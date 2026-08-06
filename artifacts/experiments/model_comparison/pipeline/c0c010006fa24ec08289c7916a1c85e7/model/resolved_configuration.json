@@ -1,0 +1,28 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "jump-segmentation",
+  "model_configuration": {
+    "covariance_regularization": 1e-06,
+    "feature_names": [
+      "return_1d",
+      "realized_volatility_21d"
+    ],
+    "jump_penalty": 1.0,
+    "max_iter": 25,
+    "model_name": "jump-segmentation",
+    "model_version": "0.1.0",
+    "n_states": 2,
+    "parameterization": "centroid",
+    "parameters": {},
+    "random_seed": 42,
+    "scale": true,
+    "tol": 0.0001,
+    "transition_penalty": 0.0
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\c0c010006fa24ec08289c7916a1c85e7\\model",
+  "timestamp_column": "timestamp"
+}

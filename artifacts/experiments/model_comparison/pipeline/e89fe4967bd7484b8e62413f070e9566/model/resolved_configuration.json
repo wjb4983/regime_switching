@@ -1,0 +1,23 @@
+{
+  "features": [
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "volatility-threshold",
+  "model_configuration": {
+    "direction": "above",
+    "feature": "realized_volatility_21d",
+    "labels": {
+      "risk_off": 1,
+      "risk_on": 0
+    },
+    "model_name": "volatility-threshold",
+    "model_version": "0.1.0",
+    "n_states": 2,
+    "parameters": {},
+    "random_seed": 42,
+    "threshold": 0.2
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\e89fe4967bd7484b8e62413f070e9566\\model",
+  "timestamp_column": "timestamp"
+}

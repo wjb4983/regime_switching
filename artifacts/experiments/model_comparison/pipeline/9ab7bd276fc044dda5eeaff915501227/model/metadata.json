@@ -1,0 +1,14 @@
+{
+  "attributes": {
+    "experimental": true,
+    "log_likelihood": 911.536560659764,
+    "validation": "synthetic recovery pending"
+  },
+  "config_hash": "e8d3461ad5f7c588a5ae75bb7ddd0e312c2bf045ecbfa3dae55f1d9adf65532b",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:59.302179Z",
+  "model_name": "explicit-duration-switching-lds",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

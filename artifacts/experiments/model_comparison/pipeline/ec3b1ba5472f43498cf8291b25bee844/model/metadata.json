@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "architecture": "gru",
+    "device": "cpu",
+    "precision": "float32",
+    "validation_observations": 50
+  },
+  "config_hash": "2f4e268f696cdb8b12a5f3227ed47148a82e5abe24f33d09557ad81402f0989f",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:44.795620Z",
+  "model_name": "gru",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 200
+}

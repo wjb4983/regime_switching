@@ -1,0 +1,27 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "transformer-jump",
+  "model_configuration": {
+    "dropout": 0.1,
+    "embedding_dim": 16,
+    "feedforward_dim": 128,
+    "input_dim": 2,
+    "model_name": "transformer-jump",
+    "model_version": "0.1.0",
+    "n_states": 2,
+    "num_heads": 2,
+    "num_layers": 1,
+    "parameters": {},
+    "patch_length": 8,
+    "patch_stride": 4,
+    "pooling": "mean",
+    "random_seed": 42,
+    "sequence_length": 32
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\20b0fcce385b45fea237027f656fa49e\\model",
+  "timestamp_column": "timestamp"
+}

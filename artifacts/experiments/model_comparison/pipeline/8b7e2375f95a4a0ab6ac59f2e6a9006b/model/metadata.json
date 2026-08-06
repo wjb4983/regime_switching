@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "architecture": "mlp",
+    "device": "cpu",
+    "precision": "float32",
+    "validation_observations": 50
+  },
+  "config_hash": "3dc8387ea8cc81820ed77d6652a0bdda2e37d0e6d25f2c1902a472d949b34998",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:45.635659Z",
+  "model_name": "variational-state-space",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 200
+}

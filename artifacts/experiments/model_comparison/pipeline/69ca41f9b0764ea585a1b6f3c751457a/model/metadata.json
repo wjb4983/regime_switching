@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "state_0": {
+      "frequency": 0.4979919678714859
+    },
+    "state_1": {
+      "frequency": 0.5020080321285141
+    }
+  },
+  "config_hash": "fa345909c13eaac799b1c83a768aa3a58ecdb35d0768f0a071872d08cbfcb040",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:49.766992Z",
+  "model_name": "smooth-transition-autoregression",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 249
+}

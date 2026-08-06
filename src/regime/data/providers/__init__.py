@@ -33,6 +33,7 @@ from regime.data.providers.base import (
     TextEmbeddingsProvider,
     VolatilitySurfaceProvider,
 )
+from regime.data.providers.massive import MassiveAPIError, MassiveClient
 
 __all__ = [
     "BaseDataProvider",
@@ -51,6 +52,8 @@ __all__ = [
     "IngestionCheckpoint",
     "LiquidityProvider",
     "MacroReleasesProvider",
+    "MassiveAPIError",
+    "MassiveClient",
     "MockProvider",
     "OptionsChainsProvider",
     "OptionsQuotesTradesProvider",

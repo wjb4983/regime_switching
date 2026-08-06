@@ -1,0 +1,31 @@
+{
+  "features": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "input": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\0646dab1def146488cb21a65da0f5dc5\\features.parquet",
+  "model": "hierarchical-clustering",
+  "model_configuration": {
+    "covariance_type": "full",
+    "feature_names": [
+      "return_1d",
+      "realized_volatility_21d"
+    ],
+    "graphical_lasso_alpha": 0.01,
+    "jump_penalty": 0.0,
+    "linkage": "ward",
+    "max_iter": 100,
+    "min_cluster_size": 5,
+    "model_name": "hierarchical-clustering",
+    "model_version": "0.1.0",
+    "n_init": 10,
+    "n_states": 2,
+    "parameters": {},
+    "random_seed": 42,
+    "scale": true,
+    "smoothing_window": 1,
+    "window_size": 5
+  },
+  "output": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\facfb992fbbb4d86a3668446aa38bc77\\model",
+  "timestamp_column": "timestamp"
+}

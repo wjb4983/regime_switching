@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Literal
 
-from pydantic import Field, PositiveFloat, PositiveInt, model_validator
+from pydantic import AliasChoices, Field, PositiveFloat, PositiveInt, model_validator
 
 from regime.models.base import RegimeModelConfig
 
@@ -17,14 +17,15 @@ class DeepModelConfig(RegimeModelConfig):
     never included in gradient updates, avoiding a common time-series leakage bug.
     """
 
-    hidden_size: PositiveInt = 32
+    input_dim: PositiveInt | None = None
+    hidden_size: PositiveInt = Field(default=32, validation_alias=AliasChoices("hidden_size", "hidden_dim"))
     embedding_dim: PositiveInt = 16
     num_layers: PositiveInt = 1
     dropout: float = Field(default=0.0, ge=0.0, lt=1.0)
     learning_rate: PositiveFloat = 1e-3
     weight_decay: float = Field(default=0.0, ge=0.0)
     batch_size: PositiveInt = 32
-    max_epochs: PositiveInt = 100
+    max_epochs: PositiveInt = Field(default=100, validation_alias=AliasChoices("max_epochs", "epochs"))
     patience: PositiveInt = 10
     min_delta: float = Field(default=0.0, ge=0.0)
     validation_window: PositiveInt | float = Field(default=0.2)

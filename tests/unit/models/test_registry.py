@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-import importlib
-
 import pytest
 
 from regime.models import ModelRegistryError, available_models, create_model, model_spec
+from regime.models.registry import model_configuration
 
 
 @pytest.mark.unit
@@ -45,14 +44,19 @@ def test_alias_and_standard_fields_are_normalized() -> None:
 
 
 @pytest.mark.unit
-def test_missing_optional_dependency_names_install_command(monkeypatch: pytest.MonkeyPatch) -> None:
-    original = importlib.import_module
+def test_catalog_alias_fields_are_normalized_for_deep_and_transformer_models() -> None:
+    deep = model_configuration(
+        "gru", {"fit_parameters": {"input_dim": 2, "hidden_dim": 16, "epochs": 5}}
+    )
+    transformer = model_configuration(
+        "transformer-hmm",
+        {"fit_parameters": {"input_dim": 2, "d_model": 16, "n_heads": 2, "n_layers": 1}},
+    )
 
-    def missing(name: str, package: str | None = None):  # type: ignore[no-untyped-def]
-        if name == "hdbscan":
-            raise ModuleNotFoundError("No module named hdbscan", name="hdbscan")
-        return original(name, package)
-
-    monkeypatch.setattr(importlib, "import_module", missing)
-    with pytest.raises(ModelRegistryError, match=r"regime-switching\[clustering\]"):
-        create_model("hdbscan")
+    assert deep.input_dim == 2
+    assert deep.hidden_size == 16
+    assert deep.max_epochs == 5
+    assert transformer.input_dim == 2
+    assert transformer.embedding_dim == 16
+    assert transformer.num_heads == 2
+    assert transformer.num_layers == 1

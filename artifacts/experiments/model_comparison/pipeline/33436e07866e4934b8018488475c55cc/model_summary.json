@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "neural-change-point",
+  "label": "neural-change-point",
+  "family": "deep",
+  "reason": "Model returned a different number of predictions than observations"
+}

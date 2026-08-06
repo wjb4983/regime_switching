@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "label_source": "economic_definition"
+  },
+  "config_hash": "bce081ef0d04b658dcd99e020058381f1718da2fa80e1ae6eb70da3e5cdad7cd",
+  "feature_names": [
+    "return_1d",
+    "realized_volatility_21d"
+  ],
+  "fitted_at": "2026-08-06T18:16:06.001945Z",
+  "model_name": "supervised-classifier",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

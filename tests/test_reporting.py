@@ -3,6 +3,7 @@
 from datetime import date
 from pathlib import Path
 
+import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import pytest
@@ -13,7 +14,10 @@ from regime.reporting import (
     matplotlib_figure,
     probability_area_chart,
     regime_time_series,
+    table,
 )
+
+matplotlib.use("Agg")
 
 
 @pytest.fixture
@@ -63,3 +67,25 @@ def test_regime_chart_and_matplotlib_can_be_written(
     contents = output.read_text(encoding="utf-8")
     assert "add_vrect" not in contents
     assert "data:image/png;base64," in contents
+
+
+def test_table_formats_numbers_and_truncates_long_cells(metadata: VisualizationMetadata) -> None:
+    frame = pd.DataFrame(
+        {
+            "very_long_metric_name": [0.123456789, 1234567.89],
+            "reason": [
+                "short",
+                "this is an intentionally long explanation that should be truncated",
+            ],
+        },
+        index=pd.Index(["model-alpha", "model-with-an-excessively-long-name"], name="model"),
+    )
+
+    chart = table(frame, metadata, title="Comparison table")
+    html = chart.html
+
+    assert "0.1235" in html
+    assert "1.235e+06" in html
+    assert "model-with-an-excessively..." in html
+    assert "this is an intentionally ..." in html
+    assert '"columnwidth"' in html

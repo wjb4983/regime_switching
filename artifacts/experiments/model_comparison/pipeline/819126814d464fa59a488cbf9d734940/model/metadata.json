@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "architecture": "mlp",
+    "device": "cpu",
+    "precision": "float32",
+    "validation_observations": 50
+  },
+  "config_hash": "0f0159705b9c5e7ba81e209070879f06f7e40d9df189a4dd4ce786a193d0d2b1",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:45.276128Z",
+  "model_name": "neural-hmm",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 200
+}

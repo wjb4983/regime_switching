@@ -1,0 +1,22 @@
+# Real MASSIVE ingestion for Starter-tier stocks/options plans.
+provider: massive
+plan: starter
+symbol: SPY
+output: artifacts/data/spy_massive_daily.parquet
+options_output: artifacts/data/spy_massive_options.parquet
+options_contracts_output: artifacts/data/spy_massive_option_contracts.parquet
+start_date:
+end_date:
+max_history: true
+adjusted: true
+timespan: day
+multiplier: 1
+api_key: ${MASSIVE_API_KEY}
+options:
+  enabled: true
+  max_history: true
+  max_contracts: 250
+  expired: true
+  timespan: day
+  multiplier: 1
+  derived_quote_spread_pct: 0.02

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import Field, PositiveInt, model_validator
+from pydantic import AliasChoices, Field, PositiveInt, model_validator
 
 from regime.models.base import RegimeModelConfig
 
@@ -14,9 +14,15 @@ class TransformerConfig(RegimeModelConfig):
 
     model_name: str = "time_series_transformer"
     input_dim: PositiveInt = 1
-    embedding_dim: PositiveInt = 64
-    num_heads: PositiveInt = 4
-    num_layers: PositiveInt = 2
+    embedding_dim: PositiveInt = Field(
+        default=64, validation_alias=AliasChoices("embedding_dim", "d_model")
+    )
+    num_heads: PositiveInt = Field(
+        default=4, validation_alias=AliasChoices("num_heads", "n_heads")
+    )
+    num_layers: PositiveInt = Field(
+        default=2, validation_alias=AliasChoices("num_layers", "n_layers")
+    )
     feedforward_dim: PositiveInt = 128
     dropout: float = Field(default=0.1, ge=0.0, lt=1.0)
     sequence_length: PositiveInt = 32

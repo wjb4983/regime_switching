@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "state_0": {
+      "frequency": 0.5
+    },
+    "state_1": {
+      "frequency": 0.5
+    }
+  },
+  "config_hash": "e51ef0a04ad2a527de8dff9c8f7d946b0ce247d021185624f557c6dfad21badd",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:49.824931Z",
+  "model_name": "switching-stochastic-volatility",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

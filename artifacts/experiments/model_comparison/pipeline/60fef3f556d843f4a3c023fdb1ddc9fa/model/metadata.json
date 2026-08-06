@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "log_likelihood": 1362.5494209761364
+  },
+  "config_hash": "8cd56d06756471d4dcad58c41c54b14ae3601809f443ad6ab583c880f7998b32",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:49.071552Z",
+  "model_name": "markov-switching-var",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "model": "markov-switching-regression",
+  "label": "markov-switching-regression",
+  "family": "econometric",
+  "artifacts": {
+    "resolved_configuration.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\resolved_configuration.json",
+    "model.pkl": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\model.pkl",
+    "metadata.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\metadata.json",
+    "training_diagnostics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\training_diagnostics.json",
+    "state_statistics.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\state_statistics.json",
+    "in_sample_predictions.parquet": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\in_sample_predictions.parquet",
+    "runtime.json": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\199559ca31044dafbf96e2601cec3c50\\model\\runtime.json"
+  },
+  "hashes": {
+    "resolved_configuration.json": "de5627e78853ce745adb89384c23b25fbac1a40da438e24ce3a4961a2ed81123",
+    "model.pkl": "45b00ba6871bff3100c401ec2d4089808e58e4a1a273a975d8cb65d620c77d3c",
+    "metadata.json": "d670b7842c640390490b66eca984a43eb7c1b035c0a22a43987ef2bee0b94d5e",
+    "training_diagnostics.json": "a93dc6d7a594f03f5fc53c4a866bbe876807dd70ba38d10fe2a4ebea804213d8",
+    "state_statistics.json": "185cf8a82f363fd4b01888b33c26879a91d7061711c0e7b282a38a30e5afa386",
+    "in_sample_predictions.parquet": "f4ac5e2d5f1b7d34aa935478e915f07ef92de966dfda3e9c4eb45c8e8c5bfe84",
+    "runtime.json": "d0689e23b98c214d6af2a83a98cd56c3aa999e5b7b8c741c2ac6856f8b381328"
+  },
+  "prediction_capability": {
+    "status": "supported",
+    "observations": 250
+  }
+}

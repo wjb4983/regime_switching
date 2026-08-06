@@ -5,12 +5,8 @@ source:
   config: ../synthetic/gaussian_hmm.yaml
 features:
   config: ../features/core_market.yaml
-baselines:
-  - config: ../models/rule_volatility_threshold.yaml
-  - config: ../models/kmeans_regime.yaml
-candidates:
-  - config: ../models/gaussian_hmm.yaml
-  - config: ../models/student_t_hmm.yaml
+model_catalog:
+  root: ../models
 validation:
   strategy: walk_forward
   train_size: 0.7
@@ -19,12 +15,24 @@ validation:
   embargo_periods: 1
 evaluation:
   metrics:
-    - predictive_log_score
+    - aligned_accuracy
+    - balanced_accuracy
+    - adjusted_rand_index
+    - normalized_mutual_information
+    - macro_f1
+    - boundary_precision
+    - boundary_recall
+    - boundary_f1
+    - recovery_score
     - regime_persistence
     - switching_frequency
-    - state_occupancy
+    - occupancy_concentration
     - state_entropy
     - probability_entropy
+    - transition_concentration
+    - confidence_calibration
+    - fit_seconds
+    - prediction_coverage
   save_predictions: true
 comparison:
   probability_kind: filtered

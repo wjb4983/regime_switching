@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "model": "hdp-hmm",
+  "label": "hdp-hmm",
+  "family": "probabilistic",
+  "reason": "HDP-HMM requires an optional Bayesian backend that is not installed"
+}

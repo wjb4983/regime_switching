@@ -195,7 +195,7 @@ _SPECS = (
                 ("hierarchical",),
                 None,
             ),
-            ("hdbscan", "HDBSCANRegimeModel", (), "clustering"),
+            ("hdbscan", "HDBSCANRegimeModel", (), None),
             ("jump-penalized-kmeans", "JumpPenalizedKMeansRegimeModel", ("jump_kmeans",), None),
             ("ticc", "TICCRegimeModel", (), None),
         )

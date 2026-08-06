@@ -1,0 +1,15 @@
+{
+  "attributes": {
+    "architecture": "mlp",
+    "device": "cpu",
+    "precision": "float32",
+    "validation_observations": 50
+  },
+  "config_hash": "9536be6e9cf2defac4d0c104682cf451db96531b7f462db228b5d887dce9cba6",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:45.799658Z",
+  "model_name": "vector-quantized-vae",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 200
+}

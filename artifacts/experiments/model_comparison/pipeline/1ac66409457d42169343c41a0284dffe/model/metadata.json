@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "log_likelihood": 1362.5358848253713
+  },
+  "config_hash": "94ea38f68ac4a8d070041a865627e41b0d0e7ebd8e753a9554ae5a88bd56684b",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:58.725626Z",
+  "model_name": "sticky-hmm",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

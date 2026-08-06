@@ -1,0 +1,11 @@
+{
+  "statistics": {
+    "state_0": {
+      "frequency": 0.5
+    },
+    "state_1": {
+      "frequency": 0.5
+    }
+  },
+  "status": "supported"
+}

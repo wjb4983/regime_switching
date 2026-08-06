@@ -1,0 +1,17 @@
+{
+  "attributes": {
+    "state_0": {
+      "frequency": 0.9116465863453815
+    },
+    "state_1": {
+      "frequency": 0.08835341365461848
+    }
+  },
+  "config_hash": "d437d09ddad3e3f777020e4306fb7e913706af2c14391e0f584147c9b9a958d1",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:47.071549Z",
+  "model_name": "markov-switching-ar",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 249
+}

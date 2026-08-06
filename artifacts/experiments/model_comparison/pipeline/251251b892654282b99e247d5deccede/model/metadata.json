@@ -1,0 +1,14 @@
+{
+  "attributes": {
+    "experimental": true,
+    "log_likelihood": 980.8867871309949,
+    "validation": "synthetic recovery pending"
+  },
+  "config_hash": "83820f13f3e88a16b317fef5c9cf489343b8af8cafed1c1cba5019efa2a53222",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:16:00.302552Z",
+  "model_name": "switching-dynamic-factor",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}

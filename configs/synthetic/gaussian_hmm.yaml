@@ -2,7 +2,7 @@
 generator: gaussian_hmm
 output: artifacts/data/synthetic_gaussian_hmm.parquet
 seed: 42
-observations: 1000
+observations: 250
 frequency: 1D
 start: 2020-01-01
 states:

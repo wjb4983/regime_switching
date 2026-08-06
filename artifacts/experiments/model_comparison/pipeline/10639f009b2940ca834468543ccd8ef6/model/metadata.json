@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "log_likelihood": 1362.5358848253713
+  },
+  "config_hash": "11f60bd8a05eebfb1a65367f09c6270e4fca671d40ff9fc96c2605c7b2fe443f",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T18:15:54.521200Z",
+  "model_name": "explicit-duration-latent-state",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 250
+}
