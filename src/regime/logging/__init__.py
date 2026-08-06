@@ -28,6 +28,7 @@ _SECRET_VALUE_PATTERNS = (
     re.compile(r"sk-[A-Za-z0-9_-]{8,}"),
     re.compile(r"(?i)(bearer\s+)[A-Za-z0-9._~+/=-]{8,}"),
 )
+_REGISTERED_SECRET_VALUES: set[str] = set()
 REDACTION_TEXT = "[REDACTED]"
 
 JsonScalar = str | int | float | bool | None
@@ -39,6 +40,25 @@ def is_secret_field(name: str) -> bool:
     return any(pattern.search(name) for pattern in _SECRET_FIELD_PATTERNS)
 
 
+def register_secret(value: str) -> None:
+    """Register an in-memory secret so it is removed even from free-form text."""
+    if value:
+        _REGISTERED_SECRET_VALUES.add(value)
+
+
+def redact_text(value: str) -> str:
+    """Redact known credential shapes and credentials loaded during this process."""
+    redacted = value
+    for secret in sorted(_REGISTERED_SECRET_VALUES, key=len, reverse=True):
+        redacted = redacted.replace(secret, REDACTION_TEXT)
+    for pattern in _SECRET_VALUE_PATTERNS:
+        if pattern.pattern.startswith("(?i)(bearer"):
+            redacted = pattern.sub(r"\1" + REDACTION_TEXT, redacted)
+        else:
+            redacted = pattern.sub(REDACTION_TEXT, redacted)
+    return redacted
+
+
 def redact(value: Any, *, field_name: str | None = None) -> JsonValue:
     """Recursively redact secret-like fields and values into JSON-compatible data."""
     if field_name is not None and is_secret_field(field_name):
@@ -48,13 +68,7 @@ def redact(value: Any, *, field_name: str | None = None) -> JsonValue:
     if isinstance(value, (list, tuple, set, frozenset)):
         return [redact(item) for item in value]
     if isinstance(value, str):
-        redacted = value
-        for pattern in _SECRET_VALUE_PATTERNS:
-            if pattern.pattern.startswith("(?i)(bearer"):
-                redacted = pattern.sub(r"\1" + REDACTION_TEXT, redacted)
-            else:
-                redacted = pattern.sub(REDACTION_TEXT, redacted)
-        return redacted
+        return redact_text(value)
     if isinstance(value, (int, float, bool)) or value is None:
         return value
     return repr(value)
@@ -77,7 +91,7 @@ class JsonLogFormatter(logging.Formatter):
         if isinstance(extra, Mapping):
             payload["extra"] = redact(extra)
         if record.exc_info:
-            payload["exception"] = self.formatException(record.exc_info)
+            payload["exception"] = redact_text(self.formatException(record.exc_info))
         return json.dumps(redact(payload), sort_keys=True, separators=(",", ":"))
 
 
@@ -125,4 +139,6 @@ __all__ = [
     "is_secret_field",
     "log_event",
     "redact",
+    "redact_text",
+    "register_secret",
 ]
