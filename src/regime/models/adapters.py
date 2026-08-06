@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any, Self
@@ -67,13 +68,12 @@ class RuleRegimeModelAdapter(RegimeModel):
         return [int(label) for label in signal.labels if label is not None]
 
     def save(self, path: str | Path) -> None:
-        raise NotImplementedError("rule adapters are persisted through their YAML configuration")
+        Path(path).write_text(self.config.model_dump_json(indent=2), encoding="utf-8")
 
     @classmethod
     def load(cls, path: str | Path) -> Self:
-        raise NotImplementedError(
-            "load the rule adapter through create_model and its YAML parameters"
-        )
+        payload = json.loads(Path(path).read_text(encoding="utf-8"))
+        return cls(VolatilityThresholdConfig.model_validate(payload))
 
 
 __all__ = ["RuleRegimeModelAdapter", "VolatilityThresholdConfig"]

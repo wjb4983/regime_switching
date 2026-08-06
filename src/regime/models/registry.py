@@ -50,7 +50,19 @@ _STANDARD_ALIASES = {
     "seed": "random_seed",
     "name": "model_name",
 }
-_OPERATIONAL_FIELDS = {"model", "features", "input", "output", "fit_parameters"}
+_OPERATIONAL_FIELDS = {
+    "model",
+    "features",
+    "input",
+    "output",
+    "fit_parameters",
+    "timestamp_column",
+    "missing_values",
+    "missing_value_policy",
+    "fit_cutoff",
+    "minimum_observations",
+    "min_observations",
+}
 
 
 def _resolve(path: str) -> Any:
@@ -282,9 +294,8 @@ def _configuration(spec: ModelSpec, parameters: Mapping[str, Any] | None) -> Reg
     if not isinstance(nested, Mapping) or not isinstance(fit, Mapping):
         raise ModelRegistryError("parameters and fit_parameters must be mappings")
     values = {**values, **nested, **fit}
-    values.pop("model", None)
-    values.pop("input", None)
-    values.pop("output", None)
+    for field in _OPERATIONAL_FIELDS - {"features"}:
+        values.pop(field, None)
     for old, new in _STANDARD_ALIASES.items():
         if old in values:
             if new in values:
@@ -323,4 +334,18 @@ def create_model(name: str, parameters: Mapping[str, Any] | None = None) -> Any:
     return spec.factory(model_class, config) if spec.factory else model_class(config)
 
 
-__all__ = ["ModelRegistryError", "ModelSpec", "available_models", "create_model", "model_spec"]
+def model_configuration(
+    name: str, parameters: Mapping[str, Any] | None = None
+) -> RegimeModelConfig:
+    """Translate standardized workflow fields into a model's typed configuration."""
+    return _configuration(model_spec(name), parameters)
+
+
+__all__ = [
+    "ModelRegistryError",
+    "ModelSpec",
+    "available_models",
+    "create_model",
+    "model_configuration",
+    "model_spec",
+]

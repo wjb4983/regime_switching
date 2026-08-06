@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pandas as pd
 import pytest
 from typer.testing import CliRunner
 
@@ -24,12 +25,38 @@ def test_quick_start_workflow_in_recommended_order(
 
     configs = tmp_path / "configs"
     configs.mkdir()
+    feature_path = tmp_path / "features.parquet"
+    pd.DataFrame(
+        {
+            "timestamp": pd.date_range("2020-01-01", periods=32, tz="UTC"),
+            "return_1d": [(-1) ** index * index / 100 for index in range(32)],
+            "realized_volatility": [index / 100 for index in range(32)],
+        }
+    ).to_parquet(feature_path, index=False)
+    training_common = (
+        f"input: {feature_path}\nfeatures: [return_1d, realized_volatility]\n"
+        "minimum_observations: 16\nn_states: 2\nrandom_seed: 42\n"
+    )
     workflow = [
         (("synthetic", "generate"), "synthetic.generate", "observations: 64\nseed: 42\n"),
         (("features", "build"), "features.build", "window: 5\ndrop_warmup: true\n"),
-        (("train",), "train", "model: volatility_threshold\n"),
-        (("train",), "train", "model: kmeans\nn_states: 2\nrandom_seed: 42\n"),
-        (("train",), "train", "model: gaussian_hmm\nn_states: 2\nmax_iter: 5\n"),
+        (
+            ("train",),
+            "train",
+            training_common + f"output: {tmp_path / 'rule'}\nmodel: volatility_threshold\n"
+            "fit_parameters:\n  feature: realized_volatility\n  threshold: 0.2\n",
+        ),
+        (
+            ("train",),
+            "train",
+            training_common + f"output: {tmp_path / 'kmeans'}\nmodel: kmeans\n",
+        ),
+        (
+            ("train",),
+            "train",
+            training_common + f"output: {tmp_path / 'hmm'}\nmodel: gaussian_hmm\n"
+            "fit_parameters:\n  max_iter: 3\n",
+        ),
         (("evaluate",), "evaluate", "validation: walk_forward\nfolds: 2\n"),
         (("evaluate",), "evaluate", "strategy: volatility_targeting\nlookback: 5\n"),
     ]

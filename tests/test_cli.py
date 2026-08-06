@@ -35,7 +35,7 @@ def test_config_workflow_redacts_secrets(tmp_path: Path, monkeypatch: pytest.Mon
     experiments = tmp_path / "experiments"
     monkeypatch.setattr(common, "EXPERIMENTS_DIR", experiments)
 
-    result = CliRunner().invoke(app, ["train", "--config", str(config)])
+    result = CliRunner().invoke(app, ["evaluate", "--config", str(config)])
 
     assert result.exit_code == 0
     assert "verysecret" not in result.stdout
