@@ -15,6 +15,22 @@ from typing import Any, Literal
 import numpy as np
 import pandas as pd
 
+from regime.evaluation.metrics import descriptor
+
+METRICS = {
+    name: descriptor(name, ("returns",), direction, aggregation="pooled", display=display)
+    for name, direction, display in (
+        ("annualized_return", "maximize", ".2%"),
+        ("volatility", "minimize", ".2%"),
+        ("sharpe", "maximize", ".2f"),
+        ("sortino", "maximize", ".2f"),
+        ("max_drawdown", "maximize", ".2%"),
+        ("turnover", "minimize", ".2%"),
+        ("total_costs", "minimize", ".2%"),
+        ("utility", "maximize", ".4f"),
+    )
+}
+
 ArrayLike = Sequence[float] | np.ndarray | pd.Series
 FrameLike = Sequence[Sequence[float]] | np.ndarray | pd.DataFrame
 SliceName = Literal[

@@ -8,6 +8,44 @@ from typing import Protocol
 import numpy as np
 from scipy.stats import norm
 
+from regime.evaluation.metrics import ProbabilityKind, descriptor
+
+METRICS = {
+    "predictive_log_score": descriptor(
+        "predictive_log_score",
+        ("observations", "predictive_density"),
+        "minimize",
+        ProbabilityKind.PREDICTIVE,
+    ),
+    "brier_score": descriptor(
+        "brier_score", ("truth", "probabilities"), "minimize", ProbabilityKind.FILTERED
+    ),
+    "calibration_error": descriptor(
+        "calibration_error", ("truth", "probabilities"), "minimize", ProbabilityKind.FILTERED
+    ),
+    "expected_calibration_error": descriptor(
+        "expected_calibration_error",
+        ("truth", "probabilities"),
+        "minimize",
+        ProbabilityKind.FILTERED,
+    ),
+    "mae": descriptor("mae", ("truth", "prediction"), "minimize"),
+    "rmse": descriptor("rmse", ("truth", "prediction"), "minimize"),
+    "qlike": descriptor("qlike", ("truth", "prediction"), "minimize"),
+    "crps": descriptor(
+        "crps", ("observations", "predictive_distribution"), "minimize", ProbabilityKind.PREDICTIVE
+    ),
+    "coverage": descriptor(
+        "coverage",
+        ("observations", "lower", "upper"),
+        "diagnostic",
+        ProbabilityKind.PREDICTIVE,
+        display=".2%",
+    ),
+    "sharpness": descriptor(
+        "sharpness", ("lower", "upper"), "minimize", ProbabilityKind.PREDICTIVE
+    ),
+}
 ArrayLike = Sequence[float] | np.ndarray
 
 
