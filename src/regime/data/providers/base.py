@@ -22,6 +22,8 @@ from enum import StrEnum
 from pathlib import Path
 from typing import Generic, TypeAlias, TypeVar
 
+from regime.logging import redact_text, register_secret
+
 Record: TypeAlias = Mapping[str, object]
 TRecord = TypeVar("TRecord", bound=Record)
 
@@ -152,6 +154,15 @@ class CachePolicy:
     ttl: timedelta | None = None
 
 
+class CredentialScope(StrEnum):
+    """Least-privilege operations for which a provider credential may be used."""
+
+    READ = "read"
+    WRITE = "write"
+    STREAM = "stream"
+    REFERENCE = "reference"
+
+
 @dataclass(frozen=True)
 class ProviderRequest:
     """Common request envelope for all provider domains."""
@@ -198,6 +209,11 @@ class ProviderCredentials:
 
     values: Mapping[str, str] = field(default_factory=dict)
     secret_keys: tuple[str, ...] = ()
+    scopes: Mapping[str, frozenset[CredentialScope]] = field(default_factory=dict)
+
+    def __post_init__(self) -> None:
+        for value in self.values.values():
+            register_secret(value)
 
     @classmethod
     def load(
@@ -206,25 +222,52 @@ class ProviderCredentials:
         env_prefix: str,
         secret_file: Path | str | None = None,
         required: Iterable[str] = (),
+        names: Iterable[str] = (),
+        scopes: Mapping[str, Iterable[CredentialScope]] | None = None,
     ) -> ProviderCredentials:
         """Load credentials from ``ENV_PREFIX_NAME`` variables and an ignored JSON file."""
         loaded: dict[str, str] = {}
         required_names = tuple(required)
-        for name in required_names:
-            value = os.getenv(f"{env_prefix}_{name}")
-            if value:
-                loaded[name] = value
+        credential_names = tuple(dict.fromkeys((*required_names, *names)))
+        file_values: dict[str, object] = {}
         if secret_file is not None:
             path = Path(secret_file).expanduser()
             if path.exists():
-                file_values = json.loads(path.read_text(encoding="utf-8"))
-                if not isinstance(file_values, dict):
-                    raise ValueError("secret file must contain a JSON object")
+                if path.name == ".env" or path.name.startswith(".env."):
+                    file_values = {
+                        key.strip(): value.strip().strip("\"'")
+                        for line in path.read_text(encoding="utf-8").splitlines()
+                        if line.strip() and not line.lstrip().startswith("#") and "=" in line
+                        for key, value in [line.split("=", 1)]
+                    }
+                else:
+                    parsed = json.loads(path.read_text(encoding="utf-8"))
+                    if not isinstance(parsed, dict):
+                        raise ValueError("secret file must contain a JSON object")
+                    file_values = parsed
                 loaded.update({str(key): str(value) for key, value in file_values.items()})
+        for name in credential_names:
+            value = os.getenv(f"{env_prefix}_{name}")
+            if value:
+                loaded[name] = value
         missing = tuple(name for name in required_names if name not in loaded)
         if missing:
             raise ValueError(f"missing required provider credentials: {missing}")
-        return cls(values=loaded, secret_keys=tuple(loaded))
+        for value in loaded.values():
+            register_secret(value)
+        credential_scopes = {
+            name: frozenset(values) for name, values in (scopes or {}).items()
+        }
+        return cls(values=loaded, secret_keys=tuple(loaded), scopes=credential_scopes)
+
+    def get(self, name: str, *, scope: CredentialScope | None = None) -> str:
+        """Return a credential only when it is authorized for the requested scope."""
+        if name not in self.values:
+            raise KeyError(f"provider credential {name!r} is not configured")
+        allowed = self.scopes.get(name, frozenset({CredentialScope.READ}))
+        if scope is not None and scope not in allowed:
+            raise PermissionError(f"provider credential {name!r} lacks {scope.value!r} scope")
+        return self.values[name]
 
     def redacted(self) -> Mapping[str, str]:
         """Return credentials safe for diagnostic logs."""
@@ -270,6 +313,7 @@ class BaseDataProvider(ABC):
         self._sleep = sleep
         self._last_request_at = 0.0
         self._request_cache: dict[str, Page[Record]] = {}
+        self._request_cache_times: dict[str, float] = {}
 
     @abstractmethod
     def capabilities(self) -> tuple[ProviderCapability, ...]:
@@ -288,7 +332,12 @@ class BaseDataProvider(ABC):
     def fetch_page(self, request: ProviderRequest) -> Page[Record]:
         """Fetch one page with cache lookup, throttling, and retry handling."""
         cache_key = request.cache_key()
-        if self.cache_policy.enabled and cache_key in self._request_cache:
+        cached_at = self._request_cache_times.get(cache_key)
+        cache_fresh = self.cache_policy.ttl is None or (
+            cached_at is not None
+            and time.monotonic() - cached_at <= self.cache_policy.ttl.total_seconds()
+        )
+        if self.cache_policy.enabled and cache_fresh and cache_key in self._request_cache:
             return self._request_cache[cache_key]
 
         def fetch_current() -> Page[Record]:
@@ -297,11 +346,13 @@ class BaseDataProvider(ABC):
         page = self.request_with_retries(fetch_current)
         if self.cache_policy.enabled:
             self._request_cache[cache_key] = page
+            self._request_cache_times[cache_key] = time.monotonic()
         return page
 
     def clear_request_cache(self) -> None:
         """Clear the local request cache."""
         self._request_cache.clear()
+        self._request_cache_times.clear()
 
     def fetch_all_pages(self, request: ProviderRequest) -> tuple[Record, ...]:
         """Fetch all pages for a request, following cursors until completion."""
@@ -338,7 +389,8 @@ class BaseDataProvider(ABC):
                 self._sleep(self.retry_policy.backoff(attempt))
         if last_error is None:
             raise RuntimeError("provider operation failed without an exception")
-        raise last_error
+        message = redact_text(str(last_error))
+        raise RuntimeError(f"provider request failed: {message}") from None
 
     def recover_partial(
         self, request: ProviderRequest, checkpoint: IngestionCheckpoint

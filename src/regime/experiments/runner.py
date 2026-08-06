@@ -100,8 +100,10 @@ class ExperimentRun:
     def save_checkpoint(self, state: Any, name: str = "checkpoint.pkl") -> Path:
         """Persist checkpoint state for resumable runs."""
         path = self.artifact_path("checkpoint", name)
+        # Checkpoints are artifacts too: sanitize mappings/strings before serialization.
+        safe_state = redact(state)
         with path.open("wb") as file_obj:
-            pickle.dump(state, file_obj)
+            pickle.dump(safe_state, file_obj)
         self.store.add_artifact(self.run_id, "checkpoint", path, artifact_hash=file_hash(path))
         self.store.update_run(self.run_id, "running", checkpoint_path=str(path))
         return path
