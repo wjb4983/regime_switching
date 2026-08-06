@@ -10,7 +10,7 @@ build-backend = "hatchling.build"
 name = "regime-switching"
 version = "0.1.0"
 description = "Typed research toolkit for regime-switching models, data pipelines, and evaluation workflows."
-readme = "README.txt"
+readme = "README.md"
 requires-python = ">=3.11,<3.13"
 license = { text = "MIT" }
 authors = [{ name = "Regime Switching Contributors" }]
@@ -81,12 +81,6 @@ dev = [
     "ruff>=0.5",
     "types-PyYAML>=6.0",
 ]
-# Documentation stack: mkdocstrings[python] extracts API docs from typed Python objects.
-docs = [
-    "mkdocs>=1.6",
-    "mkdocs-material>=9.5",
-    "mkdocstrings[python]>=0.25",
-]
 # Optional integrations are kept out of the core install because they are heavier or domain-specific.
 optimization = ["optuna>=3.6"]
 tracking = ["mlflow>=2.14"]
@@ -113,7 +107,7 @@ transformers = [
 # distributed execution becomes the priority.
 distributed = ["ray>=2.30"]
 all = [
-    "regime-switching[app,changepoint,clustering,deep,distributed,docs,gpu,optimization,options,tracking,transformers]",
+    "regime-switching[app,changepoint,clustering,deep,distributed,gpu,optimization,options,tracking,transformers]",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -121,7 +115,7 @@ packages = ["src/regime"]
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/README.txt",
+    "/README.md",
     "/pyproject.toml",
     "/src",
     "/tests",
