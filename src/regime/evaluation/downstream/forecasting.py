@@ -25,7 +25,19 @@ import numpy as np
 import pandas as pd
 
 from regime.evaluation.comparison import ComparisonTestResult, diebold_mariano_test
+from regime.evaluation.metrics import ProbabilityKind, descriptor
 from regime.evaluation.statistical import rmse
+
+METRICS = {
+    "mse": descriptor("mse", ("truth", "prediction"), "minimize"),
+    "mae": descriptor("mae", ("truth", "prediction"), "minimize"),
+    "rmse": descriptor("rmse", ("truth", "prediction"), "minimize"),
+    "qlike": descriptor("qlike", ("truth", "prediction"), "minimize"),
+    "brier": descriptor(
+        "brier", ("truth", "probabilities"), "minimize", ProbabilityKind.PREDICTIVE
+    ),
+    "negative_spearman": descriptor("negative_spearman", ("truth", "prediction"), "minimize"),
+}
 
 ArrayLike: TypeAlias = Sequence[float] | np.ndarray | pd.Series
 FrameLike: TypeAlias = np.ndarray | pd.DataFrame

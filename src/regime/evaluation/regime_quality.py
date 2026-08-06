@@ -9,6 +9,28 @@ import numpy as np
 from scipy.optimize import linear_sum_assignment
 from sklearn.metrics import adjusted_rand_score, mutual_info_score
 
+from regime.evaluation.metrics import ProbabilityKind, descriptor
+
+METRICS = {
+    "regime_persistence": descriptor("regime_persistence", ("states",), "maximize", display=".2%"),
+    "switching_frequency": descriptor(
+        "switching_frequency", ("states",), "diagnostic", display=".2%"
+    ),
+    "state_entropy": descriptor("state_entropy", ("states",), "diagnostic"),
+    "probability_entropy": descriptor(
+        "probability_entropy", ("probabilities",), "diagnostic", ProbabilityKind.FILTERED
+    ),
+    "state_recurrence": descriptor(
+        "state_recurrence", ("states",), "diagnostic", aggregation="pooled"
+    ),
+    "rolling_refit_stability": descriptor(
+        "rolling_refit_stability", ("state_runs",), "maximize", aggregation="none"
+    ),
+    "transition_stability": descriptor(
+        "transition_stability", ("transition_matrices",), "minimize", aggregation="none"
+    ),
+}
+
 ArrayLike = Sequence[float] | Sequence[int] | np.ndarray
 
 

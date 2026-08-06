@@ -12,6 +12,8 @@ from __future__ import annotations
 
 import json
 import pickle
+import resource
+import time
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import asdict, dataclass, field, is_dataclass
 from pathlib import Path
@@ -22,6 +24,7 @@ import pandas as pd
 
 from regime.evaluation.alignment import AlignmentDiagnostics, AlignmentMethod, align_states
 from regime.evaluation.regime_quality import (
+    duration_distribution,
     probability_entropy,
     regime_persistence,
     rolling_refit_stability,
@@ -33,7 +36,12 @@ from regime.evaluation.regime_quality import (
 )
 from regime.evaluation.statistical import brier_score, predictive_log_score
 from regime.experiments.provenance import RunMetadataRecorder, TimePeriod, stable_hash
-from regime.models.base import RegimeInferenceResult, RegimeModel, RegimeModelConfig
+from regime.models.base import (
+    RegimeInferenceResult,
+    RegimeModel,
+    RegimeModelConfig,
+    UnsupportedModelOperation,
+)
 from regime.validation.splitters import BaseSplitter, ValidationSplit
 
 T = TypeVar("T")
@@ -140,6 +148,7 @@ class EvaluationRunResult:
     diagnostics_path: str
     provenance_path: str
     checkpoint_path: str
+    comparison_contract_path: str
     windows: tuple[WindowEvaluationResult, ...]
     metrics: Mapping[str, float]
 
@@ -176,7 +185,27 @@ class EvaluationRunner:
         checkpoint_path = output_dir / "checkpoints" / "runner_state.json"
         data = self._load_data(dataset_config)
         splits = self._splits(data, validation_config)
-        completed = self._load_checkpoint(checkpoint_path) if evaluation_config.resume else set()
+        checkpoint_signature = stable_hash(
+            {
+                "dataset": dataset_config.dataset_id,
+                "feature_hash": dataset_config.feature_hash,
+                "model": self._jsonable(model_config.fit_config),
+                "model_factory": getattr(
+                    model_config.model_factory, "__qualname__", repr(model_config.model_factory)
+                ),
+                "validation": self._jsonable(validation_config),
+                "splits": [self._jsonable(split) for split in splits],
+                "metrics": {
+                    "statistical": self._jsonable(evaluation_config.statistical_metrics),
+                    "regime_quality": self._jsonable(evaluation_config.regime_quality_metrics),
+                },
+            }
+        )
+        completed = (
+            self._load_checkpoint(checkpoint_path, checkpoint_signature)
+            if evaluation_config.resume
+            else set()
+        )
         recorder = RunMetadataRecorder(
             repo=Path.cwd(), package_names=evaluation_config.package_names
         )
@@ -188,6 +217,7 @@ class EvaluationRunner:
         label_runs: list[np.ndarray] = []
 
         for window_id, split in enumerate(splits):
+            window_started = time.perf_counter()
             pred_path = output_dir / "predictions" / f"window_{window_id:04d}.parquet"
             diag_path = output_dir / "diagnostics" / f"window_{window_id:04d}.json"
             model_path = output_dir / "models" / f"window_{window_id:04d}.pkl"
@@ -227,6 +257,24 @@ class EvaluationRunner:
                 predictions, eval_data, evaluation_config, transition_matrices, label_runs
             )
             diagnostics["metrics"] = metrics
+            requested_metrics = [
+                metric
+                for metric in (
+                    *evaluation_config.statistical_metrics,
+                    *evaluation_config.regime_quality_metrics,
+                )
+                if isinstance(metric, str)
+            ]
+            diagnostics["unsupported_metrics"] = [
+                {"metric": metric, "status": "unsupported", "reason": "required inputs unavailable"}
+                for metric in requested_metrics
+                if metric not in metrics
+                and not any(key.startswith(f"{metric}_") for key in metrics)
+            ]
+            diagnostics["state_occupancy"] = state_occupancy(predictions["state"]).copy()
+            diagnostics["state_durations"] = duration_distribution(predictions["state"])
+            diagnostics["runtime_seconds"] = time.perf_counter() - window_started
+            diagnostics["max_rss_kb"] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
             predictions.to_parquet(pred_path, index=False)
             diag_path.write_text(
                 json.dumps(self._jsonable(diagnostics), indent=2, sort_keys=True), encoding="utf-8"
@@ -253,7 +301,10 @@ class EvaluationRunner:
             if evaluation_config.checkpoint_every_window:
                 completed.add(window_id)
                 checkpoint_path.write_text(
-                    json.dumps({"completed_windows": sorted(completed)}), encoding="utf-8"
+                    json.dumps(
+                        {"completed_windows": sorted(completed), "signature": checkpoint_signature}
+                    ),
+                    encoding="utf-8",
                 )
 
         all_predictions = (
@@ -264,6 +315,12 @@ class EvaluationRunner:
         metrics_path = output_dir / "metrics.json"
         diagnostics_path = output_dir / "diagnostics.json"
         provenance_path = output_dir / "provenance.json"
+        contract_path = output_dir / "comparison_contract.json"
+        resolved_contract = self._resolved_contract(validation_config, evaluation_config)
+        contract_path.write_text(
+            json.dumps(self._jsonable(resolved_contract), indent=2, sort_keys=True),
+            encoding="utf-8",
+        )
         all_predictions.to_parquet(predictions_path, index=False)
         metrics_path.write_text(
             json.dumps(self._jsonable(aggregate_metrics), indent=2, sort_keys=True),
@@ -293,7 +350,13 @@ class EvaluationRunner:
             json.dumps(provenance.to_record(), indent=2, sort_keys=True), encoding="utf-8"
         )
         checkpoint_path.write_text(
-            json.dumps({"completed_windows": list(range(len(splits))), "complete": True}),
+            json.dumps(
+                {
+                    "completed_windows": list(range(len(splits))),
+                    "complete": True,
+                    "signature": checkpoint_signature,
+                }
+            ),
             encoding="utf-8",
         )
         return EvaluationRunResult(
@@ -304,6 +367,7 @@ class EvaluationRunner:
             str(diagnostics_path),
             str(provenance_path),
             str(checkpoint_path),
+            str(contract_path),
             tuple(window_results),
             aggregate_metrics,
         )
@@ -345,6 +409,20 @@ class EvaluationRunner:
                 raise ComparisonContractError(
                     f"comparison contract field {key!r} does not match this run"
                 )
+
+    def _resolved_contract(
+        self, validation: ValidationConfig, evaluation: EvaluationConfig
+    ) -> dict[str, Any]:
+        contract = dict(evaluation.comparison_contract)
+        contract.update(
+            {
+                "retraining_schedule": validation.retraining_schedule,
+                "execution_delay": validation.execution_delay,
+                "cost_assumptions": dict(evaluation.cost_assumptions),
+                "downstream_decision_rules": dict(evaluation.downstream_decision_rules),
+            }
+        )
+        return contract
 
     def _load_data(self, config: DatasetConfig) -> Any:
         if config.loader is not None:
@@ -391,8 +469,16 @@ class EvaluationRunner:
         window_id: int,
         smooth: bool,
     ) -> tuple[pd.DataFrame, dict[str, Any]]:
-        probs = np.asarray(model.predict_proba(eval_data), dtype=float)
-        states = probs.argmax(axis=1).astype(int)
+        try:
+            probs = np.asarray(model.predict_proba(eval_data), dtype=float)
+            states = probs.argmax(axis=1).astype(int)
+        except (AttributeError, NotImplementedError, UnsupportedModelOperation):
+            states = np.asarray(model.predict(eval_data), dtype=int)
+            width = max(int(states.max(initial=0)) + 1, 1)
+            probs = np.eye(width, dtype=float)[states]
+            probability_status = "unsupported"
+        else:
+            probability_status = "supported"
         records: dict[str, Any] = {
             "window_id": window_id,
             "row": list(range(len(states))),
@@ -403,6 +489,7 @@ class EvaluationRunner:
         diagnostics: dict[str, Any] = {
             "split_metadata": split.metadata,
             "windows": [asdict(window) for window in split.windows],
+            "probabilities": {"status": probability_status, "kind": "filtered"},
         }
         if smooth:
             smoothed = self._smoothed_probabilities(model, eval_data)
@@ -521,10 +608,13 @@ class EvaluationRunner:
             else RegimeModelConfig.model_validate(config)
         )
 
-    def _load_checkpoint(self, path: Path) -> set[int]:
+    def _load_checkpoint(self, path: Path, signature: str) -> set[int]:
         if not path.exists():
             return set()
-        return set(json.loads(path.read_text(encoding="utf-8")).get("completed_windows", []))
+        record = json.loads(path.read_text(encoding="utf-8"))
+        if record.get("signature") != signature:
+            return set()
+        return set(record.get("completed_windows", []))
 
     def _rehydrate_window(
         self, window_id: int, pred_path: Path, diag_path: Path, model_path: Path
