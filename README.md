@@ -100,10 +100,22 @@ regime --help
 The installed `regime` entry point is the supported interface. With uv, prefix commands below with
 `uv run`.
 
-## Quick start: complete command order
+## Quick start: one-command experiment
 
-The configurations are numbered by dependency. Keep this order so every stage receives the
-artifacts produced upstream and simple baselines are established before complex models.
+The recommended path validates and executes the complete dependency graph, resolves every
+downstream input from registered upstream artifacts, and produces the comparison report:
+
+```bash
+uv run regime experiment run --config configs/experiments/model_comparison.yaml
+```
+
+Use `--dry-run` first to validate the graph, models, optional dependencies, inputs, and output
+collisions without fitting. Use `--no-resume` to force a fresh parent and all-new child runs.
+
+### Advanced/debugging: individual commands
+
+Run individual stages only when investigating a stage. Keep this generated dependency order so
+each command receives its upstream artifacts and baselines precede candidate models.
 
 ```bash
 # 1. Generate reproducible observations with known latent states.
@@ -153,6 +165,8 @@ Omit `--no-resume` after validating a workflow if interrupted work should resume
 
 ```bash
 uv run regime --help
+uv run regime experiment --help
+uv run regime experiment run --help
 uv run regime data --help
 uv run regime data ingest --help
 uv run regime features --help
@@ -170,6 +184,7 @@ Available operations and required arguments:
 
 | Operation | Command | Purpose |
 |---|---|---|
+| Experiment | `regime experiment run --config PATH [--resume/--no-resume] [--dry-run]` | Run the complete linked dependency graph. |
 | Synthetic data | `regime synthetic generate --config PATH [--resume/--no-resume]` | Register a seeded synthetic-data run. |
 | Ingestion | `regime data ingest --config PATH [--resume/--no-resume]` | Register provider ingestion from canonical YAML. |
 | Features | `regime features build --config PATH [--resume/--no-resume]` | Register a point-in-time feature build. |

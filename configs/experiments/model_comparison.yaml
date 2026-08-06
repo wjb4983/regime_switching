@@ -1,0 +1,36 @@
+# One-command baseline and candidate comparison; shared fragments remain authoritative.
+name: daily_market_regime_model_comparison
+work_dir: artifacts/experiments/model_comparison
+source:
+  config: ../synthetic/gaussian_hmm.yaml
+features:
+  config: ../features/core_market.yaml
+baselines:
+  - config: ../models/rule_volatility_threshold.yaml
+  - config: ../models/kmeans_regime.yaml
+candidates:
+  - config: ../models/gaussian_hmm.yaml
+  - config: ../models/student_t_hmm.yaml
+validation:
+  strategy: walk_forward
+  train_size: 0.7
+  test_size: 0.2
+  n_splits: 4
+  embargo_periods: 1
+evaluation:
+  metrics:
+    - predictive_log_score
+    - regime_persistence
+    - switching_frequency
+    - state_occupancy
+    - state_entropy
+    - probability_entropy
+  save_predictions: true
+comparison:
+  probability_kind: filtered
+  execution_delay: 1
+report:
+  title: Daily market regime model comparison
+  format: html
+  output_dir: artifacts/reports
+  include_sections: [summary, metrics, comparison]

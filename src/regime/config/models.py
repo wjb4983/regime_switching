@@ -130,17 +130,35 @@ class ReportConfig(RegimeBaseConfig):
 
 
 class ExperimentConfig(RegimeBaseConfig):
-    """Top-level experiment configuration composed from workflow config sections."""
+    """Top-level experiment graph.
+
+    A section may be a small inline mapping or ``{"config": "path/to/shared.yaml"}``.
+    The legacy ``dataset``/``model`` fields remain accepted for API compatibility.
+    """
 
     _path_fields = frozenset({"work_dir"})
 
     name: str = Field(min_length=1)
     work_dir: Path = Path(".")
-    dataset: DatasetAssemblyConfig
-    model: ModelConfig
+    source: dict[str, Any] | None = None
+    features: dict[str, Any] | None = None
+    baselines: list[dict[str, Any]] = Field(default_factory=list)
+    candidates: list[dict[str, Any]] = Field(default_factory=list)
+    tuning: dict[str, Any] | None = None
+    comparison: dict[str, Any] = Field(default_factory=dict)
+    dataset: DatasetAssemblyConfig | None = None
+    model: ModelConfig | None = None
     validation: ValidationConfig = Field(default_factory=ValidationConfig)
     evaluation: EvaluationConfig = Field(default_factory=EvaluationConfig)
     backtest: BacktestConfig | None = None
     report: ReportConfig | None = None
     tags: list[str] = Field(default_factory=list)
     metadata: dict[str, Any] = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def _require_a_workflow(self) -> ExperimentConfig:
+        if self.source is None and self.dataset is None:
+            raise ValueError("An experiment requires either 'source' or legacy 'dataset'.")
+        if not self.baselines and not self.candidates and self.model is None:
+            raise ValueError("An experiment requires at least one baseline, candidate, or model.")
+        return self
