@@ -34,6 +34,7 @@ nav:
       - Causal features: features/index.md
   - Evaluation:
       - Metrics and tests: evaluation/index.md
+      - Acceptance checklist: acceptance_checklist.md
   - Backtesting:
       - Trading caveats: backtesting/index.md
   - Tools:
