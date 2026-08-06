@@ -418,12 +418,21 @@ def probabilistic_sharpe_ratio(
 
 
 def deflated_sharpe_ratio(
-    returns: ArrayLike, *, n_trials: int, periods_per_year: float = 1.0
+    returns: ArrayLike,
+    *,
+    n_trials: int,
+    periods_per_year: float = 1.0,
+    seed_stability: Mapping[str, Sequence[float]] | None = None,
 ) -> ComparisonTestResult:
-    """Deflated Sharpe Ratio adjusting for non-normality and multiple trials."""
+    """Deflated Sharpe Ratio using effective trials and optional seed dispersion."""
     if n_trials <= 0:
         raise ValueError("n_trials must be positive")
-    expected_max = norm.ppf(1 - 1 / max(np.e * n_trials, 1.000001)) / np.sqrt(periods_per_year)
+    dispersion = 0.0
+    if seed_stability:
+        dispersion = max((float(value) for value in seed_stability.get("std", (0.0,))), default=0.0)
+    expected_max = (
+        norm.ppf(1 - 1 / max(np.e * n_trials, 1.000001)) / np.sqrt(periods_per_year) + dispersion
+    )
     result = probabilistic_sharpe_ratio(
         returns,
         benchmark_sharpe=float(expected_max * np.sqrt(periods_per_year)),
@@ -446,6 +455,7 @@ def deflated_sharpe_ratio(
         doc,
         {
             "n_trials": float(n_trials),
+            "seed_stability_penalty": dispersion,
             "benchmark_sharpe": float(expected_max * np.sqrt(periods_per_year)),
         },
     )

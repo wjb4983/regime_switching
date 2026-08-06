@@ -206,6 +206,29 @@ def scatter_chart(
     return _plotly(title, figure, metadata)
 
 
+def pareto_tradeoff_chart(
+    trials: Sequence[Mapping[str, Any]],
+    metadata: VisualizationMetadata,
+    *,
+    objectives: Sequence[str],
+) -> ReportFigure:
+    """Visualize a persisted two-objective Pareto set without scalarizing it."""
+    if len(objectives) != 2:
+        raise ValueError("Pareto trade-off charts require exactly two objectives")
+    values = [row["values"] for row in trials]
+    figure = go.Figure(
+        go.Scatter(
+            x=[value[0] for value in values],
+            y=[value[1] for value in values],
+            text=[f"trial {row['trial']}" for row in trials],
+            mode="markers+text",
+        )
+    )
+    figure.update_xaxes(title=objectives[0])
+    figure.update_yaxes(title=objectives[1])
+    return _plotly("Pareto trade-offs", figure, metadata)
+
+
 def table(
     data: pd.DataFrame,
     metadata: VisualizationMetadata,

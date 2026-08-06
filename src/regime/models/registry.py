@@ -33,6 +33,7 @@ class ModelSpec:
     optional_dependency_group: str | None = None
     dependency_modules: tuple[str, ...] = ()
     factory: Callable[[type[Any], Any], Any] | None = None
+    tunable_parameters: frozenset[str] = frozenset()
 
     @property
     def model_class(self) -> type[Any]:
@@ -80,9 +81,18 @@ def _spec(
     extra: str | None = None,
     dependencies: tuple[str, ...] = (),
     factory: Callable[[type[Any], Any], Any] | None = None,
+    tunable: tuple[str, ...] = ("n_states", "random_seed"),
 ) -> ModelSpec:
     return ModelSpec(
-        name, aliases, model, config, frozenset(capabilities), extra, dependencies, factory
+        name,
+        aliases,
+        model,
+        config,
+        frozenset(capabilities),
+        extra,
+        dependencies,
+        factory,
+        frozenset(tunable),
     )
 
 
@@ -135,6 +145,24 @@ _SPECS = (
             f"{P}:ProbabilisticHMMConfig",
             aliases=aliases,
             capabilities=("fit", "predict", "predict_proba", "filter", "smooth", "transitions"),
+            tunable=(
+                "n_states",
+                "max_iter",
+                "tol",
+                "n_init",
+                "covariance_regularization",
+                "sticky_strength",
+                "random_seed",
+                *(
+                    {
+                        "student-t-hmm": ("student_t_dof",),
+                        "ar-hmm": ("ar_order",),
+                        "gmm-hmm": ("n_mixtures",),
+                        "hsmm": ("duration_mean", "max_duration"),
+                        "explicit-duration-latent-state": ("duration_mean", "max_duration"),
+                    }.get(name, ())
+                ),
+            ),
         )
         for name, cls, aliases in (
             ("gaussian-hmm", "GaussianHMM", ("gaussian_hmm", "hmm")),

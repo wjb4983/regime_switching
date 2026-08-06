@@ -214,6 +214,7 @@ filterwarnings = [
     "error",
 ]
 markers = [
+    "optuna: optional bounded integration tests for the Optuna extra",
     "unit: fast, isolated tests for individual units of behavior",
     "integration: tests that exercise interactions between components",
     "synthetic: tests that use generated or synthetic data only",

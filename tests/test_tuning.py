@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from regime.tuning import MetricObjective, SearchSpace, nested_validation_objective
+from regime.tuning import MetricObjective, SearchSpace, TuningConfig, nested_validation_objective
 from regime.tuning.runner import save_stability, stability_analysis
 
 
@@ -61,3 +61,59 @@ def test_stability_analysis_and_persistence(tmp_path: Path) -> None:
     result = stability_analysis(lambda seed: (float(seed), float(seed * 2)), [1, 2, 3])
     assert result["mean"] == [2.0, 4.0]
     assert save_stability(result, tmp_path / "reports" / "stability.json").is_file()
+
+
+def test_expanded_schema_and_registry_tunable_validation(tmp_path: Path) -> None:
+    path = tmp_path / "tune.yaml"
+    path.write_text(
+        "name: deterministic\nbase_model: {model: gaussian-hmm}\n"
+        "validation: {dataset: sample.csv}\n"
+        "objectives: [{metric: score, direction: maximize}]\n"
+        "trial_count: 3\nstudy_timeout: 2\nparallelism: 1\n"
+        "seed_policy: {sampler: 7, model: 9, stability: [9, 10]}\n"
+        "search_space:\n  n_states: {type: int, low: 2, high: 3}\n",
+        encoding="utf-8",
+    )
+    config = TuningConfig.from_yaml(path)
+    assert config.trials == 3
+    assert config.seed_policy.stability == (9, 10)
+    assert config.objectives[0].direction == "maximize"
+
+
+def test_irrelevant_or_misspelled_parameters_fail_before_study(tmp_path: Path) -> None:
+    path = tmp_path / "bad.yaml"
+    path.write_text(
+        "base_model: {model: gaussian-hmm}\nvalidation: {}\n"
+        "objectives: [{metric: score, direction: maximize}]\n"
+        "search_space:\n  student_t_dof: {type: float, low: 3, high: 4}\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="not tunable"):
+        TuningConfig.from_yaml(path)
+
+
+@pytest.mark.optuna
+@pytest.mark.timeout(10)
+def test_small_optuna_multi_objective_study(tmp_path: Path) -> None:
+    pytest.importorskip("optuna")
+    from regime.tuning.runner import StudyConfig, optimize
+
+    space_path = tmp_path / "space.yaml"
+    space_path.write_text(
+        "parameters:\n  x: {type: float, low: 0.0, high: 1.0}\n", encoding="utf-8"
+    )
+    study = optimize(
+        StudyConfig(
+            "small",
+            storage=tmp_path / "study.sqlite3",
+            algorithm="random",
+            directions=("maximize", "minimize"),
+            seed=3,
+            n_trials=3,
+            timeout=5,
+        ),
+        SearchSpace.from_yaml(space_path),
+        lambda params, trial: (params["x"], params["x"]),
+    )
+    assert len(study.trials) == 3
+    assert study.best_trials

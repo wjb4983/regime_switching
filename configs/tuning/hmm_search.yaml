@@ -1,5 +1,36 @@
-# 13. Parameters are evaluated top-to-bottom; conditional parents come first.
-parameters:
+# Complete tuning contract. Parameters are evaluated top-to-bottom.
+name: gaussian-hmm-walk-forward
+base_model:
+  model: gaussian-hmm
+  input: data/features.parquet
+  output: experiments/tuning/base
+  features: [return_1d, realized_volatility]
+validation:
+  evaluation_type: regime_quality
+  dataset: data/features.parquet
+  features: [return_1d, realized_volatility]
+  output_dir: experiments/tuning/evaluation
+  run_id: gaussian-hmm-tuning
+  splitter:
+    kind: expanding
+    initial_train_size: 252
+    validation_size: 63
+  metrics: [regime_persistence, switching_frequency]
+objectives:
+  - metric: regime_persistence
+    direction: maximize
+  - metric: switching_frequency
+    direction: minimize
+constraints:
+  switching_frequency: 0.5
+trial_count: 30
+study_timeout: 1800
+parallelism: 1
+seed_policy:
+  sampler: 42
+  model: 42
+  stability: [41, 42, 43]
+search_space:
   n_states:
     type: int
     low: 2
@@ -13,7 +44,3 @@ parameters:
     type: float
     low: 0.0
     high: 10.0
-  student_t_dof:
-    type: float
-    low: 3.0
-    high: 15.0

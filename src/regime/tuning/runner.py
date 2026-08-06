@@ -96,6 +96,7 @@ def optimize(
     objective: Callable[[Mapping[str, Any], Any], float | Sequence[float]],
     *,
     registry: ExperimentStore | None = None,
+    group_name: str | None = None,
 ) -> Any:
     """Run trials in parallel, resume them safely, and persist a registry summary."""
     study = create_study(config)
@@ -107,15 +108,48 @@ def optimize(
         [EarlyStopping(config.patience, config.min_trials)] if config.patience is not None else []
     )
     run_id = None
+    group_id = None
     if registry is not None:
-        run_id = registry.create_run(name=config.name, metadata={"optimizer": config.algorithm})
+        group_id = registry.create_group(group_name or config.name, study=config.name)
+        run_id = registry.create_run(
+            group_id=group_id, name=config.name, metadata={"optimizer": config.algorithm}
+        )
+
+    def persist_trial(study: Any, trial: Any) -> None:
+        if registry is None or group_id is None:
+            return
+        duration = trial.duration.total_seconds() if trial.duration is not None else None
+        record = {
+            "number": trial.number,
+            "state": trial.state.name,
+            "resolved_configuration": trial.user_attrs.get(
+                "resolved_configuration", dict(trial.params)
+            ),
+            "folds": trial.user_attrs.get("folds", []),
+            "metrics": trial.user_attrs.get("metrics", {}),
+            "failure": trial.user_attrs.get("failure"),
+            "duration_seconds": duration,
+            "model_hash": trial.user_attrs.get("model_hash"),
+            "evaluation_contract": trial.user_attrs.get("evaluation_contract", {}),
+            "values": trial.values,
+        }
+        child = registry.create_run(
+            group_id=group_id,
+            name=f"{config.name}:trial:{trial.number}",
+            metadata={"trial": trial.number},
+        )
+        registry.add_result(child, "tuning_trial", record)
+        if record["model_hash"]:
+            registry.update_hashes(child, model_hash=str(record["model_hash"]))
+        registry.update_run(child, "completed" if trial.state.name == "COMPLETE" else "failed")
+
     try:
         study.optimize(
             wrapped,
             n_trials=config.n_trials,
             timeout=config.timeout,
             n_jobs=config.n_jobs,
-            callbacks=callbacks,
+            callbacks=[*callbacks, persist_trial],
             gc_after_trial=True,
         )
     except BaseException:
@@ -128,10 +162,26 @@ def optimize(
             "storage": str(config.storage),
             "trials": len(study.trials),
             "best_trials": [trial.number for trial in study.best_trials],
+            "effective_trial_count": sum(t.state.name == "COMPLETE" for t in study.trials),
+            "pareto_set": [
+                {"trial": trial.number, "values": list(trial.values), "parameters": trial.params}
+                for trial in study.best_trials
+            ],
         }
         registry.add_result(run_id, "tuning", summary)
         registry.update_run(run_id, "completed", checkpoint_path=str(config.storage))
     return study
+
+
+def comparison_adjustments(
+    study: Any, stability: Mapping[str, Any] | None = None
+) -> dict[str, Any]:
+    """Inputs comparison/deflation code needs to account for search and seed instability."""
+    complete = [trial for trial in study.trials if trial.state.name == "COMPLETE"]
+    return {
+        "effective_trial_count": len(complete),
+        "seed_stability": dict(stability or {}),
+    }
 
 
 def stability_analysis(
@@ -163,6 +213,7 @@ __all__ = [
     "Algorithm",
     "EarlyStopping",
     "StudyConfig",
+    "comparison_adjustments",
     "create_study",
     "optimize",
     "save_stability",
