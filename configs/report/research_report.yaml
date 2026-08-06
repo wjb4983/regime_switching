@@ -2,12 +2,10 @@
 title: Synthetic regime-switching research report
 output: artifacts/reports/research_report.html
 format: html
-sections:
-  - data_summary
-  - regime_quality
-  - downstream_evaluation
-  - equity_backtest
-  - options_backtest
+# Omit `sections` to receive all compact defaults. To customize, choose from:
+# model_ranking, metric_by_model, regime_timeline, filtered_probabilities,
+# occupancy_duration, transition_heatmap, fold_seed_stability, equity_drawdown,
+# cost_comparison, runtime_resources, comparison_warnings.
 inputs:
   regime_quality: artifacts/evaluation/statistical_regime_quality
   downstream: artifacts/evaluation/downstream_vol_targeting

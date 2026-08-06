@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
-  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script id="plotly-2.35.2.min.js">{{ plotly_js | safe }}</script>
   <style>
     :root { color-scheme: light; --ink: #172033; --muted: #667085; --line: #e4e7ec; --paper: #fff; --wash: #f6f8fb; }
     * { box-sizing: border-box; } body { margin: 0; background: var(--wash); color: var(--ink); font: 15px/1.55 system-ui, sans-serif; }
