@@ -40,6 +40,7 @@ class ClusteringConfig(RegimeModelConfig):
     smoothing_window: PositiveInt = 1
     jump_penalty: float = Field(default=0.0, ge=0.0)
     max_iter: PositiveInt = 100
+    n_init: PositiveInt = 10
     window_size: PositiveInt = 5
     graphical_lasso_alpha: float = Field(default=0.01, ge=0.0)
 
@@ -289,7 +290,7 @@ class KMeansRegimeModel(_BaseClusteringRegimeModel):
         self.estimator = KMeans(
             n_clusters=self.config.n_states,
             random_state=self.config.random_seed,
-            n_init=10,
+            n_init=self.config.n_init,
         )
         return self.estimator.fit_predict(values), None
 

@@ -9,13 +9,25 @@ from regime.models.base import (
     SerializationInterface,
     UnsupportedModelOperation,
 )
+from regime.models.registry import (
+    ModelRegistryError,
+    ModelSpec,
+    available_models,
+    create_model,
+    model_spec,
+)
 
 __all__ = [
     "ModelMetadata",
     "ModelMetadataInterface",
+    "ModelRegistryError",
+    "ModelSpec",
     "RegimeInferenceResult",
     "RegimeModel",
     "RegimeModelConfig",
     "SerializationInterface",
     "UnsupportedModelOperation",
+    "available_models",
+    "create_model",
+    "model_spec",
 ]

@@ -2,9 +2,13 @@
 model: volatility_threshold
 input: artifacts/features/core_market.parquet
 output: artifacts/models/rule_volatility_threshold
-feature: realized_volatility_21d
-threshold: 0.20
-direction: above
-labels:
-  risk_on: 0
-  risk_off: 1
+features: [realized_volatility_21d]
+n_states: 2
+random_seed: 42
+fit_parameters:
+  feature: realized_volatility_21d
+  threshold: 0.20
+  direction: above
+  labels:
+    risk_on: 0
+    risk_off: 1
