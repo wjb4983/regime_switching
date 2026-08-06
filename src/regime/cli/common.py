@@ -10,7 +10,7 @@ from typing import Any, ParamSpec, TypeVar
 
 import typer
 
-from regime.config.base import ConfigLoadError, load_yaml_mapping
+from regime.config.base import ConfigLoadError, interpolate_env, load_yaml_mapping
 from regime.errors import RegimeError
 from regime.experiments.runner import ExperimentRun, RunRegistry
 from regime.experiments.store import ExperimentStore
@@ -73,7 +73,11 @@ def config_workflow(
 ) -> dict[str, Any]:
     """Load configuration and run a registered, resumable operation."""
     path = config_path.expanduser().resolve(strict=False)
-    config = load_yaml_mapping(path)
+    # Generic CLI workflows do not pass their mappings through a Pydantic model,
+    # so perform the same environment expansion that typed configs receive.
+    # Without this, values such as ``${MASSIVE_API_KEY}`` are sent literally to
+    # providers and surface later as misleading authentication failures.
+    config = interpolate_env(load_yaml_mapping(path))
     registry = RunRegistry(ExperimentStore(EXPERIMENTS_DIR))
     run = registry.start(name=f"{operation}:{path}", config=config, resume=resume)
     try:

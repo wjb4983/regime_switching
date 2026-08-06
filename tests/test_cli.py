@@ -42,3 +42,38 @@ def test_config_workflow_redacts_secrets(tmp_path: Path, monkeypatch: pytest.Mon
     artifacts = "".join(path.read_text(encoding="utf-8") for path in experiments.rglob("*.json"))
     assert "verysecret" not in artifacts
     assert "[REDACTED]" in artifacts
+
+
+def test_config_workflow_interpolates_environment_before_worker(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config = tmp_path / "data.yaml"
+    config.write_text("provider: massive\napi_key: ${MASSIVE_API_KEY}\n", encoding="utf-8")
+    monkeypatch.setenv("MASSIVE_API_KEY", "resolved-test-key")
+    monkeypatch.setattr(common, "EXPERIMENTS_DIR", tmp_path / "experiments")
+    received: dict[str, object] = {}
+
+    common.config_workflow(
+        "data.ingest",
+        config,
+        resume=False,
+        worker=lambda _run, loaded: received.update(loaded) or {},
+    )
+
+    assert received["api_key"] == "resolved-test-key"
+
+
+def test_cli_reports_missing_environment_variable_before_running_worker(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    config = tmp_path / "data.yaml"
+    config.write_text("provider: massive\napi_key: ${MISSING_MASSIVE_KEY}\n", encoding="utf-8")
+    monkeypatch.delenv("MISSING_MASSIVE_KEY", raising=False)
+    monkeypatch.setattr(common, "EXPERIMENTS_DIR", tmp_path / "experiments")
+
+    result = CliRunner().invoke(app, ["data", "ingest", "--config", str(config)])
+
+    assert result.exit_code == 2
+    error = json.loads(result.stderr)
+    assert error["error"]["code"] == "invalid_input"
+    assert "MISSING_MASSIVE_KEY" in error["error"]["message"]
