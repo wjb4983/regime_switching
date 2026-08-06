@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "log_likelihood": 4265.603470656579
+  },
+  "config_hash": "69df953bf73c0aa818cd6e355bfbb985b935499ab9513fb723d61f80fa2d9735",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T13:09:39.968362Z",
+  "model_name": "student-t-hmm",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 1000
+}

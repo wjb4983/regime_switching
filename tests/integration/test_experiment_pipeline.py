@@ -48,6 +48,19 @@ def test_synthetic_pipeline_links_and_resumes_every_stage(tmp_path: Path) -> Non
     assert second["stages"] == first["stages"]
     assert Path(first["stages"]["evaluation"]["path"]).is_file()
     assert Path(first["stages"]["report"]["path"]).is_file()
+
+    def contains_none(value: object) -> bool:
+        if value is None:
+            return True
+        if isinstance(value, dict):
+            return any(contains_none(item) for item in value.values())
+        if isinstance(value, list):
+            return any(contains_none(item) for item in value)
+        return False
+
+    for stage in ("evaluation", "comparison"):
+        payload = json.loads(Path(first["stages"][stage]["path"]).read_text(encoding="utf-8"))
+        assert not contains_none(payload), f"{stage} json still contains null values"
     with pipeline.registry.store.connect() as connection:
         children = connection.execute(
             "SELECT * FROM runs WHERE group_id=? AND run_id<>?",

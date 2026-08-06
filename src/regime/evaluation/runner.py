@@ -12,7 +12,6 @@ from __future__ import annotations
 
 import json
 import pickle
-import resource
 import time
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import asdict, dataclass, field, is_dataclass
@@ -46,6 +45,25 @@ from regime.validation.splitters import BaseSplitter, ValidationSplit
 
 T = TypeVar("T")
 Json = None | bool | int | float | str | list["Json"] | dict[str, "Json"]
+
+
+# Cross-platform resident memory usage helper: prefer `resource` on Unix,
+# fall back to `psutil` when available, otherwise return None.
+try:
+    import resource  # type: ignore
+
+    def _get_max_rss_kb() -> int:
+        return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+except Exception:
+    try:
+        import psutil  # type: ignore
+
+        def _get_max_rss_kb() -> int:
+            return int(psutil.Process().memory_info().rss / 1024)
+    except Exception:
+
+        def _get_max_rss_kb() -> None:
+            return None
 
 
 class Transformer(Protocol):
@@ -274,7 +292,7 @@ class EvaluationRunner:
             diagnostics["state_occupancy"] = state_occupancy(predictions["state"]).copy()
             diagnostics["state_durations"] = duration_distribution(predictions["state"])
             diagnostics["runtime_seconds"] = time.perf_counter() - window_started
-            diagnostics["max_rss_kb"] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+            diagnostics["max_rss_kb"] = _get_max_rss_kb()
             predictions.to_parquet(pred_path, index=False)
             diag_path.write_text(
                 json.dumps(self._jsonable(diagnostics), indent=2, sort_keys=True), encoding="utf-8"

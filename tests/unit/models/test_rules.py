@@ -1,5 +1,6 @@
 import pandas as pd
 
+from regime.models.adapters import RuleRegimeModelAdapter, VolatilityThresholdConfig
 from regime.models.rules import (
     CompositeRiskRule,
     CompositeRiskRuleConfig,
@@ -34,6 +35,18 @@ def test_static_threshold_rule_labels_and_probabilities() -> None:
 
     assert result.labels == (0, 1)
     assert result.probabilities == (0.0, 1.0)
+
+
+def test_rule_adapter_metadata_populates_fit_metadata() -> None:
+    model = RuleRegimeModelAdapter(
+        VolatilityThresholdConfig(model_name="volatility-threshold", feature="vol", threshold=0.2)
+    )
+
+    model.fit(pd.DataFrame({"vol": [0.1, 0.3]}))
+    metadata = model.metadata.model_dump(mode="json")
+
+    assert metadata["fitted_at"] is not None
+    assert metadata["training_observations"] == 2
 
 
 def test_percentile_rule_uses_rolling_window() -> None:

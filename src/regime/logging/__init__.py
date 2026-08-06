@@ -74,6 +74,19 @@ def redact(value: Any, *, field_name: str | None = None) -> JsonValue:
     return repr(value)
 
 
+def sanitize_json(value: Any) -> JsonValue:
+    """Recursively remove null values from JSON-serializable payloads."""
+    if isinstance(value, Mapping):
+        return {
+            str(key): sanitize_json(item)
+            for key, item in value.items()
+            if item is not None
+        }
+    if isinstance(value, (list, tuple, set, frozenset)):
+        return [sanitize_json(item) for item in value if item is not None]
+    return value
+
+
 class JsonLogFormatter(logging.Formatter):
     """Format log records as one-line JSON objects."""
 

@@ -1,0 +1,12 @@
+{
+  "attributes": {
+    "log_likelihood": 4273.856028344911
+  },
+  "config_hash": "ecf32694f9dbb9cb3b0edea95ce7e3db0a40c44670a8e03a9cfcda5574054a96",
+  "feature_names": [],
+  "fitted_at": "2026-08-06T13:09:18.813235Z",
+  "model_name": "gaussian-hmm",
+  "model_version": "0.1.0",
+  "n_states": 2,
+  "training_observations": 1000
+}

@@ -1,0 +1,14 @@
+{
+  "model_name": "volatility-threshold",
+  "n_states": 2,
+  "random_seed": 42,
+  "model_version": "0.1.0",
+  "parameters": {},
+  "feature": "realized_volatility_21d",
+  "threshold": 0.2,
+  "direction": "above",
+  "labels": {
+    "risk_on": 0,
+    "risk_off": 1
+  }
+}

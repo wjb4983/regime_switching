@@ -15,7 +15,7 @@ from regime.experiments.hashes import config_hash as compute_config_hash
 from regime.experiments.hashes import file_hash, stable_hash
 from regime.experiments.provenance import RunMetadataRecorder
 from regime.experiments.store import ExperimentStore
-from regime.logging import JsonValue, redact
+from regime.logging import JsonValue, redact, sanitize_json
 
 T = TypeVar("T")
 RunCallable = Callable[["ExperimentRun"], T]
@@ -82,7 +82,8 @@ class ExperimentRun:
     def log_json(self, kind: str, filename: str, value: Mapping[str, Any]) -> Path:
         """Write a JSON artifact and register it."""
         path = self.artifact_path(kind, filename)
-        path.write_text(json.dumps(redact(value), indent=2, sort_keys=True, default=repr))
+        payload = sanitize_json(redact(value))
+        path.write_text(json.dumps(payload, indent=2, sort_keys=True, default=repr))
         digest = file_hash(path)
         self.store.add_artifact(self.run_id, kind, path, artifact_hash=digest)
         self.metadata_recorder.add_artifact(path)
@@ -101,7 +102,7 @@ class ExperimentRun:
         """Persist checkpoint state for resumable runs."""
         path = self.artifact_path("checkpoint", name)
         # Checkpoints are artifacts too: sanitize mappings/strings before serialization.
-        safe_state = redact(state)
+        safe_state = sanitize_json(redact(state))
         with path.open("wb") as file_obj:
             pickle.dump(safe_state, file_obj)
         self.store.add_artifact(self.run_id, "checkpoint", path, artifact_hash=file_hash(path))

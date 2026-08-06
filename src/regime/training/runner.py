@@ -15,6 +15,7 @@ import pandas as pd
 
 from regime.experiments.hashes import file_hash
 from regime.experiments.runner import ExperimentRun, capture_run_warnings
+from regime.logging import sanitize_json
 from regime.models.base import UnsupportedModelOperation
 from regime.models.registry import create_model, model_configuration, model_spec
 
@@ -94,7 +95,8 @@ def _validated_data(
 
 
 def _write_json(path: Path, value: Any) -> None:
-    path.write_text(json.dumps(value, indent=2, sort_keys=True, default=str), encoding="utf-8")
+    payload = sanitize_json(value)
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True, default=str), encoding="utf-8")
 
 
 def _register(run: ExperimentRun, kind: str, path: Path, **metadata: Any) -> str:
@@ -126,7 +128,7 @@ def train_model(run: ExperimentRun, config: Mapping[str, Any]) -> Mapping[str, A
         "output": str(output),
         "timestamp_column": timestamp,
         "features": list(values.columns),
-        "model_configuration": typed_config.model_dump(mode="json"),
+        "model_configuration": typed_config.model_dump(mode="json", exclude_none=True),
     }
     resolved_path = output / "resolved_configuration.json"
     _write_json(resolved_path, resolved)
@@ -135,7 +137,7 @@ def train_model(run: ExperimentRun, config: Mapping[str, Any]) -> Mapping[str, A
         model.fit(values, typed_config)
     model_path = output / ("model.json" if spec.name == "volatility-threshold" else "model.pkl")
     model.save(model_path)
-    metadata = model.metadata.model_dump(mode="json")
+    metadata = model.metadata.model_dump(mode="json", exclude_none=True)
     metadata_path = output / "metadata.json"
     _write_json(metadata_path, metadata)
 

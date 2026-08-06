@@ -17,6 +17,7 @@ from regime.config.models import ExperimentConfig
 from regime.experiments.hashes import file_hash, stable_hash
 from regime.experiments.runner import ExperimentRun, RunRegistry
 from regime.experiments.store import ExperimentStore
+from regime.logging import sanitize_json
 from regime.models.registry import model_configuration, model_spec
 from regime.reporting.report import ReportBuilder
 from regime.training.runner import train_model
@@ -310,7 +311,7 @@ class ExperimentPipeline:
                 evaluation = json.loads(Path(upstream[stage.dependencies[0]]["path"]).read_text())
                 payload["models"] = evaluation.get("metrics", {})
             output = root / f"{stage.kind}.json"
-            output.write_text(json.dumps(payload, indent=2, default=str))
+            output.write_text(json.dumps(sanitize_json(payload), indent=2, default=str))
             run.store.add_result(run.run_id, stage.kind, payload)
             return output
         builder = ReportBuilder(

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Mapping, Sequence
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Self
 
@@ -61,6 +62,13 @@ class RuleRegimeModelAdapter(RegimeModel):
 
     def fit(self, dataset: Any, config: RegimeModelConfig | None = None) -> Self:
         """Rules have no learned parameters; retain data-independent configuration."""
+        observation_count = len(dataset) if hasattr(dataset, "__len__") else None
+        self._metadata = self._metadata.model_copy(
+            update={
+                "fitted_at": datetime.now(UTC),
+                "training_observations": observation_count,
+            }
+        )
         return self
 
     def predict(self, dataset: Any) -> Sequence[int]:

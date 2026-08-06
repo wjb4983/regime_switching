@@ -1,0 +1,67 @@
+{
+  "stage": "comparison",
+  "upstream": {
+    "source": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\d4ff316bcee448dabdaac465fe8371fe\\data.parquet",
+      "hash": "fc32a8bfaaba88a05bf87f2584b091059b980cf9c6756c6462d772044af45fbc",
+      "run_id": "d4ff316bcee448dabdaac465fe8371fe"
+    },
+    "features": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\1977a2e7c15840dca7dc0efce8ac779c\\features.parquet",
+      "hash": "5b53f75794c7a6cbdf42dfc227cb29d2cd70c15a2f1341edb597ac4cfc630d50",
+      "run_id": "1977a2e7c15840dca7dc0efce8ac779c"
+    },
+    "baseline:volatility_threshold": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\67331987de0244fe86ddac72461b1ac8\\model\\in_sample_predictions.parquet",
+      "hash": "dffeffc2d72dd071bc8db50d99ebabc8991b29d338e240b75614ad330f51b374",
+      "run_id": "67331987de0244fe86ddac72461b1ac8"
+    },
+    "baseline:kmeans": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\b2b38079c4ed48f8855be5fe4de6f513\\model\\in_sample_predictions.parquet",
+      "hash": "77bc214b7f95612f0bb01fb120caf04e7ae07fea035ce784eba8d303136f1d8c",
+      "run_id": "b2b38079c4ed48f8855be5fe4de6f513"
+    },
+    "candidate:gaussian_hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\044e1ef887e543b287595cc96b3bcc7b\\model\\in_sample_predictions.parquet",
+      "hash": "66f3af2c54586e34d62962c93871aeb5c4a47516c745ef9268ab726dcd518552",
+      "run_id": "044e1ef887e543b287595cc96b3bcc7b"
+    },
+    "candidate:student_t_hmm": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\3612107cad434bcea2c8576564f371e3\\model\\in_sample_predictions.parquet",
+      "hash": "39d623b28eb260375efe73d2df9e0b84a5f8ffd18449a578d5867fe102ed9fa5",
+      "run_id": "3612107cad434bcea2c8576564f371e3"
+    },
+    "validation": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\ed22837d995d49b99bc1c30506034462\\validation.json",
+      "hash": "383ddb9e6c7c0ddd17ad063ca7b27c6b4df8528cfc175c7188628a62b1aff784",
+      "run_id": "ed22837d995d49b99bc1c30506034462"
+    },
+    "evaluation": {
+      "path": "C:\\Users\\wbott\\Downloads\\regime_switching\\artifacts\\experiments\\model_comparison\\pipeline\\b51cb02bb1d54e3d84e9cca826f86ec1\\evaluation.json",
+      "hash": "f3740c52af6bd24079ed8ed26f430e827613cb9680f41c2b06cff3e5048db74d",
+      "run_id": "b51cb02bb1d54e3d84e9cca826f86ec1"
+    }
+  },
+  "config": {
+    "probability_kind": "filtered",
+    "execution_delay": 1
+  },
+  "models": {
+    "baseline:volatility_threshold": {
+      "regime_persistence": 0.974974974974975,
+      "switching_frequency": 0.025025025025025016
+    },
+    "baseline:kmeans": {
+      "regime_persistence": 0.8408408408408409,
+      "switching_frequency": 0.15915915915915912
+    },
+    "candidate:gaussian_hmm": {
+      "regime_persistence": 0.960960960960961,
+      "switching_frequency": 0.03903903903903905
+    },
+    "candidate:student_t_hmm": {
+      "regime_persistence": 0.958958958958959,
+      "switching_frequency": 0.041041041041041004
+    }
+  }
+}

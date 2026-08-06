@@ -1,0 +1,15 @@
+{
+  "statistics": {
+    "state_0": {
+      "expected_duration": 30.174415671402418,
+      "mean": 0.12481278859343438,
+      "variance": 0.0009028731385429657
+    },
+    "state_1": {
+      "expected_duration": 25.72332469332184,
+      "mean": 0.17617056998064412,
+      "variance": 0.0010221017703778408
+    }
+  },
+  "status": "supported"
+}
